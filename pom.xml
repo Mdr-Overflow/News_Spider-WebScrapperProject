@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Pt1</groupId>
+  <artifactId>Pt1</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+<dependencies>
+       <dependency>
+           <groupId>com.microsoft.playwright</groupId>
+           <artifactId>playwright</artifactId>
+           <version>1.17.0</version>
+       </dependency>    
+     <dependency>      
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.13.0</version>
+    </dependency>
+    
+    <dependency>
+    <groupId>com.github.crawler-commons</groupId>
+    <artifactId>crawler-commons</artifactId>
+    <version>1.2</version>
+</dependency>
+    
+    <dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13.2</version>
+    <scope>test</scope>
+</dependency>
+    
+    
+    <dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>5.8.2</version>
+</dependency>
+    
+    
+    <dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20211205</version>
+</dependency>
+    
+    
+    
+    <dependency>
+    <groupId>org.javatuples</groupId>
+    <artifactId>javatuples</artifactId>
+    <version>1.2</version>
+</dependency>
+
+
+
+    
+</dependencies>
+   
+   
+   
+   
+   
+</project>

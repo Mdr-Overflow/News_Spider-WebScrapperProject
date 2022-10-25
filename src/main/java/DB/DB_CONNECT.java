@@ -12,7 +12,7 @@ import com.microsoft.sqlserver.jdbc.SQLServerException;
 public class DB_CONNECT {
 
 	public static final String USER = "PROJDB";
-	public static final String PASS = "asd";
+	public static final String PASS = "AAA";
 
 	
 	public SQLServerDataSource sqlDs = new SQLServerDataSource();

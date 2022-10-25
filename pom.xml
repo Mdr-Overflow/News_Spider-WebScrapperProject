@@ -3,7 +3,19 @@
   <groupId>Pt1</groupId>
   <artifactId>Pt1</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-<dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
        <dependency>
            <groupId>com.microsoft.playwright</groupId>
            <artifactId>playwright</artifactId>
@@ -49,14 +61,18 @@
     <artifactId>javatuples</artifactId>
     <version>1.2</version>
 </dependency>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>10.1.0.jre8-preview</version>
+        </dependency>
 
 
+    </dependencies>
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
 
-    
-</dependencies>
-   
-   
-   
-   
-   
+
 </project>

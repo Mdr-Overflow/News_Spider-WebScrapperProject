@@ -74,9 +74,9 @@ public class DB_BADURL extends DB_CONNECT{
 			}
 	 
 	 
-	 public static final String Gen = "INSERT INTO dbo.BADURL (id, url, time, status)\r\n"
+	 public static final String Gen = "INSERT INTO BADURL (id, url, time, status)\r\n"
 	 		+ "SELECT id, url ,time, 'BAD'\r\n"
-	 		+ "FROM dbo.RESULTS\r\n"
+	 		+ "FROM RESULTS\r\n"
 	 		+ "WHERE result = 'Nothing found' \r\n";
 	
 	 public boolean Create_BADURL() {

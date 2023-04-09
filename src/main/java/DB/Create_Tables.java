@@ -66,7 +66,7 @@ public class Create_Tables {
 		//1 U-A																		@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 		
 		DB_CONNECT con = new DB_CONNECT(null);
-		if(con._is == true) {
+		if(con._is) {
 		dbConn = con.dbc;
 		rs = con.rss;
 		Statement create_ua = dbConn.createStatement();

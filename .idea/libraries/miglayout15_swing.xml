@@ -2,6 +2,8 @@
   <library name="miglayout15-swing">
     <CLASSES />
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$" />
+    </SOURCES>
   </library>
 </component>

@@ -25,6 +25,7 @@ import javax.swing.border.EmptyBorder;
 import DB.DB_CONNECT;
 import net.miginfocom.swing.MigLayout;
 
+
 public class DB_BADURL extends JFrame {
 
 	

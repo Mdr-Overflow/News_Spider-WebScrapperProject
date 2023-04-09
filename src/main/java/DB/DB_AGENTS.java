@@ -72,10 +72,10 @@ public class DB_AGENTS extends DB_CONNECT{
 	 
 	 
 	 
-	 public static final String Gen = "INSERT INTO dbo.AGENTS (header, useragent)\r\n"
+	 public static final String Gen = "INSERT INTO AGENTS (header, useragent)\r\n"
 	 		+ "SELECT hd.header, ua.useragent\r\n"
-	 		+ "FROM dbo.HEADERS hd\r\n"
-	 		+ "CROSS JOIN dbo.USERAGENTS ua\r\n"
+	 		+ "FROM HEADERS hd\r\n"
+	 		+ "CROSS JOIN USERAGENTS ua\r\n"
 	 		+ "WHERE ua.id <= ?\r\n";
 		
 		 public boolean Create_AGENTS(int UP_TO) {

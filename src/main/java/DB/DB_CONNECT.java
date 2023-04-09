@@ -9,10 +9,11 @@ import com.microsoft.sqlserver.jdbc.SQLServerException;
 
 
 
+
 public class DB_CONNECT {
 
-	public static final String USER = "PROJDB";
-	public static final String PASS = "AAA";
+	public static final String USER = "Projdb";
+	public static final String PASS = "DSADFASFASDFSADFASDSF";
 
 	
 	public SQLServerDataSource sqlDs = new SQLServerDataSource();
@@ -29,9 +30,13 @@ public class DB_CONNECT {
 	sqlDs.setPassword(PASS);
 	                    
 	// Set ds server name or ip.
-	sqlDs.setServerName("DESKTOP-BES316T\\PROJDB");
+	sqlDs.setServerName("DESKTOP-DPO1DVG\\MSSQLSERVER01");
 	// Set sql server listening port number.
-	sqlDs.setPortNumber(8888); 
+	sqlDs.setPortNumber(8000);
+
+	sqlDs.setDatabaseName("Test");
+
+	sqlDs.setTrustServerCertificate(true); ///  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! VERSION MISMATCH ON JDBC DRIVER
 	// Set the database name.
 	//sqlDs.setDatabaseName("TestDB");
 	this.ResultsQ = resQ;

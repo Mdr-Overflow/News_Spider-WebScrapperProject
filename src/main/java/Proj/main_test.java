@@ -75,7 +75,7 @@ public class main_test {
 		   String params = "All";
 		   String keyword = "biden";
 		  
-		   String options[] = {"yes","no","yes"};
+		   String[] options = {"yes","no","yes"};
 		   //Headless , safe , screencap
 		   //Driver.Run(params,keyword,Url_list_Test_2,200,12, Agents);
 		    driver2.Run(params,keyword,Url_list_Test_3,200,12, Agents,options);

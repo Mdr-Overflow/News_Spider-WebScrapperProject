@@ -22,7 +22,7 @@ public class DB_HEADERS extends DB_CONNECT{
 	 public DB_HEADERS() {
 		 
 		 super(ResultsQ);
-			if(_is == true) {
+			if(_is) {
 				
 				
 			

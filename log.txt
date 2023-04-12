@@ -1,0 +1,364 @@
+0
+1
+THREAD: 0 - ENTER
+Created plw
+2
+THREAD: 1 - ENTER
+Created plw
+3
+THREAD: 2 - ENTER
+Created plw
+4
+THREAD: 3 - ENTER
+Created plw
+THREAD: 4 - ENTER
+5
+Created plw
+6
+THREAD: 5 - ENTER
+Created plw
+Exited while
+THREAD: 6 - ENTER
+Created plw
+ALIVE
+java.util.concurrent.FutureTask@6e9c11db[Not completed, task = Thread[Thread-9,5,main]]
+Context Created
+############# Started https://www.digi24.com
+https://www.digi24.comEntered in can_fetch
+Context Created
+############# Started https://www.reuters.com
+https://www.reuters.comEntered in can_fetch
+Context Created
+############# Started https://learn.microsoft.com/en-us/
+ALIVE
+https://learn.microsoft.com/en-us/Entered in can_fetch
+java.util.concurrent.FutureTask@140d0bf5[Not completed, task = Thread[Thread-11,5,main]]
+Context Created
+############# Started https://libertatea.ro
+https://libertatea.roEntered in can_fetch
+Context Created
+############# Started https://pcgarage.com
+https://pcgarage.comEntered in can_fetch
+Context Created
+############# Started https://emag.ro
+https://emag.roEntered in can_fetch
+Context Created
+############# Started https://www.theverge.com
+https://www.theverge.comEntered in can_fetch
+ALIVE
+java.util.concurrent.FutureTask@48932c86[Not completed, task = Thread[Thread-13,5,main]]
+https://libertatea.ro     <<<<<<<<<<<<<< ACCEPT_COOKIE_POPUP_NOASYNC LOGGS >>>>>>>>>>>>>>
+https://libertatea.ro Page loaded
+Went past cookie popup for 0
+entered isDiscarded
+--- Started Parser --- FOR https://libertatea.ro
+https://libertatea.ro      <<<<<<<<<<<<<< ParserNoAsync LOGGS >>>>>>>>>>>>>>
+All
+      <<<<<<<<<<<<<< AllParse_NoAsync LOGGS >>>>>>>>>>>>>>
+https://learn.microsoft.com/en-us/     <<<<<<<<<<<<<< ACCEPT_COOKIE_POPUP_NOASYNC LOGGS >>>>>>>>>>>>>>
+https://learn.microsoft.com/en-us/ Page loaded
+Went past cookie popup for 4
+entered isDiscarded
+--- Started Parser --- FOR https://learn.microsoft.com/en-us/
+https://learn.microsoft.com/en-us/      <<<<<<<<<<<<<< ParserNoAsync LOGGS >>>>>>>>>>>>>>
+All
+      <<<<<<<<<<<<<< AllParse_NoAsync LOGGS >>>>>>>>>>>>>>
+https://pcgarage.com     <<<<<<<<<<<<<< ACCEPT_COOKIE_POPUP_NOASYNC LOGGS >>>>>>>>>>>>>>
+https://pcgarage.com Page loaded
+Went past cookie popup for 5
+entered isDiscarded
+--- Started Parser --- FOR https://pcgarage.com
+https://pcgarage.com      <<<<<<<<<<<<<< ParserNoAsync LOGGS >>>>>>>>>>>>>>
+All
+      <<<<<<<<<<<<<< AllParse_NoAsync LOGGS >>>>>>>>>>>>>>
+java.util.regex.Matcher[pattern=apa region=0,24850 lastmatch=]UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU RESULT UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU FOR https://learn.microsoft.com/en-us/
+$$$$$$ FOUND ALL THE CONTEXT OF THE PAGE  $$$$$$
+Dumped apa
+java.util.regex.Matcher[pattern=apa region=0,155520 lastmatch=]UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU RESULT UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU FOR https://libertatea.ro
+$$$$$$ FOUND ALL THE CONTEXT OF THE PAGE  $$$$$$
+Dumped apa
+Test out new capabilities in your own projects faster and easier with code samples that bring Microsoft technology to life.
+Test out new capabilities in your own projects faster and easier with code samples that bring Microsoft technology to life.
+java.util.regex.Matcher[pattern=apa region=0,17353 lastmatch=]UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU RESULT UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU FOR https://pcgarage.com
+https://pcgarage.comFailed  Parsing ****
+WENT PAST isDiscarded
+@@@@@@DISCARDED@@@@@@ https://pcgarage.com
+Donehttps://pcgarage.com
+WENT PAST isDiscarded
+Donehttps://learn.microsoft.com/en-us/
+
+Horoscop 12 aprilie 2023. Taurii au șansa unor împliniri, dar și neșansa de a cere mai mult, în special de la cei care ar fi capabili să ofere 
+
+Horoscop 12 aprilie 2023. Taurii au șansa unor împliniri, dar și neșansa de a cere mai mult, în special de la cei care ar fi capabili să ofere 
+
+Horoscop 12 aprilie 2023. Taurii au șansa unor împliniri, dar și neșansa de a cere mai mult, în special de la cei care ar fi capabili să ofere 
+
+Horoscop 12 aprilie 2023. Taurii au șansa unor împliniri, dar și neșansa de a cere mai mult, în special de la cei care ar fi capabili să ofere 
+WENT PAST isDiscarded
+Donehttps://libertatea.ro
+ALIVE
+java.util.concurrent.FutureTask@9438a43[Not completed, task = Thread[Thread-15,5,main]]
+https://emag.ro     <<<<<<<<<<<<<< ACCEPT_COOKIE_POPUP_NOASYNC LOGGS >>>>>>>>>>>>>>
+https://emag.ro Page loaded
+Went past cookie popup for 2
+entered isDiscarded
+--- Started Parser --- FOR https://emag.ro
+https://emag.ro      <<<<<<<<<<<<<< ParserNoAsync LOGGS >>>>>>>>>>>>>>
+All
+      <<<<<<<<<<<<<< AllParse_NoAsync LOGGS >>>>>>>>>>>>>>
+THREAD: 4 -EXIT
+THREAD: 5 -EXIT
+THREAD: 0 -EXIT
+java.util.regex.Matcher[pattern=apa region=0,94884 lastmatch=]UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU RESULT UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU FOR https://emag.ro
+$$$$$$ FOUND ALL THE CONTEXT OF THE PAGE  $$$$$$
+Dumped apa
+https://www.reuters.com     <<<<<<<<<<<<<< ACCEPT_COOKIE_POPUP_NOASYNC LOGGS >>>>>>>>>>>>>>
+https://www.reuters.com Page loaded
+Went past cookie popup for 6
+entered isDiscarded
+--- Started Parser --- FOR https://www.reuters.com
+https://www.reuters.com      <<<<<<<<<<<<<< ParserNoAsync LOGGS >>>>>>>>>>>>>>
+All
+      <<<<<<<<<<<<<< AllParse_NoAsync LOGGS >>>>>>>>>>>>>>
+https://www.digi24.com     <<<<<<<<<<<<<< ACCEPT_COOKIE_POPUP_NOASYNC LOGGS >>>>>>>>>>>>>>
+https://www.digi24.com Page loaded
+https://www.digi24.comGot past about:blank
+Antiderapant pentru covor tip plasa, Cali, poliester, 80 x 180 cm
+Oala din aluminiu turnat si capac Dark Line, inductie, 28x20 cm, 10 L
+java.util.regex.Matcher[pattern=apa region=0,1024824 lastmatch=]UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU RESULT UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU FOR https://www.reuters.com
+Oala din aluminiu turnat si capac Dark Line, inductie, 24x16.5 cm, 6.3 L
+Cratita din aluminiu turnat si capac Dark Line, inductie, 20x8.5 cm, 2.3 L
+$$$$$$ FOUND ALL THE CONTEXT OF THE PAGE  $$$$$$
+Antiderapant pentru covor tip plasa, Cali, poliester, 80 x 180 cm
+Oala din aluminiu turnat si capac Dark Line, inductie, 28x20 cm, 10 L
+Oala din aluminiu turnat si capac Dark Line, inductie, 24x16.5 cm, 6.3 L
+Cratita din aluminiu turnat si capac Dark Line, inductie, 20x8.5 cm, 2.3 L
+Dumped apa
+WENT PAST isDiscarded
+Donehttps://emag.ro
+Buffett boosts stakes in Japanese trading houses, may invest more
+Buffett boosts stakes in Japanese trading houses, may invest more
+WENT PAST isDiscarded
+Donehttps://www.reuters.com
+THIS ##########https://www.digi24.com
+[]
+https://www.theverge.com     <<<<<<<<<<<<<< ACCEPT_COOKIE_POPUP_NOASYNC LOGGS >>>>>>>>>>>>>>
+https://www.theverge.com Page loaded
+https://www.theverge.comGot past about:blank
+THIS ##########https://www.theverge.com
+[]
+Went past cookie popup for 1
+entered isDiscarded
+--- Started Parser --- FOR https://www.theverge.com
+https://www.theverge.com      <<<<<<<<<<<<<< ParserNoAsync LOGGS >>>>>>>>>>>>>>
+All
+      <<<<<<<<<<<<<< AllParse_NoAsync LOGGS >>>>>>>>>>>>>>
+java.util.regex.Matcher[pattern=apa region=0,305769 lastmatch=]UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU RESULT UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU FOR https://www.theverge.com
+$$$$$$ FOUND ALL THE CONTEXT OF THE PAGE  $$$$$$
+Dumped apa
+WENT PAST isDiscarded
+Donehttps://www.theverge.com
+THREAD: 2 -EXIT
+THREAD: 6 -EXIT
+THREAD: 1 -EXIT
+ALIVE
+java.util.concurrent.FutureTask@9438a43[Not completed, task = Thread[Thread-15,5,main]]
+com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 5000ms exceeded.
+=========================== logs ===========================
+waiting for selector "button:has-text("Accept"), button:has-text("ACCEPT"), button:has-text("accept"), button:has-text("Yes"), gdpr-button "
+============================================================
+  name='TimeoutError
+  stack='TimeoutError: Timeout 5000ms exceeded.
+=========================== logs ===========================
+waiting for selector "button:has-text("Accept"), button:has-text("ACCEPT"), button:has-text("accept"), button:has-text("Yes"), gdpr-button "
+============================================================
+    at ProgressController.run (C:\Users\ADMIN\AppData\Local\Temp\playwright-java-14143362698260632633\package\lib\server\progress.js:96:26)
+    at Frame.click (C:\Users\ADMIN\AppData\Local\Temp\playwright-java-14143362698260632633\package\lib\server\frames.js:1078:23)
+    at FrameDispatcher.click (C:\Users\ADMIN\AppData\Local\Temp\playwright-java-14143362698260632633\package\lib\dispatchers\frameDispatcher.js:159:30)
+    at DispatcherConnection.dispatch (C:\Users\ADMIN\AppData\Local\Temp\playwright-java-14143362698260632633\package\lib\dispatchers\dispatcher.js:352:46)
+}
+Couldn't get past cookie popup for : https://www.digi24.com
+THREAD: 3 -EXIT
+NO THRED SHOULD BE ALIVE AFTER THIS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+############Exited all threads##############
+[{https://learn.microsoft.com/en-us/=[Test out new capabilities in your own projects faster and easier with code samples that bring Microsoft technology to life.]}, {https://libertatea.ro=[
+Horoscop 12 aprilie 2023. Taurii au șansa unor împliniri, dar și neșansa de a cere mai mult, în special de la cei care ar fi capabili să ofere , 
+Horoscop 12 aprilie 2023. Taurii au șansa unor împliniri, dar și neșansa de a cere mai mult, în special de la cei care ar fi capabili să ofere ]}, {https://emag.ro=[Antiderapant pentru covor tip plasa, Cali, poliester, 80 x 180 cm, Oala din aluminiu turnat si capac Dark Line, inductie, 28x20 cm, 10 L, Oala din aluminiu turnat si capac Dark Line, inductie, 24x16.5 cm, 6.3 L, Cratita din aluminiu turnat si capac Dark Line, inductie, 20x8.5 cm, 2.3 L]}, {https://www.reuters.com=[Buffett boosts stakes in Japanese trading houses, may invest more]}, {https://www.theverge.com=[]}]
+Result: [KeyWordAndDate:apa 2023/04/11 23:17:53, UrlResults:[{https://learn.microsoft.com/en-us/=[Test out new capabilities in your own projects faster and easier with code samples that bring Microsoft technology to life.]}, {https://libertatea.ro=[
+Horoscop 12 aprilie 2023. Taurii au șansa unor împliniri, dar și neșansa de a cere mai mult, în special de la cei care ar fi capabili să ofere , 
+Horoscop 12 aprilie 2023. Taurii au șansa unor împliniri, dar și neșansa de a cere mai mult, în special de la cei care ar fi capabili să ofere ]}, {https://emag.ro=[Antiderapant pentru covor tip plasa, Cali, poliester, 80 x 180 cm, Oala din aluminiu turnat si capac Dark Line, inductie, 28x20 cm, 10 L, Oala din aluminiu turnat si capac Dark Line, inductie, 24x16.5 cm, 6.3 L, Cratita din aluminiu turnat si capac Dark Line, inductie, 20x8.5 cm, 2.3 L]}, {https://www.reuters.com=[Buffett boosts stakes in Japanese trading houses, may invest more]}, {https://www.theverge.com=[]}], Fail:null]
+0
+1
+THREAD: 0 - ENTER
+Created plw
+2
+THREAD: 1 - ENTER
+Created plw
+3
+THREAD: 2 - ENTER
+Created plw
+4
+THREAD: 3 - ENTER
+Created plw
+5
+THREAD: 4 - ENTER
+Created plw
+6
+THREAD: 5 - ENTER
+Created plw
+Exited while
+THREAD: 6 - ENTER
+Created plw
+ALIVE
+java.util.concurrent.FutureTask@5b21fa16[Not completed, task = Thread[Thread-48,5,main]]
+Context Created
+############# Started https://libertatea.ro
+https://libertatea.roEntered in can_fetch
+Context Created
+############# Started https://pcgarage.com
+https://pcgarage.comEntered in can_fetch
+Context Created
+############# Started https://www.digi24.com
+https://www.digi24.comEntered in can_fetch
+Context Created
+############# Started https://www.theverge.com
+https://www.theverge.comEntered in can_fetch
+Context Created
+############# Started https://www.reuters.com
+https://www.reuters.comEntered in can_fetch
+Context Created
+############# Started https://learn.microsoft.com/en-us/
+https://learn.microsoft.com/en-us/Entered in can_fetch
+Context Created
+############# Started https://emag.ro
+https://emag.roEntered in can_fetch
+ALIVE
+java.util.concurrent.FutureTask@33b8c14f[Not completed, task = Thread[Thread-50,5,main]]
+https://libertatea.ro     <<<<<<<<<<<<<< ACCEPT_COOKIE_POPUP_NOASYNC LOGGS >>>>>>>>>>>>>>
+https://libertatea.ro Page loaded
+Went past cookie popup for 0
+entered isDiscarded
+--- Started Parser --- FOR https://libertatea.ro
+https://libertatea.ro      <<<<<<<<<<<<<< ParserNoAsync LOGGS >>>>>>>>>>>>>>
+All
+      <<<<<<<<<<<<<< AllParse_NoAsync LOGGS >>>>>>>>>>>>>>
+https://pcgarage.com     <<<<<<<<<<<<<< ACCEPT_COOKIE_POPUP_NOASYNC LOGGS >>>>>>>>>>>>>>
+https://pcgarage.com Page loaded
+Went past cookie popup for 5
+entered isDiscarded
+--- Started Parser --- FOR https://pcgarage.com
+https://pcgarage.com      <<<<<<<<<<<<<< ParserNoAsync LOGGS >>>>>>>>>>>>>>
+All
+      <<<<<<<<<<<<<< AllParse_NoAsync LOGGS >>>>>>>>>>>>>>
+java.util.regex.Matcher[pattern=laptop region=0,17353 lastmatch=]UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU RESULT UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU FOR https://pcgarage.com
+https://pcgarage.comFailed  Parsing ****
+WENT PAST isDiscarded
+@@@@@@DISCARDED@@@@@@ https://pcgarage.com
+Donehttps://pcgarage.com
+java.util.regex.Matcher[pattern=laptop region=0,155549 lastmatch=]UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU RESULT UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU FOR https://libertatea.ro
+https://libertatea.roFailed  Parsing ****
+WENT PAST isDiscarded
+@@@@@@DISCARDED@@@@@@ https://libertatea.ro
+Donehttps://libertatea.ro
+ALIVE
+java.util.concurrent.FutureTask@1c314bf5[Not completed, task = Thread[Thread-52,5,main]]
+https://learn.microsoft.com/en-us/     <<<<<<<<<<<<<< ACCEPT_COOKIE_POPUP_NOASYNC LOGGS >>>>>>>>>>>>>>
+https://learn.microsoft.com/en-us/ Page loaded
+Went past cookie popup for 4
+entered isDiscarded
+--- Started Parser --- FOR https://learn.microsoft.com/en-us/
+https://learn.microsoft.com/en-us/      <<<<<<<<<<<<<< ParserNoAsync LOGGS >>>>>>>>>>>>>>
+All
+      <<<<<<<<<<<<<< AllParse_NoAsync LOGGS >>>>>>>>>>>>>>
+java.util.regex.Matcher[pattern=laptop region=0,24850 lastmatch=]UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU RESULT UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU FOR https://learn.microsoft.com/en-us/
+https://learn.microsoft.com/en-us/Failed  Parsing ****
+WENT PAST isDiscarded
+@@@@@@DISCARDED@@@@@@ https://learn.microsoft.com/en-us/
+Donehttps://learn.microsoft.com/en-us/
+https://emag.ro     <<<<<<<<<<<<<< ACCEPT_COOKIE_POPUP_NOASYNC LOGGS >>>>>>>>>>>>>>
+https://emag.ro Page loaded
+Went past cookie popup for 2
+entered isDiscarded
+--- Started Parser --- FOR https://emag.ro
+https://emag.ro      <<<<<<<<<<<<<< ParserNoAsync LOGGS >>>>>>>>>>>>>>
+All
+      <<<<<<<<<<<<<< AllParse_NoAsync LOGGS >>>>>>>>>>>>>>
+java.util.regex.Matcher[pattern=laptop region=0,94899 lastmatch=]UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU RESULT UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU FOR https://emag.ro
+$$$$$$ FOUND ALL THE CONTEXT OF THE PAGE  $$$$$$
+Dumped laptop
+Laptop, Tablete & Telefoane
+Laptop, Tablete & Telefoane
+Laptop, Tablete & Telefoane
+Laptop, Tablete & Telefoane
+WENT PAST isDiscarded
+Donehttps://emag.ro
+THREAD: 0 -EXIT
+THREAD: 4 -EXIT
+https://www.reuters.com     <<<<<<<<<<<<<< ACCEPT_COOKIE_POPUP_NOASYNC LOGGS >>>>>>>>>>>>>>
+https://www.reuters.com Page loaded
+Went past cookie popup for 6
+entered isDiscarded
+--- Started Parser --- FOR https://www.reuters.com
+https://www.reuters.com      <<<<<<<<<<<<<< ParserNoAsync LOGGS >>>>>>>>>>>>>>
+All
+      <<<<<<<<<<<<<< AllParse_NoAsync LOGGS >>>>>>>>>>>>>>
+THREAD: 5 -EXIT
+THREAD: 2 -EXIT
+java.util.regex.Matcher[pattern=laptop region=0,1043124 lastmatch=]UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU RESULT UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU FOR https://www.reuters.com
+https://www.reuters.comFailed  Parsing ****
+WENT PAST isDiscarded
+@@@@@@DISCARDED@@@@@@ https://www.reuters.com
+Donehttps://www.reuters.com
+https://www.theverge.com     <<<<<<<<<<<<<< ACCEPT_COOKIE_POPUP_NOASYNC LOGGS >>>>>>>>>>>>>>
+https://www.theverge.com Page loaded
+https://www.theverge.comGot past about:blank
+THIS ##########https://www.theverge.com
+[]
+Went past cookie popup for 1
+entered isDiscarded
+--- Started Parser --- FOR https://www.theverge.com
+https://www.theverge.com      <<<<<<<<<<<<<< ParserNoAsync LOGGS >>>>>>>>>>>>>>
+All
+      <<<<<<<<<<<<<< AllParse_NoAsync LOGGS >>>>>>>>>>>>>>
+java.util.regex.Matcher[pattern=laptop region=0,305950 lastmatch=]UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU RESULT UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU FOR https://www.theverge.com
+$$$$$$ FOUND ALL THE CONTEXT OF THE PAGE  $$$$$$
+Dumped laptop
+Dell is an extreme example, but many thin and light laptop lines have been shedding ports over the past few years, and it’s making me nervous. I refuse to carry a dock around with me. I refuse!
+Your laptop’s microphone might sound better than you think
+Dell is an extreme example, but many thin and light laptop lines have been shedding ports over the past few years, and it’s making me nervous. I refuse to carry a dock around with me. I refuse!
+Your laptop’s microphone might sound better than you think
+WENT PAST isDiscarded
+Donehttps://www.theverge.com
+https://www.digi24.com     <<<<<<<<<<<<<< ACCEPT_COOKIE_POPUP_NOASYNC LOGGS >>>>>>>>>>>>>>
+https://www.digi24.com Page loaded
+https://www.digi24.comGot past about:blank
+THREAD: 6 -EXIT
+THIS ##########https://www.digi24.com
+[]
+ALIVE
+java.util.concurrent.FutureTask@68dd0943[Not completed, task = Thread[Thread-54,5,main]]
+THREAD: 1 -EXIT
+com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 5000ms exceeded.
+=========================== logs ===========================
+waiting for selector "button:has-text("Accept"), button:has-text("ACCEPT"), button:has-text("accept"), button:has-text("Yes"), gdpr-button "
+============================================================
+  name='TimeoutError
+  stack='TimeoutError: Timeout 5000ms exceeded.
+=========================== logs ===========================
+waiting for selector "button:has-text("Accept"), button:has-text("ACCEPT"), button:has-text("accept"), button:has-text("Yes"), gdpr-button "
+============================================================
+    at ProgressController.run (C:\Users\ADMIN\AppData\Local\Temp\playwright-java-14143362698260632633\package\lib\server\progress.js:96:26)
+    at Frame.click (C:\Users\ADMIN\AppData\Local\Temp\playwright-java-14143362698260632633\package\lib\server\frames.js:1078:23)
+    at FrameDispatcher.click (C:\Users\ADMIN\AppData\Local\Temp\playwright-java-14143362698260632633\package\lib\dispatchers\frameDispatcher.js:159:30)
+    at DispatcherConnection.dispatch (C:\Users\ADMIN\AppData\Local\Temp\playwright-java-14143362698260632633\package\lib\dispatchers\dispatcher.js:352:46)
+}
+Couldn't get past cookie popup for : https://www.digi24.com
+ALIVE
+java.util.concurrent.FutureTask@68dd0943[Not completed, task = Thread[Thread-54,5,main]]
+THREAD: 3 -EXIT
+NO THRED SHOULD BE ALIVE AFTER THIS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+############Exited all threads##############
+[{https://emag.ro=[Laptop, Tablete & Telefoane, Laptop, Tablete & Telefoane]}, {https://www.theverge.com=[Dell is an extreme example, but many thin and light laptop lines have been shedding ports over the past few years, and it’s making me nervous. I refuse to carry a dock around with me. I refuse!, Your laptop’s microphone might sound better than you think]}]
+Result: [KeyWordAndDate:laptop 2023/04/11 23:24:39, UrlResults:[{https://emag.ro=[Laptop, Tablete & Telefoane, Laptop, Tablete & Telefoane]}, {https://www.theverge.com=[Dell is an extreme example, but many thin and light laptop lines have been shedding ports over the past few years, and it’s making me nervous. I refuse to carry a dock around with me. I refuse!, Your laptop’s microphone might sound better than you think]}], Fail:null]

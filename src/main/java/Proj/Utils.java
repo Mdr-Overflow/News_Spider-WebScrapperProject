@@ -42,16 +42,16 @@ import com.microsoft.playwright.impl.*;
 
 
 public class Utils {
-	
-	
+
+
 	public static final String DEFAULTmaxthreads = "12";
 	public static final String DEFAULTrequestrate = "200";
-	
+
 	public static int CreateFile(String FileName) {
 		    try {
 		      File myObj = new File(FileName);
 		      if (myObj.createNewFile()) {
-		    	
+
 		        System.out.println("File created: " + myObj.getName());
 		        return 0;
 		      } else {
@@ -66,18 +66,18 @@ public class Utils {
 		  }
 
 	public static void  WriteToFileNOAPPEND(String FileName, String Content) {
-		
+
 	    try {
-	    	
-	    
+
+
 	    	if(new File(FileName).isFile()) {
 	    		if ("IGNORE" == Content) {
 	    			System.out.println("IGNORED 222222222222222");
 	      FileWriter myWriter = new FileWriter(FileName,false);
 	    		}
 	    		else {
-	    			
-	       FileWriter myWriter = new FileWriter(FileName,false);	
+
+	       FileWriter myWriter = new FileWriter(FileName,false);
 	      BufferedWriter bw = new BufferedWriter(myWriter);
 	      System.out.println(Content + "THIS HAS BEEN WRITTEN TO FILE");
 	      bw.write(Content);
@@ -93,23 +93,23 @@ public class Utils {
 	  		      bw.newLine();
 	  		      bw.close();
 	    		}
-	    		
+
 	    	}
-	    		
+
 	    } catch (IOException e) {
 	      System.out.println("File write error.");
 	      e.printStackTrace();
-	    
+
 	    }
 	  }
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	public static void  WriteToFile(String FileName, String Content) {
-	
+
 		    try {
 		    	if(new File(FileName).isFile()) {
 		      FileWriter myWriter = new FileWriter(FileName,true);
@@ -127,19 +127,19 @@ public class Utils {
 		  		      bw.newLine();
 		  		      bw.close();
 		    		}
-		    		
+
 		    	}
-		
+
 		    } catch (IOException e) {
 		      System.out.println("File write error.");
 		      e.printStackTrace();
-		    
+
 		    }
 		  }
-	
-	
+
+
 	public static void  WriteToFileArray(String FileName, ArrayList<String> Content) {
-		
+
 		try {
 	    	if(new File(FileName).isFile()) {
 	      FileWriter myWriter = new FileWriter(FileName,true);
@@ -155,81 +155,81 @@ public class Utils {
 	    		{
 	    			FileWriter myWriter = new FileWriter(FileName,true);
 	  		      BufferedWriter bw = new BufferedWriter(myWriter);
-	  		      
+
 	  		    for (String content : Content) {
 	  		      bw.write(content);
 	  		      bw.newLine();
 	  		      }
 	  		      bw.close();
 	    		}
-	    		
+
 	    	}
-	    
+
 	    } catch (IOException e) {
 	      System.out.println("File write error.");
 	      e.printStackTrace();
-	    
+
 	    }
 	  }
 
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 public static ArrayList<String> DumpToDB( Page page,String KeyWord) {
-		
+
 		Logger l = new Logger(true);
-		
+
 		String to_log = "Dumped " + KeyWord;
-	   
+
 		l.log(to_log);
-	   
+
 	    String to_search = "text=" + KeyWord;
-	    
+
 	    Locator loc = page.locator(to_search);
-	    
+
 	     ArrayList<String> contents = new ArrayList<String>();
-	    
+
 	    for( String content : loc.allTextContents()) {
-	    	
+
 	    	Pattern pattern = Pattern.compile("\\s{2}|\\n", Pattern.CASE_INSENSITIVE);
 
 	        pattern.matcher(content).replaceAll("");
-	        
+
 	        contents.add(content);
-	        
+
 	        l.log(content);
 	    }
 
 	    l.logArray(contents);
 	    return contents;
 	}
-	
-	
-	
+
+
+
 
 
 public static void WriteToJson(String KeyWord, ArrayList<Map<String,ArrayList<String>>> Url_Results ) {
-	
-	
+
+
 	Logger l = new Logger(true);
-	
-	DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+
+	DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
-	
-	String KeyWordAndDate = KeyWord + " " + (dateFormat.format(now)).toString();
-	
+
+	String KeyWordAndDate = KeyWord + " " + (dateFormat.format(now));
+
 	//ArrayList<String> Lines = new ArrayList<String>();
-	
+
 	l.log(Url_Results.toString());
 	if (Url_Results != null) {
-		
+
 	Result res = new Result(KeyWordAndDate, Url_Results);
 	 Path path = Paths.get("Results.json");
-	        
-	
+
+
 	l.log(res.toString());
 	ObjectMapper mapper = new ObjectMapper();
 	 String json;
@@ -246,7 +246,7 @@ public static void WriteToJson(String KeyWord, ArrayList<Map<String,ArrayList<St
 		e1.printStackTrace();}
 	}}
 
-	
+
 
 
 
@@ -254,46 +254,46 @@ public static void WriteToJson(String KeyWord, ArrayList<Map<String,ArrayList<St
 
 
 public static boolean isRobotsParsable(String url , String User_Agent) {
-	
+
 	Logger l = new Logger(true);
-	
+
 	l.log(url + Logger.isRobotParsableLOG);
-	// https:// 
+	// https://
 	try {
 	URL urrl = new URL(url);
 	l.log(urrl.toString());
 	if( RobotsParser.robotSafe(urrl,User_Agent) == 0 )
 		return true;
-	
+
 	else if ( RobotsParser.robotSafe(urrl,User_Agent) == -1 ) {
 		l.log(url+ " MalformedURL");
 	return false;}
-	
+
 	else if ( RobotsParser.robotSafe(urrl,User_Agent) == -2 ) {
 		l.log(" NOT ALLOWED ON " + url);
 	return false;}
-	
+
 	}
 	catch (MalformedURLException e) {
 		l.log("URL IS GIVEN WRONG " + url);
-		
+
 	}
-	
+
 	l.log("UNKNOWN ERROR ON " + url);
 	return false;
-	
+
 }
 
 
 public static void Delete_Temp_File(String Filename) {
-	
-	 	File myObj = new File(Filename); 
-	    if (myObj.delete()) { 
+
+	 	File myObj = new File(Filename);
+	    if (myObj.delete()) {
 	      System.out.println("Deleted the file: " + myObj.getName());
 	    } else {
 	      System.out.println("Failed to delete the file.");
-	    } 
-	
+	    }
+
 }
 
 
@@ -314,7 +314,7 @@ public static ArrayList <String> ReadFromURLs() {
 			line = reader.readLine();
 			if (line != null) urls.add(line);
 		}
-		
+
 		System.out.println("DONE READING Urls");
 		reader.close();
 	return urls;
@@ -329,7 +329,7 @@ public static ArrayList <String> ReadFromURLs() {
 
 
 public static String ReadFromOptions() {
-	
+
 	BufferedReader reader;
 	try {
 		reader = new BufferedReader(new FileReader(
@@ -350,56 +350,77 @@ public static String ReadFromOptions() {
 		return "error";
 	}
 	//return "error";
-	
+
 }
 
-public static int[] ParseOptions() {
+public static Object[] ParseOptions() {
 	String line = ReadFromOptions();
 	String[] options;
-	int[] result = {0,0,0,0,0,0,0,0}; // 8 ELEMS
-	int[] error = {-1};
+	Object[] result = new Object[11]; //11 ELEMS
+	for ( int i =0 ; i<= 7 ;i++)
+	result[i] = 0;
+
+	result[8] = "a";
+	result[9] = "a";
+	result[10] = 0;
+
+	//object [] result = {0,0,0,0,0,0,0,0,0}; // 9 ELEMS
+	Object[] error = {-1};
+
 	int i = 0;
 	System.out.println(line);
 	if (line != "error") {
-		
+
 	options = line.split(",");
-	
+
 	for (String option : options) {
-		
-	System.out.println(option);	
+
+	System.out.println(option);
 	if(option.charAt(option.length()-1) == 'O' && i < 6) {
 	result[i] = 0;}
 	else if (i < 6)
 	{
 	result[i] = 1;
 	}
-	
-	
+
+
 	if (i>=6 && i <= 7)
 	{
 		System.out.println(option);
 		result[i] = Integer.parseInt(option);
 		//i++;
 	}
-	
-	if (i < 8)
-	System.out.println(result[i] + "  " + Integer.toString(i));	
-	
+	// new stuff
+	if (i == 8 || i == 9 ){
+
+		result[i] = option;
+ 	}
+	if (i == 10){
+
+		result[i] = Integer.parseInt(option);
+	}
+
+
+
+
+	if (i < 9)
+	System.out.println(result[i] + "  " + Integer.toString(i));
+
 	i++;
 	}
-	
+
 		return result;
 	}
-	
-	else return error;   //Options: COOKIE JAR: NO,SAFE URLS: NO,SCREENCAP: NO,DEL URL FILE: YES,DEL LOG FILE: YES,DEL RESULTS FILE: NO,12,200
-						  //			0                  1           2           3                4                   5                6  7
-	
+
+	else return error;   //Options: COOKIE JAR: NO,SAFE URLS: NO,SCREENCAP: NO,DEL URL FILE: YES,DEL LOG FILE: YES,DEL RESULTS FILE: NO,12,200,800x600,Dark,1
+						  //			0                  1           2           3                4                   5                6  7    8      9   10
+
 }
 
 
 
 public static String ReadFromResults() {
-	
+
 	BufferedReader reader;
 	try {
 		reader = new BufferedReader(new FileReader(
@@ -413,7 +434,7 @@ public static String ReadFromResults() {
 	}
 	//return "error";
 	return "error";
-	
+
 }
 
 
@@ -421,7 +442,7 @@ public static String ReadFromResults() {
 
 public static List<String> parseResults(String Url)
 {
-	
+
 	String line = ReadFromResults();
 	System.out.println(line);
 	if (line != "error") {
@@ -429,20 +450,20 @@ public static List<String> parseResults(String Url)
 		 List<String> allMatches = new ArrayList<String>();
 		 Matcher url = Pattern.compile("(" + Url + "(.*))")
 		     .matcher(line);
-		 String after_url = null; 
+		 String after_url = null;
 		 if(url.find()) {
 			 after_url = url.group(2);
-			 
-			 
+
+
 		 }
 		 System.out.println(after_url);
-		 
+
 		 String NORES = "There are no results for url, We are not allowed on url, couldn't get past gdpr for url or it doesnt't exist";
 		 List<String> Wrong = new ArrayList<String>();
 		 Wrong.add(NORES);
 		 if(after_url == null) return Wrong;
-		 
-		 
+
+
 		 after_url=after_url.replaceAll("\\s\\s|\\\\n|]|}|=|\"\"", "");
 		 after_url=after_url.replaceAll("\n", "");
 		 after_url=after_url.replaceAll("’","");
@@ -454,37 +475,37 @@ public static List<String> parseResults(String Url)
 		 allMatches.add(after_url);
 		 Matcher date = Pattern.compile("20[0-9][0-9].*(?=, U)")
 			     .matcher(line);
-		
+
 		 while (date.find()) {
 			   allMatches.add("\n AT "+date.group());
 			   System.out.println(date.group());
 			 }
-		
+
 		return allMatches;  //https:\/\/theguardian.com.*, //20[0-9][0-9].*(?=, U)
 	}
-		 
+
 		 else {
-			 
+
 			 List<String> allMatches = new ArrayList<String>();
 			 Matcher date = Pattern.compile("20[0-9][0-9].*(?=, U)")
 				     .matcher(line);
-			
+
 			 allMatches.add("Nothing was found");
 			 while (date.find()) {
 				   allMatches.add("\n AT "+date.group());
 				   System.out.println(date.group());
 				 }
-			 
+
 			 return allMatches;
 		 }
-		 
+
 	}
-		
+
 return null;
 }
-	
 
-	
+
+
 
 
 

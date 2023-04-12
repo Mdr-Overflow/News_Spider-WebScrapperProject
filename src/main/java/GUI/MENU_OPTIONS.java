@@ -47,6 +47,8 @@ import net.miginfocom.swing.MigLayout;
 
 public class MENU_OPTIONS {
 
+	static String resolution_ = "" ;
+
 	public static void Create_Options_Meniu(JPanel current_panel) {
 	
 	current_panel.setLayout(new MigLayout("", "[1px:1px:300px,grow][1px:1px:300px,grow][][][][][][][][][][][][1px:1px:300px,grow][1px:1px:300px,grow]", "[][15px:15px:600px,grow][][][][][][][][][][][][][][][][][][][15px:15px:600px,grow]"));
@@ -144,43 +146,48 @@ public class MENU_OPTIONS {
 	current_panel.add(btnNewButton, "cell 12 19,grow");
 	
 	////////////////////////// GET OPTIONS
-	int[] op = {};
+	Object[] op = {};
 	op = Proj.Utils.ParseOptions();
-	if (op[0] != -1 ) {
-		if (op[0] == 1) {
+	if ((int) op[0] != -1 ) {
+
+
+
+
+		if ((int) op[0] == 1) {
 		chckbxNewCheckBox.setSelected(true);
 		}
 		else chckbxNewCheckBox.setSelected(false);
 	
-		if (op[1] == 1) {
+		if ((int) op[1] == 1) {
 			chckbxNewCheckBox_1.setSelected(true);
 			}
 			else chckbxNewCheckBox_1.setSelected(false);
 		
-		if (op[2] == 1) {
+		if ((int) op[2] == 1) {
 			chckbxNewCheckBox_2.setSelected(true);
 			}
 			else chckbxNewCheckBox_2.setSelected(false);
 		
-		if (op[3] == 1) {
+		if ((int) op[3] == 1) {
 			chckbxNewCheckBox_3.setSelected(true);
 			}
 			else chckbxNewCheckBox_3.setSelected(false);
 		
-		if (op[4] == 1) {
+		if ((int) op[4] == 1) {
 			chckbxNewCheckBox_4.setSelected(true);
 			}
 			else chckbxNewCheckBox_4.setSelected(false);
 		
-		if (op[5] == 1) {
+		if ((int) op[5] == 1) {
 			chckbxNewCheckBox_5.setSelected(true);
 			}
 			else chckbxNewCheckBox_5.setSelected(false);
 		
-			textField.setText(Integer.toString(op[6]));
-			textField_1.setText(Integer.toString(op[7]));
-	
-	
+			textField.setText(Integer.toString((int) op[6]));
+			textField_1.setText(Integer.toString((int) op[7]));
+
+			resolution_ = (String) op[8];
+
 	}
 	else System.out.println("FATAL ERROR");
 	//////////////////////////GET OPTIONS
@@ -636,17 +643,17 @@ public class MENU_OPTIONS {
 	    
 	   ////// GET OPTIONS
 		
-		int[] op = {};
+		Object[] op = {};
 		op = Proj.Utils.ParseOptions();
-		if (op[0] != -1 ) {
-			if (op[0] == 1) {
+		if ((int) op[0] != -1 ) {
+			if ((int) op[0] == 1) {
 			// Headless
 				MainW.options[0] = "yes";
 				
 			}
 			else MainW.options[0] = "no";
 		
-			if (op[1] == 1) {
+			if ((int) op[1] == 1) {
 				// Safe
 				
 				MainW.options[1] = "yes";
@@ -654,36 +661,36 @@ public class MENU_OPTIONS {
 				}
 			else MainW.options[1] = "no";//
 			
-			if (op[2] == 1) {
+			if ((int) op[2] == 1) {
 
 				MainW.options[2] = "yes";
 				
 				}
 			else MainW.options[2] = "no";
 			
-			if (op[3] == 1) {
+			if ((int) op[3] == 1) {
 
 				MainW.options[3] = "yes";
 				
 				}
 			else MainW.options[3] = "no";
 			
-			if (op[4] == 1) {
+			if ((int) op[4] == 1) {
 
 				MainW.options[4] = "yes";
 				
 				}
 			else MainW.options[4] = "no";
 			
-			if (op[5] == 1) {
+			if ((int) op[5] == 1) {
 
 				MainW.options[5] = "yes";
 				
 				}
 			else MainW.options[5] = "no";
 			
-				MainW.rate = op[7];
-				MainW.threads = op[6];
+				MainW.rate = (int) op[7];
+				MainW.threads = (int) op[6];
 			
 		
 		}

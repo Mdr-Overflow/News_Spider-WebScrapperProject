@@ -74,6 +74,8 @@ import Proj.Headers;
 
 import java.awt.CardLayout;
 
+import static GUI.MENU_OPTIONS.resolution_;
+
 public class MainW implements ActionListener {
 
 	private JFrame frmNewsSpiderTest;
@@ -124,7 +126,7 @@ public class MainW implements ActionListener {
 	
 	private void initialize() {
 		frmNewsSpiderTest = new JFrame();
-		frmNewsSpiderTest.setTitle("News Spider Test");
+		frmNewsSpiderTest.setTitle("GUI Test");
 		frmNewsSpiderTest.setBounds(100, 100, 931, 640);
 		frmNewsSpiderTest.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		
@@ -343,14 +345,14 @@ public class MainW implements ActionListener {
 	   
 	   /////// GET URLS
 	   ArrayList <String> URLS = new ArrayList <String>();
-	   
+
 	    Real_URLS = Url_list_Test;
 	   int i = 0 ;
 		if ( Proj.Utils.ReadFromURLs() != null) {
-			
-			
-			
-			
+
+
+
+
 			URLS.addAll(Proj.Utils.ReadFromURLs());
 			Real_URLS = new String[URLS.size()];
 			System.out.println("ENTERED URL GETTER");
@@ -366,17 +368,17 @@ public class MainW implements ActionListener {
 	    
 	   ////// GET OPTIONS
 		
-		int[] op = {};
+		Object[] op = {};
 		op = Proj.Utils.ParseOptions();
-		if (op[0] != -1 ) {
-			if (op[0] == 1) {
+		if ((int)op[0] != -1 ) {
+			if ((int)op[0] == 1) {
 			// Headless
 				options[0] = "yes";
 				
 			}
 			else options[0] = "no";
 		
-			if (op[1] == 1) {
+			if ((int)op[1] == 1) {
 				// Safe
 				
 				options[1] = "yes";
@@ -384,37 +386,37 @@ public class MainW implements ActionListener {
 				}
 			else options[1] = "no";//
 			
-			if (op[2] == 1) {
+			if ((int)op[2] == 1) {
 
 				options[2] = "yes";
 				
 				}
 			else options[2] = "no";
 			
-			if (op[3] == 1) {
+			if ((int)op[3] == 1) {
 
 				options[3] = "yes";
 				
 				}
 			else options[3] = "no";
 			
-			if (op[4] == 1) {
+			if ((int)op[4] == 1) {
 
 				options[4] = "yes";
 				
 				}
 			else options[4] = "no";
 			
-			if (op[5] == 1) {
+			if ((int)op[5] == 1) {
 
 				options[5] = "yes";
 				
 				}
 			else options[5] = "no";
 			
-				rate = op[7];
-				threads = op[6];
-			
+				rate = (int)op[7];
+				threads = (int)op[6];
+				resolution_ = (String) op[8];
 		
 		}
 		if (rate == -1 || threads == -1)
@@ -565,14 +567,14 @@ public class MainW implements ActionListener {
 				
 				String imageFilePath = Paths.get("SpiderDoodle.jpeg").toString();
 				
-				JLabel lblNewLabel_1 = new JLabel("NEWS SPIDER");
+				JLabel lblNewLabel_1 = new JLabel("WEB SCRAPPER");
 				
 				panel_3.add(lblNewLabel_1, "flowx,cell 6 1,alignx center,aligny center");
 				panel_3.add(lblNewLabel, "cell 6 2");
 				
 				lblNewLabel_1.setForeground(new Color(255, 153, 51));
 				lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 32));
-				lblNewLabel.setIcon(new ImageIcon(imageFilePath));
+				//lblNewLabel.setIcon(new ImageIcon(imageFilePath));
 				
 				
 				JButton btnNewButton = new JButton("START");

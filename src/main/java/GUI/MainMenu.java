@@ -70,13 +70,13 @@ public class MainMenu extends JFrame {
 		
 		String imageFilePath = Paths.get("SpiderDoodle.jpeg").toString();
 		
-		JLabel lblNewLabel_1 = new JLabel("NEWS SPIDER");
+		JLabel lblNewLabel_1 = new JLabel("WEB SCRAPPER");
 		
 		contentPane.add(lblNewLabel_1, "flowx,cell 6 1,alignx center,aligny center");
 		
 		lblNewLabel_1.setForeground(new Color(255, 153, 51));
 		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 32));
-		lblNewLabel.setIcon(new ImageIcon(imageFilePath));
+		//lblNewLabel.setIcon(new ImageIcon(imageFilePath));
 		
 		
 		contentPane.add(lblNewLabel, "cell 6 2");

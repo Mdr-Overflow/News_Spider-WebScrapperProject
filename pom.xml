@@ -60,10 +60,22 @@
     <artifactId>json</artifactId>
     <version>20211205</version>
 </dependency>
-    
-    
-    
-    <dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.jgoodies/forms -->
+        <dependency>
+            <groupId>com.jgoodies</groupId>
+            <artifactId>forms</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
+        <dependency>
     <groupId>org.javatuples</groupId>
     <artifactId>javatuples</artifactId>
     <version>1.2</version>

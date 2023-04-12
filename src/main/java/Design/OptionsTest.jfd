@@ -1,0 +1,18 @@
+JFDML JFormDesigner: "8.0.3.0.246" Java: "17.0.6" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "GUI.Options", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "insets 0,hidemode 3"
+			"$columnConstraints": "[grow,fill]"
+			"$rowConstraints": "[grow,fill]"
+		} ) {
+			name: "this"
+			"$locationPolicy": 1
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 55, 15 )
+			"size": new java.awt.Dimension( 615, 450 )
+		} )
+	}
+}

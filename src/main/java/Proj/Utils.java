@@ -5,10 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.*;
 
 import org.json.JSONArray;
@@ -112,7 +109,7 @@ public class Utils {
 
 		    try {
 		    	if(new File(FileName).isFile()) {
-		      FileWriter myWriter = new FileWriter(FileName,true);
+		      FileWriter myWriter = new FileWriter(FileName,false);
 		      BufferedWriter bw = new BufferedWriter(myWriter);
 		      bw.write(Content);
 		      bw.newLine();
@@ -336,12 +333,12 @@ public static String ReadFromOptions() {
 				"Options.txt"));
 		String line = reader.readLine();
 		String line_b = null;
-		while (line != null) {
-			System.out.println(line);
-			line = reader.readLine();
-			if (line != null) line_b = line;
-		}
-		if (line_b != null) line = line_b;
+//		while (line != null) {
+//			System.out.println(line);
+//			line = reader.readLine();
+//			if (line != null) line_b = line;
+//		}
+//		if (line_b != null) line = line_b;
 		System.out.println("DONE READING OPTIONS");
 		reader.close();
 	return line;
@@ -369,8 +366,9 @@ public static Object[] ParseOptions() {
 
 	int i = 0;
 	System.out.println(line);
-	if (line != "error") {
+	if (!Objects.equals(line, "error")) {
 
+	System.out.println(line + "    <--------------------------- HERE");
 	options = line.split(",");
 
 	for (String option : options) {

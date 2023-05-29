@@ -30,7 +30,7 @@ public class URLs2 extends JFrame {
         //======== this ========
         var contentPane = getContentPane();
         contentPane.setLayout(new MigLayout(
-            "fill,hidemode 3,align center center",
+            "fill,hidemode 3,align left center",
             // columns
             "[11,fill]" +
             "[41,fill]" +
@@ -50,7 +50,7 @@ public class URLs2 extends JFrame {
         {
             scrollPane1.setViewportView(table1);
         }
-        contentPane.add(scrollPane1, "cell 2 1");
+        contentPane.add(scrollPane1, "cell 2 1,aligny bottom,growy 0");
 
         //---- button1 ----
         button1.setText("text");

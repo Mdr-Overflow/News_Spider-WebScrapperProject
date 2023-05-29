@@ -240,7 +240,7 @@ public class URLs extends JFrame {
 		
 		JButton btnNewButton = new JButton("ADD");
 		contentPane.add(btnNewButton, "cell 3 8,grow");
-		
+
 
 
 
@@ -302,7 +302,7 @@ public class URLs extends JFrame {
 		contentPane.add(jList1,"cell 0 4,grow" );
 
 
-			
+		setBounds(100, 100, 800, 800);
 		 
 		 //
 		 

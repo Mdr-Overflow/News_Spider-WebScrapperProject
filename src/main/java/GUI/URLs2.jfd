@@ -4,7 +4,7 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
-			"$layoutConstraints": "fill,hidemode 3,align center center"
+			"$layoutConstraints": "fill,hidemode 3,align left center"
 			"$columnConstraints": "[11,fill][41,fill][467,fill][fill][fill][fill]"
 			"$rowConstraints": "[10:10:100,top][224][10:10:20,center][20:20:40,center]"
 		} ) {
@@ -25,7 +25,7 @@ new FormModel {
 					name: "table1"
 				} )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
-				"value": "cell 2 1"
+				"value": "cell 2 1,aligny bottom,growy 0"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"

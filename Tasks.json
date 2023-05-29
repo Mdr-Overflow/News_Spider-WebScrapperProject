@@ -1,0 +1,19 @@
+{ "Tasks": [{
+  "Name": "someExample",
+  "Page": "Normal",
+  "Domain": "Full Domain",
+  "Number": "Multiple",
+  "Account": "None",
+  "Rating": "None",
+  "Urls": ["www.example.com","www.wikipedia.com"]
+},
+{
+  "Name": "someOtherExample",
+  "Page": "Normal",
+  "Domain": "Full Domain",
+  "Number": "Single",
+  "Account": "None",
+  "Rating": "None",
+  "Urls": ["www.google.com"]
+
+}]}

@@ -41,8 +41,73 @@ import com.microsoft.playwright.impl.*;
 public class Utils {
 
 
+
+
+
 	public static final String DEFAULTmaxthreads = "12";
 	public static final String DEFAULTrequestrate = "200";
+
+
+
+	public static class JsonToHashtableUtility {
+
+		public static Hashtable<String, String[]> convertJsonToHashtable(String json) {
+			Hashtable<String, String[]> hashtable = new Hashtable<>();
+
+			try {
+				JSONObject jsonObject = new JSONObject(json);
+				JSONArray tasksArray = jsonObject.getJSONArray("Tasks");
+
+				for (int i = 0; i < tasksArray.length(); i++) {
+					JSONObject taskObject = tasksArray.getJSONObject(i);
+
+					String name = taskObject.getString("Name");
+					String page = taskObject.getString("Page");
+					String domain = taskObject.getString("Domain");
+					String number = taskObject.getString("Number");
+					String account = taskObject.getString("Account");
+					String rating = taskObject.getString("Rating");
+					JSONArray urlsArray = taskObject.getJSONArray("Urls");
+
+					String[] urls = new String[urlsArray.length()];
+					for (int j = 0; j < urlsArray.length(); j++) {
+						urls[j] = urlsArray.getString(j);
+					}
+
+					hashtable.put(name, new String[]{page, domain, number, account, rating});
+					hashtable.put(name + "_Urls", urls);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			return hashtable;
+		}
+
+		public static Hashtable<String, String[]> ReadTasks() {
+			String filePath = "Tasks.json";
+			Hashtable<String, String[]> hashtable = new Hashtable<String,String[]>();
+			String[] strings = {"None"};
+			hashtable.put("None",strings);
+
+
+			try {
+				String json = new String(Files.readAllBytes(Paths.get(filePath)));
+
+				 hashtable = convertJsonToHashtable(json);
+
+				// Print the hashtable content
+				for (String key : hashtable.keySet()) {
+					System.out.println(key + ": " + String.join(", ", hashtable.get(key)));
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+				System.out.println("Failed to read the JSON file: " + filePath);
+			}
+			return hashtable;
+		}
+	}
+
 
 	public static int CreateFile(String FileName) {
 		    try {

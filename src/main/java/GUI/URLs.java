@@ -7,18 +7,21 @@ import javax.swing.border.EmptyBorder;
 
 import Proj.Utils;
 import net.miginfocom.swing.MigLayout;
+import org.json.JSONObject;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.util.Collections;
-import java.util.Hashtable;
 import java.util.stream.Collectors;
 
 public class URLs extends JFrame {
@@ -26,10 +29,14 @@ public class URLs extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 
-	private  JList	jList1;
+	private  JList	taskList; // TASK LIST S
 
 	private final int nr_rows = 11;
 	private final int nr_cols = 5;
+
+	private static  Map<String, String[]> dropdownOptions;
+
+
 
 	private ColorPanel[] colorPanels;
 
@@ -50,16 +57,73 @@ public class URLs extends JFrame {
 
 	}
 
+	public void initOptionList(){
+
+		dropdownOptions = Collections.synchronizedMap(new LinkedHashMap<String, String[]>());
+		dropdownOptions.put("Page", new String[]{"Normal", "Infinite"});
+		dropdownOptions.put("Domain", new String[]{"Single Page", "Full Domain"});
+		dropdownOptions.put("Number", new String[]{"Singular", "Multiple"});
+		dropdownOptions.put("Account", new String[]{"None", "Yes"});
+		dropdownOptions.put("Rating", new String[]{"None", "Safe", "Average", "High Risk", "BAD"});
+		System.out.println(dropdownOptions);
+
+	}
+
+
+	public void getTaskInfo(String s) {
+		// Label names
+		String[] labelNames = {"Name", "Page", "Domain", "Number", "Account", "Rating", "Urls"};
+
+		// Retrieve attribute values from the Hashtable
+		Hashtable<String, String[]> tasks = Utils.JsonToHashtableUtility.ReadTasks();
+		String[] attributeValues = tasks.get(s);
+		String[] urls = tasks.get(s + "_Urls");
+
+
+		if (attributeValues != null && attributeValues.length == labelNames.length) {
+			// Dropdown options
+			String[] dropdownOptions = {"Option 1", "Option 2", "Option 3"}; //change this shit
+
+			Component[] components = contentPane.getComponents();
+
+			for (int i = 0; i < components.length; i++) {
+				Component component = components[i];
+
+
+
+				// Update text Area
+
+				if (component instanceof JTextArea textArea) {
+						for (String url : urls) {
+							textArea.setText(url);
+						}
+				}
+
+
+
+				// Update dropdowns
+				if (component instanceof JComboBox) {
+					JComboBox<String> comboBox = (JComboBox<String>) component;
+					int dropdownIndex = i - labelNames.length - 1;
+					if (dropdownIndex >= 0 && dropdownIndex < dropdownOptions.length) {
+						comboBox.setSelectedItem(attributeValues[i]);
+					}
+				}
+			}
+
+
+
+//
+		} else {
+			System.out.println("Invalid attribute values for task: " + s);
+		}
+	}
+
 
 	private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {
 		//set text on right here
-		String s = (String) jList1.getSelectedValue();
-		if (s.equals("Item 1")) {
-			textField.setText("You clicked on list 1");
-		}
-		if (s.equals("Item 2")) {
-			textField.setText("You clicked on list 2");
-		}
+		String s = (String) taskList.getSelectedValue();
+		getTaskInfo(s);
 	}
 
 	private static class NonEditableTableModel extends DefaultTableModel {
@@ -128,6 +192,10 @@ public class URLs extends JFrame {
 						"[][][grow][][][20px:20px:30px,grow 10][20px:20px:40px,grow 10][20px:20px:40px,grow 10][10px:10px:300px,grow 10]"));
 
 
+		// Init the OPTION LIST
+
+		initOptionList();
+
 		JLabel TITLE = new JLabel("TASKS");
 		TITLE.setForeground(new Color(255, 153, 51));
 		TITLE.setFont(new Font("Arial Narrow", Font.BOLD, 32));
@@ -179,6 +247,44 @@ public class URLs extends JFrame {
 //		JPanel textArea = new JPanel();
 
 
+		taskList = new JList();
+
+		// Just Java things
+		Hashtable<String,String[]> Tasks = Utils.JsonToHashtableUtility.ReadTasks();   // Don 't do it twice FIX LATER
+		ArrayList<String> elements = Collections.list(Tasks.keys()).stream().filter(key -> !key.endsWith("_Urls"))
+				.collect(Collectors.toCollection(ArrayList::new));
+
+		taskList.setModel(new CustomListModel(elements) {
+
+
+
+			@Override
+			public int getSize() {
+				return elements.size();
+			}
+
+			@Override
+			public Object getElementAt(int i) {
+				return elements.get(i);
+			}
+		});
+		taskList.addListSelectionListener(new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent evt) {
+				jList1ValueChanged(evt);
+			}
+		});
+
+
+
+
+
+		contentPane.add(taskList,"cell 0 4,grow" );
+
+
+
+
 		JPanel contentPane2 = new JPanel(new MigLayout("wrap 3, insets 10", "[150!][grow][grow]",
 				"[grow][grow][grow][grow][grow][grow][grow]"));
 
@@ -186,8 +292,7 @@ public class URLs extends JFrame {
 		String[] labelNames = {"Name", "Page", "Domain", "Number", "Account", "Rating", "Urls"};
 		// Attribute values
 		String[] attributeValues = {"someExample", "Normal", "Full Domain", "Multiple", "None", "None","adsd"};
-		// Dropdown options
-		String[] dropdownOptions = {"Option 1", "Option 2", "Option 3"};
+
 
 		// Add labels, text fields, and dropdowns
 		for (int i = 0; i < labelNames.length; i++) {
@@ -197,26 +302,57 @@ public class URLs extends JFrame {
 			JLabel label = new JLabel(labelName);
 			contentPane2.add(label, "cell 0 " + i);
 
-			// Text field
-			if ( i != labelNames.length -1 ) {
-			JTextField textField = new JTextField(attributeValues[i]);
-			textField.setEditable(false);
-			contentPane2.add(textField, "cell 1 " + i);
+
+			if ( i <= labelNames.length - 2 ) {
 
 			// Dropdown
 
-				JComboBox<String> comboBox = new JComboBox<>(dropdownOptions);
-				contentPane2.add(comboBox, "cell 2 " + i);
+
+				if (labelName.equals("Name"))
+				{
+					JTextField textField = new JTextField(elements.get(0));
+					textField.setEditable(true);
+					contentPane2.add(textField, "cell 1 " + i + ",grow");
+
+				}
+				else {
+					Collection<String[]> Values = dropdownOptions.values();
+
+					JComboBox<String> comboBox = new JComboBox<String>(Values.stream().toList().get(i-1));
+					System.out.println(Arrays.toString(Values.stream().toList().get(i-1)));
+					contentPane2.add(comboBox, "cell 1 " + i  + ",grow");
+
+
+				}
 			}
 		}
 
-		// Add a bigger text area at the last row
-		JTextArea textArea = new JTextArea();
-		textArea.setEditable(true);
-		JScrollPane textAreaScrollPane = new JScrollPane(textArea);
-		contentPane2.add(textAreaScrollPane, "cell 1 " + labelNames.length + ", span 2, grow");
+//		// Add a bigger text area at the last row
+//		JTextArea textArea = new JTextArea();
+//		textArea.setEditable(true);
+//		JScrollPane textAreaScrollPane = new JScrollPane(textArea);
+//		contentPane2.add(textAreaScrollPane, "cell 1 " + labelNames.length + 1 + ", span 3, grow");
+//
+//		contentPane2.setBorder(new EmptyBorder(10, 10, 10, 10));
 
-		contentPane2.setBorder(new EmptyBorder(10, 10, 10, 10));
+
+
+		// Account Settings section
+		JLabel accountSettingsLabel = new JLabel("Account Settings");
+		accountSettingsLabel.setFont(new Font("Arial Black", Font.BOLD, 15));
+		contentPane2.add(accountSettingsLabel, "cell 2 0,center");
+
+		JLabel accountNameLabel = new JLabel("Account File Path");
+		contentPane2.add(accountNameLabel, "cell 2 1,center");
+
+		JTextField accountNameTextField = new JTextField();
+		contentPane2.add(accountNameTextField, "cell 2 2,span 1, grow");
+
+
+		JButton accountGenerateButton = new JButton("Generate Account File");
+		contentPane2.add(accountGenerateButton, "cell 2 4,grow");
+
+
 
 		pack();
 		setLocationRelativeTo(null);
@@ -228,6 +364,7 @@ public class URLs extends JFrame {
 		contentPane2.setForeground(Color.WHITE);
 
 		contentPane.add(contentPane2, "cell 3 4,grow");
+		// Here it ends
 
 		
 		// text area = list
@@ -238,7 +375,7 @@ public class URLs extends JFrame {
 		contentPane.add(textField, "cell 3 7,grow");
 		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("ADD");
+		JButton btnNewButton = new JButton("SAVE");
 		contentPane.add(btnNewButton, "cell 3 8,grow");
 
 
@@ -269,37 +406,6 @@ public class URLs extends JFrame {
 			}
 
 
-		jList1 = new JList();
-
-			// Just Java things
-		Hashtable<String,String[]> Tasks = Utils.JsonToHashtableUtility.ReadTasks();
-		ArrayList<String> elements = Collections.list(Tasks.keys()).stream().filter(key -> !key.endsWith("_Urls"))
-				.collect(Collectors.toCollection(ArrayList::new));
-
-		jList1.setModel(new CustomListModel(elements) {
-
-
-
-			@Override
-			public int getSize() {
-				return elements.size();
-			}
-
-			@Override
-			public Object getElementAt(int i) {
-				return elements.get(i);
-			}
-		});
-		jList1.addListSelectionListener(new ListSelectionListener() {
-
-			@Override
-			public void valueChanged(ListSelectionEvent evt) {
-				jList1ValueChanged(evt);
-			}
-		});
-
-
-		contentPane.add(jList1,"cell 0 4,grow" );
 
 
 		setBounds(100, 100, 800, 800);
@@ -317,7 +423,108 @@ public class URLs extends JFrame {
 			btnDelete.setForeground(new Color(255, 153, 0));
 			btnDelete.setFont(new Font("Arial Black", Font.PLAIN, 12));
 			contentPane.add(btnDelete, "cell 3 9,grow");
-		 
+
+			accountGenerateButton.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					super.mouseClicked(e);
+					try {
+						UIManager.setLookAndFeel(new NimbusLookAndFeel());
+					} catch (UnsupportedLookAndFeelException ex) {
+						throw new RuntimeException(ex);
+					}
+					// Create a new JFrame for the pop-up
+					JFrame popupFrame = new JFrame("Account Settings");
+					popupFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+					JPanel popupPanel = new JPanel(new MigLayout("wrap 2, insets 10", "[grow][grow]"));
+
+					// Add components to the pop-up panel
+					JLabel accountSettingsLabel = new JLabel("Account Settings");
+					accountSettingsLabel.setHorizontalAlignment(SwingConstants.CENTER);
+					accountSettingsLabel.setFont(new Font("Arial Black", Font.BOLD, 15));
+					accountSettingsLabel.setForeground(new Color(255, 153, 0));
+
+					popupPanel.add(accountSettingsLabel, "cell 0 0 2 1, grow");
+
+					JLabel infoLabel = new JLabel("Info Blah Blah");
+					infoLabel.setHorizontalAlignment(SwingConstants.CENTER);
+					infoLabel.setFont(new Font("Arial Black", Font.BOLD, 15));
+					infoLabel.setForeground(new Color(255, 153, 0));
+					popupPanel.add(infoLabel, "cell 0 1 2 1, grow");
+
+					JLabel accountNameLabel = new JLabel("Account name / Email");
+					JTextField accountNameTextField = new JTextField();
+					popupPanel.add(accountNameLabel, "cell 0 2, grow");
+					popupPanel.add(accountNameTextField, "cell 1 2, grow");
+
+					JLabel passwordLabel = new JLabel("Password");
+					JTextField passwordTextField = new JTextField();
+					popupPanel.add(passwordLabel, "cell 0 3, grow");
+					popupPanel.add(passwordTextField, "cell 1 3, grow");
+
+					// Select Path option
+					JButton selectPathButton = new JButton("Select Path");
+					JTextField filePathTextField = new JTextField();
+					filePathTextField.setEditable(false);
+					selectPathButton.addActionListener(actionEvent -> {
+						JFileChooser fileChooser = new JFileChooser();
+						fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+						int result = fileChooser.showOpenDialog(popupFrame);
+						if (result == JFileChooser.APPROVE_OPTION) {
+							File selectedPath = fileChooser.getSelectedFile();
+							// Update the file path text field
+							filePathTextField.setText(selectedPath.getAbsolutePath());
+						}
+					});
+					popupPanel.add(selectPathButton, "cell 0 4, grow");
+					popupPanel.add(filePathTextField, "cell 1 4, grow");
+
+
+					JButton generateButton = new JButton("Generate");
+					generateButton.addActionListener(actionEvent -> {
+						String accountName = accountNameTextField.getText();
+						String password = passwordTextField.getText();
+						String selectedPath = filePathTextField.getText();
+					if (!accountName.isEmpty() && !password.isEmpty() && !selectedPath.isEmpty()) {
+						try {
+							JSONObject jsonObject = new JSONObject();
+							jsonObject.put("Account name", accountName);
+							jsonObject.put("Password", password);
+
+							String jsonContent = jsonObject.toString();
+							String fileName = "account.json";
+
+							// Create the file with the JSON content
+							File file = new File(selectedPath, fileName);
+							FileWriter fileWriter = new FileWriter(file);
+							fileWriter.write(jsonContent);
+							fileWriter.close();
+
+							JOptionPane.showMessageDialog(popupFrame, "File generated successfully!");
+						} catch (IOException e2) {
+							e2.printStackTrace();
+							JOptionPane.showMessageDialog(popupFrame, "Error generating the file.");
+						}
+					} else {
+						JOptionPane.showMessageDialog(popupFrame, "Please fill in all fields and select a path.");
+					}});
+
+
+
+					popupPanel.add(generateButton, "cell 0 5 2 1, center, grow");
+
+
+					// Add the pop-up panel to the pop-up frame
+					popupFrame.getContentPane().add(popupPanel);
+					popupFrame.pack();
+					popupFrame.setMinimumSize(new Dimension(600, 200));
+					popupFrame.setLocationRelativeTo(null);
+					popupFrame.setVisible(true);
+				}
+			});
+
+
 			//DEL URL
 			btnDelete.addMouseListener(new MouseAdapter() {
 				@Override

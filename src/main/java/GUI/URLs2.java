@@ -21,6 +21,7 @@ public class URLs2 extends JFrame {
         // Generated using JFormDesigner Educational license - Madaras Andrei
         comboBox1 = new JComboBox();
         spinner1 = new JSpinner();
+        tree1 = new JTree();
         scrollPane1 = new JScrollPane();
         table1 = new JTable();
         button1 = new JButton();
@@ -45,6 +46,7 @@ public class URLs2 extends JFrame {
             "[20:20:40,center]"));
         contentPane.add(comboBox1, "cell 2 1");
         contentPane.add(spinner1, "cell 2 1");
+        contentPane.add(tree1, "cell 2 1");
 
         //======== scrollPane1 ========
         {
@@ -69,6 +71,7 @@ public class URLs2 extends JFrame {
     // Generated using JFormDesigner Educational license - Madaras Andrei
     private JComboBox comboBox1;
     private JSpinner spinner1;
+    private JTree tree1;
     private JScrollPane scrollPane1;
     private JTable table1;
     private JButton button1;

@@ -23,6 +23,7 @@ import net.miginfocom.swing.MigLayout;
 
 
 import javax.swing.plaf.metal.MetalCheckBoxIcon;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 public class Options extends JFrame {
 
@@ -281,6 +282,12 @@ public class Options extends JFrame {
 	 */
 	public Options() {
 		//setBackground(Color.YELLOW);
+
+		try {
+			UIManager.setLookAndFeel(new NimbusLookAndFeel());
+		} catch (UnsupportedLookAndFeelException ex) {
+			throw new RuntimeException(ex);
+		}
 
 		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		int widthS = gd.getDisplayMode().getWidth();

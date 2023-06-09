@@ -112,9 +112,7 @@ public class DisplayAPPtest extends JFrame {
 				"https://longexamplethatisntreal.com" , "https://longexamplethatisntreal.com", "https://longexamplethatisntreal.com" , 
 				"https://theguardian.com", "https://longexdfdfdl.com" , "https://longexamplethatisntreal.com", 
 					"https://longexamplethatisntreal.com" , "https://longexamplethatisntreal.com", "https://longexamplethatisntreal.com" , 
-					"https://theguardian.com", "https://longexdfdfdl.com" , "https://longexamplethatisntreal.com","https://longexamplethatisntreal.com","https://longexamplethatisntreal.com",
-				"https://longexamplethatisntreal.com","https://longexamplethatisntreal.com",
-				"https://longexamplethatisntreal.com","https://longexamplethatisntreal.com"
+					"https://theguardian.com", "https://longexdfdfdl.com" , "https://longexamplethatisntreal.com","https://longexamplethatisntreal.com"
 
 		}; // If more then 9 half line size
 		String KeyWord = "???";

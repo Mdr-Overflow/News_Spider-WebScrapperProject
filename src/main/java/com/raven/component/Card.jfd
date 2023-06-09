@@ -1,0 +1,38 @@
+JFDML JFormDesigner: "8.0.3.0.246" Java: "17.0.6" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p::p, par l {seq {comp pro::::200:x, space :p::p, comp lbPer:::p::p}, seq {par l {comp lbTitle::l:p::p, comp lbValues::l:p::p}, space s:::p, comp lbIcon:::::x}}}}"
+			"$verticalGroup": "par l {seq l {space :::p, par l:::p {seq {comp lbTitle:::p::p, space :::p, comp lbValues:::p::p}, comp lbIcon:::::x}, space :::p, par l {comp lbPer::t:p:20:p, seq t {comp pro:::p::p, space :::p}}}}"
+		} ) {
+			name: "this"
+			"border": new javax.swing.border.EmptyBorder( 10, 10, 10, 10 )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lbTitle"
+				"font": new java.awt.Font( "sansserif", 1, 18 )
+				"foreground": new java.awt.Color( 225, 225, 225, 255 )
+				"text": "Title"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lbValues"
+				"font": new java.awt.Font( "sansserif", 0, 24 )
+				"foreground": new java.awt.Color( 225, 225, 225, 255 )
+				"text": "Values"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lbIcon"
+				"horizontalAlignment": 4
+			} )
+			add( new FormComponent( "com.raven.swing.ProgressBarCustom" ) {
+				name: "pro"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lbPer"
+				"foreground": new java.awt.Color( 255, 255, 255, 255 )
+				"text": "0%"
+			} )
+		}, new FormLayoutConstraints( null ) )
+	}
+}

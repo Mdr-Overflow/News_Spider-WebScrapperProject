@@ -1,0 +1,183 @@
+JFDML JFormDesigner: "8.0.3.0.246" Java: "17.0.6" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			"background": new java.awt.Color( 255, 255, 255, 255 )
+			"locationByPlatform": true
+			"undecorated": true
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+				name: "side_pane"
+				"background": new java.awt.Color( 23, 35, 51, 255 )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq l {comp ind_1:::p::p, space s:::p, comp jLabel8:::p::p, space :0:33:x}}"
+					"$verticalGroup": "par l {seq {comp ind_1:::p::p, space :0:0:x}, seq l {space :::p, comp jLabel8:::::x, space :::p}}"
+				} ) {
+					name: "btn_1"
+					"background": new java.awt.Color( 23, 35, 51, 255 )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mousePressed", "btn_1MousePressed", true ) )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {space :0:3:x}"
+						"$verticalGroup": "par l {space :0:43:x}"
+					} ) {
+						name: "ind_1"
+						"opaque": false
+						"preferredSize": new java.awt.Dimension( 3, 43 )
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jLabel8"
+						"font": new java.awt.Font( "Segoe UI", 0, 12 )
+						"foreground": new java.awt.Color( 255, 255, 255, 255 )
+						"text": "Results Page"
+					} )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"y": 100
+					"width": 120
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq l {comp ind_2:::p::p, space s:::p, comp jLabel9:::p::p, space :0:61:x}}"
+					"$verticalGroup": "par l {seq {comp ind_2:::p::p, space :0:0:x}, comp jLabel9:::::x}"
+				} ) {
+					name: "btn_2"
+					"background": new java.awt.Color( 23, 35, 51, 255 )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseReleased", "btn_2MouseReleased", true ) )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {space :0:3:x}"
+						"$verticalGroup": "par l {space :0:43:x}"
+					} ) {
+						name: "ind_2"
+						"opaque": false
+						"preferredSize": new java.awt.Dimension( 3, 43 )
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jLabel9"
+						"font": &Font0 new java.awt.Font( "Segoe UI", 0, 12 )
+						"foreground": &Color0 new java.awt.Color( 255, 255, 255, 255 )
+						"text": "Proxies"
+					} )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"y": 220
+					"width": 120
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq l {comp ind_3:::p::p, space s:::p, comp jLabel10:::p::p, space :0:67:x}}"
+					"$verticalGroup": "par l {seq l {comp ind_3:::p::p, space :0:0:x}, seq l {space :::p, comp jLabel10:::::x, space :::p}}"
+				} ) {
+					name: "btn_3"
+					"background": new java.awt.Color( 23, 35, 51, 255 )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mousePressed", "btn_3MousePressed", true ) )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {space :0:3:x}"
+						"$verticalGroup": "par l {space :0:43:x}"
+					} ) {
+						name: "ind_3"
+						"opaque": false
+						"preferredSize": new java.awt.Dimension( 3, 43 )
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jLabel10"
+						"font": new java.awt.Font( "Segoe UI", 0, 12 )
+						"foreground": new java.awt.Color( 255, 255, 255, 255 )
+						"text": "Query"
+					} )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"y": 140
+					"width": 120
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq l {comp ind_4:::p::p, space s:::p, comp jLabel11:::p::p, space :0:57:x}}"
+					"$verticalGroup": "par l {seq l {comp ind_4:::p::p, space :0:0:x}, seq t {space :::p, comp jLabel11:::::x, space :::p}}"
+				} ) {
+					name: "btn_4"
+					"background": new java.awt.Color( 23, 35, 51, 255 )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mousePressed", "btn_4MousePressed", true ) )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {space :0:3:x}"
+						"$verticalGroup": "par l {space :0:43:x}"
+					} ) {
+						name: "ind_4"
+						"opaque": false
+						"preferredSize": new java.awt.Dimension( 3, 43 )
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "jLabel11"
+						"font": new java.awt.Font( "Segoe UI", 0, 12 )
+						"foreground": new java.awt.Color( 255, 255, 255, 255 )
+						"text": "Cookies"
+					} )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"y": 180
+					"width": 120
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "jLabel12"
+					"font": #Font0
+					"foreground": #Color0
+					"text": "AI"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"height": 43
+					"x": 20
+					"y": 260
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 120
+				"height": 590
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq t {space ::747:x, comp jTextField1:::p:141:p, space u:::p, comp jLabel7:::p::p, space :p:34:p}}"
+				"$verticalGroup": "par l {seq t {space ::24:x, par t:::p {comp jLabel7:::::x, comp jTextField1:::::x}, space :::p}}"
+			} ) {
+				name: "jPanel2"
+				"background": new java.awt.Color( 71, 120, 197, 255 )
+				addEvent( new FormEvent( "java.awt.event.MouseMotionListener", "mouseDragged", "jPanel2MouseDragged", true ) )
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mousePressed", "jPanel2MousePressed", true ) )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "jTextField1"
+					"background": new java.awt.Color( 123, 156, 225, 255 )
+					"foreground": new java.awt.Color( 255, 255, 255, 255 )
+					"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+					"caretColor": new java.awt.Color( 255, 255, 255, 255 )
+					"preferredSize": new java.awt.Dimension( 2, 20 )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "jLabel7"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/swing/images/icons8_Search_18px.png" )
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 120
+				"width": 950
+				"height": 50
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq l {space :p:39:p, comp panel1:::p:456:p, space ::135:x}}"
+				"$verticalGroup": "par l {seq l {space :p:67:p, comp panel1:::p:353:p, space ::90:x}}"
+			} ) {
+				name: "jPanel6"
+				"background": new java.awt.Color( 255, 255, 255, 255 )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+					name: "panel1"
+					"background": new java.awt.Color( 204, 204, 0, 255 )
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 440
+				"y": 50
+				"width": 630
+				"height": 510
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Statistics"
+				"font": new java.awt.Font( "Tw Cen MT", 1, 22 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 260
+				"y": 115
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 1069, 589 )
+			"location": new java.awt.Point( 15, 0 )
+		} )
+	}
+}

@@ -17,6 +17,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import com.formdev.flatlaf.FlatLightLaf;
 import net.miginfocom.swing.MigLayout;
 
 //import sun.nio.ch.Net;
@@ -28,7 +29,7 @@ import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 public class Options extends JFrame {
 
 
-	private static double SCALE_FACTOR = 1.5;
+
 
 	private static int[] ColorBitmaskQueue = new int[2];
 	private JPanel contentPane;
@@ -36,6 +37,8 @@ public class Options extends JFrame {
 	private JTextField textField_1;
 
 	private Color buttonColor ;
+
+	private static double SCALE_FACTOR = 1.5;
 
 	public static void centreWindow(Window frame) {
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
@@ -83,11 +86,11 @@ public class Options extends JFrame {
 		return resizedImg;
 	}
 
-	public void resizeWindowAndComponents(JFrame frame, int width, int height) {
+	public static void resizeWindowAndComponents(JFrame frame, int width, int height) {
 		// Set the new size of the frame
 		frame.setSize(width, height);
-		centreWindow(frame);
-
+//		centreWindow(frame);
+//
 
 
 		// Get an array of all the components in the frame
@@ -112,25 +115,7 @@ public class Options extends JFrame {
 				  }
 			  }
 //
-//			if (component instanceof JCheckBox)
-//			{
 //
-//				Image icon = new BufferedImage(((JCheckBox)component).getIcon().getIconWidth(), ((JCheckBox)component).getIcon().getIconHeight(),
-//						BufferedImage.TYPE_INT_RGB);
-//
-//				Image icon_selected = new BufferedImage(((JCheckBox)component).getSelectedIcon().getIconWidth(), ((JCheckBox)component).getIcon().getIconHeight(),
-//						BufferedImage.TYPE_INT_RGB);
-//
-//
-//			   	icon = getScaledImage(icon,this.getWidth()/30,this.getHeight()/25);
-//				icon_selected = getScaledImage(icon_selected,this.getWidth()/30,this.getHeight()/25);
-//
-//
-//
-//				//		scaleImage(icon_selected,this.getWidth(),this.getHeight());
-//				((JCheckBox)component).setIcon(new ImageIcon(icon));
-//				((JCheckBox)component).setSelectedIcon(new ImageIcon(icon_selected));
-//			}
 
 
 			// Set the new size for the component
@@ -258,7 +243,7 @@ public class Options extends JFrame {
 		// ZOOM IN OPTION
 
 
-
+		FlatLightLaf.setup();
 
 
 		EventQueue.invokeLater(new Runnable() {
@@ -284,7 +269,7 @@ public class Options extends JFrame {
 		//setBackground(Color.YELLOW);
 
 		try {
-			UIManager.setLookAndFeel(new NimbusLookAndFeel());
+			UIManager.setLookAndFeel( new FlatLightLaf() );
 		} catch (UnsupportedLookAndFeelException ex) {
 			throw new RuntimeException(ex);
 		}
@@ -790,34 +775,6 @@ public class Options extends JFrame {
 					FixedWindow(0, (JFrame) SwingUtilities.getWindowAncestor(themeLabel));
 				}
 			}});
-
-
-
-//				.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//
-//				super.mouseClicked(e);
-//
-//				int index = comboBox1.getSelectedIndex();
-//				if (index >= 0) {
-//
-//				}
-//
-//
-//			}
-//
-//			@Override
-//			public void mouseEntered(MouseEvent e) {
-//				super.mouseEntered(e);
-//			}
-//
-//			@Override
-//			public void mouseExited(MouseEvent e) {
-//				super.mouseExited(e);
-//			}
-//		}
-
 
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override

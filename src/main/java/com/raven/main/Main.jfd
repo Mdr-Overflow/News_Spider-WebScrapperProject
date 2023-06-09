@@ -1,0 +1,28 @@
+JFDML JFormDesigner: "8.0.3.0.246" Java: "17.0.6" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp bg::l:::x}"
+			"$verticalGroup": "par l {comp bg::l:::x}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			"preferredSize": new java.awt.Dimension( 1200, 800 )
+			"visible": true
+			"iconImage": new com.jformdesigner.model.SwingIcon( 1, "C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\webDoodle-50x50.png" )
+			"title": "NewsSpider"
+			add( new FormContainer( "javax.swing.JLayeredPane", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {space :0:1366:x}"
+				"$verticalGroup": "par l {space :0:783:x}"
+			} ) {
+				name: "bg"
+				"background": new java.awt.Color( 245, 245, 245, 255 )
+				"opaque": true
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+		} )
+	}
+}

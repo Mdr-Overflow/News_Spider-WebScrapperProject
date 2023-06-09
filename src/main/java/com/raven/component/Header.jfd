@@ -1,0 +1,20 @@
+JFDML JFormDesigner: "8.0.3.0.246" Java: "17.0.6" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :::p, comp cmdMenu:::p:38:p, space ::389:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp cmdMenu::::288:x, space :::p}}"
+		} ) {
+			name: "this"
+			"background": new java.awt.Color( 255, 255, 255, 255 )
+			add( new FormComponent( "com.raven.swing.Button" ) {
+				name: "cmdMenu"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/com/raven/icon/menu.png" )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+		} )
+	}
+}

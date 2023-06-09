@@ -1,0 +1,46 @@
+JFDML JFormDesigner: "8.0.3.0.246" Java: "17.0.6" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp jPanel1:::::x}"
+			"$verticalGroup": "par l {comp jPanel1:::::x}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 2
+			"undecorated": true
+			"$locationPolicy": 1
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq l {space :p:20:p, par l {seq t {comp button2:::p:82:p, space :::p, comp button1:::p:77:p}, seq t {comp lbIcon:::p:63:p, space u:::p, comp lbMessage:::p:350:p}}, space :p:20:p}}"
+				"$verticalGroup": "par l {seq t {space :p:20:p, par l:::p {comp lbIcon:::::x, comp lbMessage::::63:x}, space :::p, par b {comp button1::b:p:31:p, comp button2::b:p:31:p}, space :::x}}"
+			} ) {
+				name: "jPanel1"
+				"background": new java.awt.Color( 255, 255, 255, 255 )
+				"border": new javax.swing.border.LineBorder( new java.awt.Color( 75, 134, 253, 255 ), 1, false )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lbMessage"
+					"font": new java.awt.Font( "sansserif", 0, 14 )
+					"foreground": new java.awt.Color( 82, 82, 82, 255 )
+					"text": "Message"
+				} )
+				add( new FormComponent( "com.raven.swing.Button" ) {
+					name: "button2"
+					"foreground": new java.awt.Color( 66, 66, 66, 255 )
+					"text": "OK"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2ActionPerformed", true ) )
+				} )
+				add( new FormComponent( "com.raven.swing.Button" ) {
+					name: "button1"
+					"foreground": new java.awt.Color( 66, 66, 66, 255 )
+					"text": "Cancel"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "lbIcon"
+					"horizontalAlignment": 0
+				} )
+			} )
+		}, new FormLayoutConstraints( null ) )
+	}
+}

@@ -1,0 +1,29 @@
+JFDML JFormDesigner: "8.0.3.0.246" Java: "17.0.6" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp sp::::230:x, comp profile1::l::0:x}"
+			"$verticalGroup": "par l {seq t {comp profile1:::p::p, space :p::p, comp sp:::::x}}"
+		} ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "sp"
+				"border": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				"horizontalScrollBarPolicy": 31
+				"viewportBorder": sfield com.jformdesigner.model.FormObject NULL_VALUE
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {space :0:312:x}"
+					"$verticalGroup": "par l {space :0:523:x}"
+				} ) {
+					name: "panel"
+					"opaque": false
+				} )
+			} )
+			add( new FormComponent( "com.raven.component.Profile" ) {
+				name: "profile1"
+			} )
+		}, new FormLayoutConstraints( null ) )
+	}
+}

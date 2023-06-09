@@ -6,6 +6,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import Proj.Utils;
+import com.formdev.flatlaf.FlatLightLaf;
 import net.miginfocom.swing.MigLayout;
 import org.json.JSONObject;
 
@@ -213,6 +214,7 @@ public class URLs extends JFrame {
 			public void run() {
 				try {
 					URLs frame = new URLs();
+					FlatLightLaf.setup();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -227,7 +229,7 @@ public class URLs extends JFrame {
 	public URLs() {
 
 		try {
-			UIManager.setLookAndFeel(new NimbusLookAndFeel());
+			UIManager.setLookAndFeel( new FlatLightLaf() );
 		} catch (UnsupportedLookAndFeelException ex) {
 			throw new RuntimeException(ex);
 		}
@@ -515,7 +517,7 @@ public class URLs extends JFrame {
 		selectPathButton.addActionListener(actionEvent -> {
 
 			try {
-				UIManager.setLookAndFeel(new NimbusLookAndFeel());
+				UIManager.setLookAndFeel( new FlatLightLaf() );
 			} catch (UnsupportedLookAndFeelException ex) {
 				throw new RuntimeException(ex);
 			}
@@ -680,7 +682,7 @@ public class URLs extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
 				try {
-					UIManager.setLookAndFeel(new NimbusLookAndFeel());
+					UIManager.setLookAndFeel( new FlatLightLaf() );
 				} catch (UnsupportedLookAndFeelException ex) {
 					throw new RuntimeException(ex);
 				}

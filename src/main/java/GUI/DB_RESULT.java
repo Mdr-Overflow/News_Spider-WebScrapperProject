@@ -11,20 +11,13 @@ import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 
 import DB.DB_CONNECT;
+import com.formdev.flatlaf.FlatLightLaf;
 import net.miginfocom.swing.MigLayout;
 import java.awt.Rectangle;
 
@@ -46,7 +39,10 @@ public class DB_RESULT extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		FlatLightLaf.setup();
 		EventQueue.invokeLater(new Runnable() {
+
+
 			public void run() {
 				try {
 					DB_RESULT frame = new DB_RESULT();
@@ -62,6 +58,13 @@ public class DB_RESULT extends JFrame {
 	 * Create the frame.
 	 */
 	public DB_RESULT() {
+
+
+		try {
+			UIManager.setLookAndFeel( new FlatLightLaf() );
+		} catch (UnsupportedLookAndFeelException ex) {
+			throw new RuntimeException(ex);
+		}
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 926, 565);

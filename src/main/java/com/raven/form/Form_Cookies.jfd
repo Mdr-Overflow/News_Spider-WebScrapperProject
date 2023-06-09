@@ -1,0 +1,59 @@
+JFDML JFormDesigner: "8.0.3.0.246" Java: "17.0.6" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq t {par l {seq l {space :::p, comp jLabel1:::p:164:p}, seq l {space :p:77:p, comp radioButton1:::p:214:p}, seq l {space :p:91:p, comp label3:::p:107:p, space :p:53:p, comp button2:::p::p}}, space ::47:x, comp scrollPane1:::p:206:p, space :p:65:p}, seq t {space :0:438:x, comp button1:::p::p, space :p:112:p}}"
+			"$verticalGroup": "par l {seq l {space :p:22:p, par t {comp scrollPane1:::p:208:p, seq {comp jLabel1:::p::p, space :p:46:p, comp radioButton1:::p::p, space :p:40:p, par b {comp label3::b:p:31:p, comp button2::b:p::p}, space :p:62:p}}, space u:::p, comp button1:::p::p, space ::39:x}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel1"
+				"font": new java.awt.Font( "sansserif", 1, 20 )
+				"foreground": new java.awt.Color( 4, 72, 210, 255 )
+				"text": "Cookie Page"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\GoogleCookie.png" )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Cookie Files"
+				"font": new java.awt.Font( "SansSerif", 1, 16 )
+				"foreground": new java.awt.Color( 4, 72, 210, 255 )
+				"horizontalAlignment": 0
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "Choose File"
+			} )
+			add( new FormComponent( "javax.swing.JRadioButton" ) {
+				name: "radioButton1"
+				"text": "Use Cookies ?"
+				"font": new java.awt.Font( "SansSerif", 1, 16 )
+				"foreground": new java.awt.Color( 4, 72, 210, 255 )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTree" ) {
+					name: "tree1"
+					"model": new javax.swing.tree.DefaultTreeModel( new javax.swing.tree.DefaultMutableTreeNode {
+						userObject: "Cookies\t"
+						add( new javax.swing.tree.DefaultMutableTreeNode {
+							userObject: " Test Cookie"
+						} )
+						add( new javax.swing.tree.DefaultMutableTreeNode {
+							userObject: " Test Cookie 2"
+						} )
+					} )
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Delete Selected"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 660, 340 )
+		} )
+	}
+}

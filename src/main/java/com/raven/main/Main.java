@@ -7,9 +7,7 @@ import com.raven.component.Header;
 import com.raven.component.Menu;
 import com.raven.event.EventMenuSelected;
 import com.raven.event.EventShowPopupMenu;
-import com.raven.form.Form1;
-import com.raven.form.Form_Home;
-import com.raven.form.MainForm;
+import com.raven.form.*;
 import com.raven.swing.MenuItem;
 import com.raven.swing.PopupMenu;
 import com.raven.swing.icon.GoogleMaterialDesignIcons;
@@ -79,6 +77,24 @@ public class Main extends javax.swing.JFrame {
                         main.showForm(new Form1());
                     }
                 }
+                if (menuIndex == 1) {
+                    if (subMenuIndex == 0) {
+                        main.showForm(new Form_Query());
+                    }
+                }
+
+                if (menuIndex == 2) {
+                    if (subMenuIndex == 0) {
+                        main.showForm(new Form_Cookies());
+                    }
+                }
+
+                if (menuIndex == 3) {
+                    if (subMenuIndex == 0) {
+                        main.showForm(new Form_Proxies());
+                    }
+                }
+
             }
         });
         menu.addEventShowPopup(new EventShowPopupMenu() {

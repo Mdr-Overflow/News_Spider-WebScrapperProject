@@ -1,0 +1,67 @@
+JFDML JFormDesigner: "8.0.3.0.246" Java: "17.0.6" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {par l {seq {space :::p, comp jLabel1:::p:164:p}, seq l {space :p:21:p, par t {comp radioButton1:::p::p, comp radioButton2:::p::p, comp radioButton3:::p::p}, space :::p, par l {comp label3::l:p:107:p, seq l {par l {comp label1::l:p:107:p, comp label2::l:p:107:p}, space :p:28:p, par l {comp button2:::p::p, comp textField1:::p:198:p, comp comboBox1:::p:149:p}}}}}, space ::201:x}, seq t {space :0:442:x, comp button1:::p:95:p, space :p:43:p}}"
+			"$verticalGroup": "par l {seq l {space :p:28:p, comp jLabel1:::p::p, space :p:65:p, par l {comp radioButton1:::p:32:p, par b {comp label1::b:p:31:p, comp textField1::b:p::p}}, space :p:35:p, par l {par b {comp label2::b:p:31:p, comp comboBox1::b:p::p}, comp radioButton2:::p:31:p}, space :p:40:p, par l {par b {comp label3::b:p:31:p, comp button2::b:p::p}, comp radioButton3:::p:31:p}, space :p:37:p, comp button1:::p:35:p, space ::11:x}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel1"
+				"font": new java.awt.Font( "sansserif", 1, 20 )
+				"foreground": new java.awt.Color( 4, 72, 210, 255 )
+				"text": "Query Page"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\GoogleQuery.png" )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Keyword"
+				"font": &Font0 new java.awt.Font( "SansSerif", 1, 16 )
+				"foreground": &Color0 new java.awt.Color( 4, 72, 210, 255 )
+				"horizontalAlignment": 0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Topics"
+				"font": #Font0
+				"foreground": #Color0
+				"horizontalAlignment": 0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Query File"
+				"font": #Font0
+				"foreground": #Color0
+				"horizontalAlignment": 0
+			} )
+			add( new FormComponent( "javax.swing.JRadioButton" ) {
+				name: "radioButton1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Save"
+			} )
+			add( new FormComponent( "javax.swing.JRadioButton" ) {
+				name: "radioButton2"
+			} )
+			add( new FormComponent( "javax.swing.JRadioButton" ) {
+				name: "radioButton3"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField1"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "Choose File"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 580, 385 )
+		} )
+	}
+}

@@ -5,7 +5,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
 			"$layoutConstraints": "insets 0,hidemode 3,gap 0 0"
-			"$columnConstraints": "[39,left][fill][fill][20:47,fill][grow,fill][400:580:800,grow,fill][170,grow,fill]"
+			"$columnConstraints": "[39,left][fill][fill][20:47,fill][grow,fill][400:594:800,grow,fill][170,grow,fill]"
 			"$rowConstraints": "[][2,fill][grow][400,grow,fill][grow,center]"
 		} ) {
 			name: "this"

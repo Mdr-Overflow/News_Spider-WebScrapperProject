@@ -23,7 +23,7 @@ public class Cookies {
 	        	
 	        	String Regex = "iframe|'about:blank'";
 	     	    Pattern pattern = Pattern.compile(Regex, Pattern.CASE_INSENSITIVE);
-	            if (pattern.matcher(frame.name()).find() != false) {
+	            if (pattern.matcher(frame.name()).find()) {
 	            	
 	               l.log(url + "Got past about:blank");
 	              

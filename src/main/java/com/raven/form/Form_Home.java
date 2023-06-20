@@ -85,7 +85,7 @@ public class Form_Home extends javax.swing.JPanel {
             "[fill]" +
             "[20:47,fill]" +
             "[grow,fill]" +
-            "[400:580:800,grow,fill]" +
+            "[400:594:800,grow,fill]" +
             "[170,grow,fill]",
             // rows
             "[]" +

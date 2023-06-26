@@ -5,7 +5,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
 			"$layoutConstraints": "insets 0,hidemode 3,gap 0 0"
-			"$columnConstraints": "[39,left][fill][fill][20:47,fill][grow,fill][400:594:800,grow,fill][170,grow,fill]"
+			"$columnConstraints": "[39,left][fill][fill][20:47,fill][grow,fill][400:635:800,grow,fill][170,grow,fill]"
 			"$rowConstraints": "[][2,fill][grow][400,grow,fill][grow,center]"
 		} ) {
 			name: "this"
@@ -106,7 +106,11 @@ new FormModel {
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 				"value": "cell 1 3,aligny top,growy 0"
 			} )
-			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+				"$layoutConstraints": "insets 0,hidemode 3"
+				"$columnConstraints": "[660,grow,fill]"
+				"$rowConstraints": "[grow,fill]"
+			} ) {
 				name: "panel1"
 				"border": new javax.swing.border.MatteBorder( 1, 1, 1, 1, sfield java.awt.Color black )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
@@ -120,8 +124,8 @@ new FormModel {
 				"value": "cell 5 4"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 1020, 535 )
+			"location": new java.awt.Point( 65, 0 )
+			"size": new java.awt.Dimension( 955, 535 )
 		} )
 	}
 }

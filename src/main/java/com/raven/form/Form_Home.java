@@ -6,6 +6,8 @@ import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
 import javax.swing.border.*;
 import javax.swing.table.*;
+
+import GUI.Proper.WebVisualization;
 import com.jgoodies.forms.layout.*;
 import com.raven.component.*;
 import com.raven.dialog.Message;
@@ -19,17 +21,51 @@ import com.raven.swing.noticeboard.ModelNoticeBoard;
 import com.raven.swing.table.*;
 import com.raven.swing.table.EventAction;
 import java.awt.Color;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import net.miginfocom.swing.*;
 
 public class Form_Home extends javax.swing.JPanel {
 
-    public Form_Home() {
+    private JFrame parentFrame;
+
+    public Form_Home(JFrame parentFrame) {
+
+        this.parentFrame = parentFrame;
         initComponents();
 
         setOpaque(false);
         initData();
+
+        WebVisualization visualization = new WebVisualization( parentFrame , panel1);
+
+
+        visualization.setVisible(true);
+
+        Map<String, java.util.List<String>> domainURLs = new HashMap<>();
+        domainURLs.put("Domain 1", java.util.List.of("URL 1", "URL 2", "URL 3"));
+        domainURLs.put("Domain 2", java.util.List.of( "URL 4", "URL 5", "URL 6", "URL 7",
+                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7"));
+        domainURLs.put("Domain 3", java.util.List.of("URL 8", "URL 9"));
+        domainURLs.put("www.pcgarage.ro", List.of("/acer", "/mini-laptop","/retelistica" , "/info" , "/placi-video" , "/sisteme" , "/telefoane" , "/servicii","/componente-calculatoare",
+                "/din-garaj", "/auto-calatorii", "/electrocasnice-mari",
+                "/gaming" , "/periferice", "/printing-si-birotica","/casa-si-ingrijire-personala" , "/vouchere-reducere-in-cos-ai-doar-de-castigat" , "/cumpara-voucher" , "/vizualizare-wishlist"));
+
+        visualization.setDomainURLs(domainURLs);
+        visualization.createDomainPoints();
+
+        panel1.add(visualization);
+
+
     }
 
     private void initData() {
@@ -85,7 +121,7 @@ public class Form_Home extends javax.swing.JPanel {
             "[fill]" +
             "[20:47,fill]" +
             "[grow,fill]" +
-            "[400:594:800,grow,fill]" +
+            "[400:635:800,grow,fill]" +
             "[170,grow,fill]",
             // rows
             "[]" +
@@ -173,7 +209,12 @@ public class Form_Home extends javax.swing.JPanel {
         //======== panel1 ========
         {
             panel1.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
-            panel1.setLayout(new BorderLayout());
+            panel1.setLayout(new MigLayout(
+                "insets 0,hidemode 3",
+                // columns
+                "[660,grow,fill]",
+                // rows
+                "[grow,fill]"));
         }
         add(panel1, "cell 5 3");
 

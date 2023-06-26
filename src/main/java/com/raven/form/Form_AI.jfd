@@ -1,0 +1,132 @@
+JFDML JFormDesigner: "8.0.3.0.246" Java: "17.0.6" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "insets 0,hidemode 3,gap 5 5"
+			"$columnConstraints": "[fill][:50:250,growprio 50,grow 50,fill][361,fill][59,fill][fill][:475:800,grow 10,fill][fill][20:20:100,growprio 10,grow 10,fill]"
+			"$rowConstraints": "[][fill][5:5:300,growprio 9,grow 5,shrinkprio 10,shrink 10,fill][][:281:500,growprio 9,grow 1,fill][growprio 9,grow 10]"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel1"
+				"font": new java.awt.Font( "sansserif", 1, 20 )
+				"foreground": new java.awt.Color( 4, 72, 210, 255 )
+				"text": "AI Page"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\GoogleBrain.png" )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 1 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Results"
+				"foreground": new java.awt.Color( 4, 72, 210, 255 )
+				"font": new java.awt.Font( "SansSerif", 1, 20 )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 5 3,align center center,grow 0 0"
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+				name: "panel1"
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "scrollPane1"
+					add( new FormComponent( "javax.swing.JTextPane" ) {
+						name: "textPane1"
+						"editable": false
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "Center"
+				} )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 5 4"
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
+				name: "panel2"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "Models"
+					"font": &Font0 new java.awt.Font( "SansSerif", 1, 16 )
+					"foreground": &Color0 new java.awt.Color( 4, 72, 210, 255 )
+					"horizontalAlignment": 0
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 30
+					"y": 20
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button3"
+					"text": "Apply Model"
+					"foreground": &Color1 new java.awt.Color( 4, 72, 210, 255 )
+					"font": new java.awt.Font( "SansSerif", 1, 14 )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"x": 125
+					"y": 115
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label3"
+					"text": "Data"
+					"font": #Font0
+					"foreground": #Color0
+					"horizontalAlignment": 0
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 90
+					"height": 27
+					"x": 10
+					"y": 70
+				} )
+				add( new FormComponent( "javax.swing.JComboBox" ) {
+					name: "comboBox1"
+					"font": new java.awt.Font( "SansSerif", 1, 16 )
+					"maximumRowCount": 3
+					"model": new javax.swing.DefaultComboBoxModel {
+						selectedItem: "Summeriser"
+						addElement( "Summeriser" )
+						addElement( "Sentiment Analysis" )
+					}
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 195
+					"height": 29
+					"x": 125
+					"y": 15
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button4"
+					"text": "Set Data"
+					"foreground": #Color1
+					"font": new java.awt.Font( "SansSerif", 1, 14 )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 115
+					"height": 27
+					"x": 125
+					"y": 70
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button2"
+					"text": "Exit"
+					"foreground": #Color1
+					"font": new java.awt.Font( "SansSerif", 1, 18 )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 140
+					"height": 35
+					"x": 20
+					"y": 215
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button1"
+					"text": "Save As"
+					"foreground": new java.awt.Color( 4, 72, 210, 255 )
+					"font": new java.awt.Font( "SansSerif", 1, 16 )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+					"width": 135
+					"height": 34
+					"x": 190
+					"y": 215
+				} )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 4"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 905, 535 )
+		} )
+	}
+}

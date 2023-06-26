@@ -25,6 +25,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
 				"text": "Choose File"
+				"foreground": new java.awt.Color( 4, 72, 210, 255 )
+				"font": new java.awt.Font( "SansSerif", 1, 14 )
 			} )
 			add( new FormComponent( "javax.swing.JRadioButton" ) {
 				name: "radioButton1"
@@ -50,6 +52,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Delete Selected"
+				"foreground": new java.awt.Color( 4, 72, 210, 255 )
+				"font": new java.awt.Font( "SansSerif", 1, 14 )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

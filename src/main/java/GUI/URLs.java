@@ -55,7 +55,7 @@ public class URLs extends JFrame {
 	private static class ColorPanel extends JPanel {
 
 		public ColorPanel() {
-			setBackground(Color.ORANGE);
+			setBackground(new Color(0x0448d2));
 			setBorder(new EmptyBorder(0, 5, 0, 10));
 			setLayout(new MigLayout("hidemode 3",
 					// columns
@@ -235,7 +235,7 @@ public class URLs extends JFrame {
 		}
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 789, 581);
+	//	setBounds(100, 100, 789, 581);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -253,22 +253,22 @@ public class URLs extends JFrame {
 		initOptionList();
 
 		JLabel TITLE = new JLabel("TASKS");
-		TITLE.setForeground(new Color(255, 153, 51));
+		TITLE.setForeground(new Color(0x0448d2));
 		TITLE.setFont(new Font("Arial Narrow", Font.BOLD, 32));
 		contentPane.add(TITLE, "cell 3 0, center");
 
 		JLabel lblNewLabel = new JLabel("TASK LIST");
-		lblNewLabel.setForeground(new Color(255, 153, 51));
+		lblNewLabel.setForeground(new Color(0x0448d2));
 		lblNewLabel.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		contentPane.add(lblNewLabel, "cell 0 2, center");
 
 		JLabel lblNewLabel_1 = new JLabel("TASK TABLE");
-		lblNewLabel_1.setForeground(new Color(255, 153, 51));
+		lblNewLabel_1.setForeground(new Color(0x0448d2));
 		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		contentPane.add(lblNewLabel_1, "cell 3 2");
 
 		JLabel URLlabel = new JLabel("URL LIST");
-		URLlabel.setForeground(new Color(255, 153, 51));
+		URLlabel.setForeground(new Color(0x0448d2));
 		URLlabel.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		contentPane.add(URLlabel, "cell 4 2, center");
 
@@ -572,7 +572,7 @@ public class URLs extends JFrame {
 
 
 		contentPane2.setFont(new Font("Arial Black", Font.BOLD, 15));
-		contentPane2.setBackground(new Color(255, 153, 0));
+		contentPane2.setBackground(new Color(0x0448d2));
 		contentPane2.setForeground(Color.WHITE);
 
 		contentPane.add(contentPane2, "cell 3 4,grow");
@@ -600,21 +600,21 @@ public class URLs extends JFrame {
 
 
 
-		lblNewLabel_2.setForeground(new Color(255, 153, 51));
+		lblNewLabel_2.setForeground(new Color(0x0448d2));
 		lblNewLabel_2.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 
 		btnNewButton.setFont(new Font("Arial Black", Font.PLAIN, 12));
-		btnNewButton.setForeground(new Color(255, 153, 0));
+		btnNewButton.setForeground(new Color(0x0448d2));
 
 
-		taskListLabel.setForeground(new Color(255, 153, 51));
+		taskListLabel.setForeground(new Color(0x0448d2));
 		taskListLabel.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 
-		textFieldTaskList.setForeground(new Color(255, 153, 51));
+		textFieldTaskList.setForeground(new Color(0x0448d2));
 		textFieldTaskList.setFont(new Font("Arial Narrow", Font.BOLD, 12));
 
 		saveTaskButton.setFont(new Font("Arial Black", Font.PLAIN, 12));
-		saveTaskButton.setForeground(new Color(255, 153, 0));
+		saveTaskButton.setForeground(new Color(0x0448d2));
 
 		JLabel urlListLabel = new JLabel("Insert URL Name");
 		contentPane.add(urlListLabel, "cell 4 6 , center");
@@ -629,17 +629,17 @@ public class URLs extends JFrame {
 		JButton delURLButton = new JButton("DELETE");
 		contentPane.add(delURLButton, "cell 4 9,grow");
 
-		urlListLabel.setForeground(new Color(255, 153, 51));
+		urlListLabel.setForeground(new Color(0x0448d2));
 		urlListLabel.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 
-		textFieldUrlList.setForeground(new Color(255, 153, 51));
+		textFieldUrlList.setForeground(new Color(0x0448d2));
 		textFieldUrlList.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 
 		saveURLButton.setFont(new Font("Arial Black", Font.PLAIN, 12));
-		saveURLButton.setForeground(new Color(255, 153, 0));
+		saveURLButton.setForeground(new Color(0x0448d2));
 
 		delURLButton.setFont(new Font("Arial Black", Font.PLAIN, 12));
-		delURLButton.setForeground(new Color(255, 153, 0));
+		delURLButton.setForeground(new Color(0x0448d2));
 
 
 		// GET URLS
@@ -670,7 +670,7 @@ public class URLs extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnDelete.setForeground(new Color(255, 153, 0));
+		btnDelete.setForeground(new Color(0x0448d2));
 		btnDelete.setFont(new Font("Arial Black", Font.PLAIN, 12));
 		contentPane.add(btnDelete, "cell 3 9,grow");
 
@@ -696,14 +696,14 @@ public class URLs extends JFrame {
 				JLabel accountSettingsLabel = new JLabel("Account Settings");
 				accountSettingsLabel.setHorizontalAlignment(SwingConstants.CENTER);
 				accountSettingsLabel.setFont(new Font("Arial Black", Font.BOLD, 15));
-				accountSettingsLabel.setForeground(new Color(255, 153, 0));
+				accountSettingsLabel.setForeground(new Color(0x0448d2));
 
 				popupPanel.add(accountSettingsLabel, "cell 0 0 2 1, grow");
 
 				JLabel infoLabel = new JLabel("Info Blah Blah");
 				infoLabel.setHorizontalAlignment(SwingConstants.CENTER);
 				infoLabel.setFont(new Font("Arial Black", Font.BOLD, 15));
-				infoLabel.setForeground(new Color(255, 153, 0));
+				infoLabel.setForeground(new Color(0x0448d2));
 				popupPanel.add(infoLabel, "cell 0 1 2 1, grow");
 
 				JLabel accountNameLabel = new JLabel("Account name / Email");
@@ -784,109 +784,14 @@ public class URLs extends JFrame {
 		btnDelete.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnDelete.setForeground(Color.GREEN);
+				btnDelete.setForeground(Color.RED);
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnDelete.setForeground(new Color(255, 153, 51));
+				btnDelete.setForeground(new Color(0x0448d2));
 			}
 
-//				@Override
-//				public void mouseClicked(MouseEvent e) {
-//					int to_del = 0;
-//					if(textField.getText().contains("https://") && !textField.getText().contains(" ") && !textField.getText().contains("\n")) {
-//
-//						String[] Conts;
-//
-//						getModel().getValueAt(rowIndex, columnIndex)
-//						Conts = textArea.getText().split("\n");
-//						ArrayList <String> content = new ArrayList();
-//						System.out.println("FIRST STEP OF DEL");
-//						System.out.println(textField.getText());
-//						for (String cont : Conts) {
-//							System.out.println(cont);
-//							if( textField.getText().contains(cont)) {
-//							to_del = 1;
-//							}
-//							else {
-//								content.add(cont);
-//							}
-//						}
-//
-//						if(to_del == 1) {
-//							Proj.Utils.WriteToFileNOAPPEND("Urls.txt","IGNORE");
-//							System.out.println("LAST STEP OF DEL");
-//							textArea.setText("");
-//							for (String  to_append : content) {
-//							System.out.println(to_append);
-//							textArea.append(to_append+"\n");
-//							Proj.Utils.WriteToFile("Urls.txt",to_append);
-//							}
-//						}
-//
-//						else {
-//							JOptionPane.showMessageDialog(contentPane,
-//				 				    "Write a valid url to delete in the textbox");
-//						}
-//
-//					}
-//							//content.add(cont);
-//
-//					else {
-//			 			JOptionPane.showMessageDialog(contentPane,
-//			 				    "Write a valid url to delete in the textbox");
-//			 		}
-//				}
-//			});
-//
-
-
-
-
-
-
-
-
-
-//
-//			// ADD URL
-//
-//		 btnNewButton.addMouseListener(new MouseAdapter() {
-//				@Override
-//				public void mouseEntered(MouseEvent e) {
-//					 btnNewButton.setForeground(Color.GREEN);
-//				}
-//				@Override
-//				public void mouseExited(MouseEvent e) {
-//					 btnNewButton.setForeground(new Color(255, 153, 51));
-//				}
-//
-//		 	@Override
-//		 	public void mouseClicked(MouseEvent e) {
-//
-//		 		if(textField.getText().contains("https://") && !textField.getText().contains(" ") && !textField.getText().contains("\n"))
-//		 		{
-//
-//		 			textArea.setText("");
-//		 			Proj.Utils.WriteToFile("Urls.txt",textField.getText());
-//		 			ArrayList <String> URLS = new ArrayList <String>();
-//
-//		 			if ( Proj.Utils.ReadFromURLs() != null) {
-//		 				System.out.println("ENTERED NON-NULL STATEMENT");
-//						URLS.addAll(Proj.Utils.ReadFromURLs());
-//						for (String url : URLS) {
-//							System.out.println(url);
-//							textArea.append(url + "\n");
-//						}
-//
-//		 		}
-//		 		}
-//		 		else {
-//		 			JOptionPane.showMessageDialog(contentPane,
-//		 				    "Write a valid url in the textbox");
-//		 		}
-//		 	}
 
 
 		});

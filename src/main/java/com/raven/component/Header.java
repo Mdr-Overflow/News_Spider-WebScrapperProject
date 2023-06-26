@@ -28,7 +28,7 @@ public class Header extends JPanel {
         setBackground(Color.white);
 
         //---- cmdMenu ----
-        cmdMenu.setIcon(new ImageIcon("/com/raven/icon/menu.png"));
+        cmdMenu.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\GoogleOut.png"));
 
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);

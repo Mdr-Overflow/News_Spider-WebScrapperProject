@@ -86,6 +86,8 @@ public class Form_Cookies extends JPanel {
 
         //---- button2 ----
         button2.setText("Choose File");
+        button2.setForeground(new Color(0x0448d2));
+        button2.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
 
         //---- radioButton1 ----
         radioButton1.setText("Use Cookies ?");
@@ -108,6 +110,8 @@ public class Form_Cookies extends JPanel {
 
         //---- button1 ----
         button1.setText("Delete Selected");
+        button1.setForeground(new Color(0x0448d2));
+        button1.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
 
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);

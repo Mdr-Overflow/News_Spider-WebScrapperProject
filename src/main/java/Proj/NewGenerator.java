@@ -1,14 +1,10 @@
 package Proj;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.locks.Lock;
 import java.nio.file.Paths;
 import java.security.KeyStore.Entry;
-import java.util.ArrayList;
 
 
 import com.microsoft.playwright.*;
@@ -156,7 +152,7 @@ public int run(int k, String[] Url_list , String Params , String KeyWord , Array
                     l.log(Logger.GeneratorEnterDiscLOG);
                     Object isDiscardedNULL = new Object();
                    try {
-                    ArrayList<String> isDiscarded = new ArrayList<String>(Parsers.ParserNoAsync(tls.page, Params, KeyWord, Url_list[k]));
+                    ArrayList<String> isDiscarded = new ArrayList<String>(Objects.requireNonNull(Parsers.ParserNoAsync(tls.page, Params, KeyWord, Url_list[k])));
                     Map<String,ArrayList<String>> Entry = new HashMap<String,ArrayList<String>>();
                 	
                     

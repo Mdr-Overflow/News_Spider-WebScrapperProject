@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq t {par t {seq l {space :::p, par l {seq {par t {comp radioButton1:::p::p, comp radioButton2:::p::p, comp radioButton3:::p::p}, space :::p, par l {comp label3::l:p:107:p, seq l {par l {comp label1::l:p:107:p, comp label2::l:p:107:p}, space :p:28:p, par l {comp button2:::p::p, comp textField1:::p:198:p, comp comboBox1:::p:149:p}}}}, seq l {comp label6:::p:287:p, space s:::p, comp spinner1:::p::p, space s:::p, comp label7:::p:56:p, space ::258:x, comp button1:::p:95:p}}}, seq l {space :p:143:p, comp separator1:::p::p, space :::p, comp label4:::p:172:p}, seq l {space :::p, comp jLabel1:::p:164:p}}, space :p:54:p}, seq t {space :::p, comp label8:::p:287:p, space s:::p, comp spinner2:::p:93:p, space ::314:x, comp button3:::p:133:p, space :p:34:p}, seq {space :p:158:p, comp label5:::p:172:p, space ::555:x}}"
-			"$verticalGroup": "par l {seq l {space :p:28:p, comp jLabel1:::p::p, par l {seq l {space :p:34:p, comp separator1:::p::p, space :::p, par l {comp radioButton1:::p:32:p, par b {comp label1::b:p:31:p, comp textField1::b:p::p}}, space :p:30:p, par l {par b {comp label2::b:p:31:p, comp comboBox1::b:p::p}, comp radioButton2:::p:31:p}, space :p:40:p, par l {par b {comp label3::b:p:31:p, comp button2::b:p::p}, comp radioButton3:::p:31:p}}, comp label4::l:p:31:p}, space :p:53:p, comp label5:::p:31:p, space :p:43:p, par b {comp button1::b:p:35:p, comp label6::b:p:31:p, comp spinner1::b:p::p, comp label7::b:p:31:p}, space u:::p, par b {comp button3::b:p:35:p, comp label8::b:p:31:p, comp spinner2::b:p::p}, space :p:46:p}}"
+			"$horizontalGroup": "par l {seq {par l {seq l {space :::p, comp label8:::p:287:p, space s:::p, comp spinner2:::p:93:p}, seq l {space :::p, par l {seq l {comp label6:::p:287:p, space s:::p, comp spinner1:::p::p}, seq l {par t {comp radioButton1:::p::p, comp radioButton2:::p::p, comp radioButton3:::p::p}, space :::p, par l {comp label3::l:p:107:p, seq l {par l {comp label1::l:p:107:p, comp label2::l:p:107:p}, space :p:28:p, par l {comp button2:::p::p, comp textField1:::p:198:p, comp comboBox1:::p:149:p}}}}}, par l {seq l {space s:::p, comp label7:::p:56:p}, seq l {space :p:10:p, comp button1:::p:95:p, space :p:45:p, comp button3:::p::p}}}, seq l {space :p:143:p, comp separator1:::p::p, space :::p, comp label4:::p:172:p}, seq l {space :::p, comp jLabel1:::p:164:p}, seq {space :p:158:p, comp label5:::p:172:p}}, space :296:184:x}}"
+			"$verticalGroup": "par l {seq l {space :p:28:p, comp jLabel1:::p::p, par l {seq l {space :p:34:p, comp separator1:::p::p, space s:::p, par l {comp radioButton1:::p:32:p, par b {comp label1::b:p:31:p, comp textField1::b:p::p}}, space :p:30:p, par l {par b {comp label2::b:p:31:p, comp comboBox1::b:p::p}, comp radioButton2:::p:31:p}, space :p:40:p, par l {par b {comp label3::b:p:31:p, comp button2::b:p::p, comp button1::b:p:35:p, comp button3::b:p:35:p}, comp radioButton3:::p:31:p}}, comp label4::l:p:31:p}, space :p:49:p, comp label5:::p:31:p, space :p:43:p, par b {comp label6::b:p:31:p, comp spinner1::b:p::p, comp label7::b:p:31:p}, space u:::p, par b {comp label8::b:p:31:p, comp spinner2::b:p::p}, space :p:54:p}}"
 		} ) {
 			name: "this"
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -42,6 +42,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Save"
+				"foreground": new java.awt.Color( 4, 72, 210, 255 )
+				"font": new java.awt.Font( "SansSerif", 1, 14 )
 			} )
 			add( new FormComponent( "javax.swing.JRadioButton" ) {
 				name: "radioButton2"
@@ -51,13 +53,17 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField1"
+				"font": new java.awt.Font( "SansSerif", 1, 14 )
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
 				name: "comboBox1"
+				"font": new java.awt.Font( "SansSerif", 1, 14 )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
 				"text": "Choose File"
+				"foreground": new java.awt.Color( 4, 72, 210, 255 )
+				"font": new java.awt.Font( "SansSerif", 1, 14 )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
@@ -86,6 +92,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JSpinner" ) {
 				name: "spinner1"
 				"model": new javax.swing.SpinnerNumberModel( 100, 50, 1000, 10 )
+				"font": new java.awt.Font( "SansSerif", 1, 14 )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label7"
@@ -97,6 +104,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button3"
 				"text": "Reset to Defaults"
+				"foreground": new java.awt.Color( 4, 72, 210, 255 )
+				"font": new java.awt.Font( "SansSerif", 1, 14 )
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label8"
@@ -108,6 +117,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JSpinner" ) {
 				name: "spinner2"
 				"model": new javax.swing.SpinnerNumberModel( 2, 1, 2, 1 )
+				"font": new java.awt.Font( "SansSerif", 1, 14 )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

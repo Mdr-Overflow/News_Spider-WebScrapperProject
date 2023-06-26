@@ -119,9 +119,19 @@ public class Form_Query extends JPanel {
 
         //---- button1 ----
         button1.setText("Save");
+        button1.setForeground(new Color(0x0448d2));
+        button1.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
+
+        //---- textField1 ----
+        textField1.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
+
+        //---- comboBox1 ----
+        comboBox1.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
 
         //---- button2 ----
         button2.setText("Choose File");
+        button2.setForeground(new Color(0x0448d2));
+        button2.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
 
         //---- label4 ----
         label4.setText("Search Options");
@@ -143,6 +153,7 @@ public class Form_Query extends JPanel {
 
         //---- spinner1 ----
         spinner1.setModel(new SpinnerNumberModel(100, 50, 1000, 10));
+        spinner1.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
 
         //---- label7 ----
         label7.setText("ms");
@@ -152,6 +163,8 @@ public class Form_Query extends JPanel {
 
         //---- button3 ----
         button3.setText("Reset to Defaults");
+        button3.setForeground(new Color(0x0448d2));
+        button3.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
 
         //---- label8 ----
         label8.setText("Infinite Page Scroll Iterattions");
@@ -161,16 +174,26 @@ public class Form_Query extends JPanel {
 
         //---- spinner2 ----
         spinner2.setModel(new SpinnerNumberModel(2, 1, 2, 1));
+        spinner2.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
 
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup()
-                .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                        .addGroup(GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup()
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(label8, GroupLayout.PREFERRED_SIZE, 287, GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(spinner2, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
                             .addContainerGap()
                             .addGroup(layout.createParallelGroup()
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(label6, GroupLayout.PREFERRED_SIZE, 287, GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(spinner1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                                         .addComponent(radioButton1)
@@ -187,36 +210,28 @@ public class Form_Query extends JPanel {
                                             .addGroup(layout.createParallelGroup()
                                                 .addComponent(button2)
                                                 .addComponent(textField1, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(comboBox1, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE)))))
+                                                .addComponent(comboBox1, GroupLayout.PREFERRED_SIZE, 149, GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(layout.createParallelGroup()
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(label6, GroupLayout.PREFERRED_SIZE, 287, GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(spinner1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(label7, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 258, Short.MAX_VALUE)
-                                    .addComponent(button1, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(label7, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(10, 10, 10)
+                                    .addComponent(button1, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+                                    .addGap(45, 45, 45)
+                                    .addComponent(button3))))
+                        .addGroup(layout.createSequentialGroup()
                             .addGap(143, 143, 143)
                             .addComponent(separator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(label4, GroupLayout.PREFERRED_SIZE, 172, GroupLayout.PREFERRED_SIZE))
-                        .addGroup(GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)))
-                    .addGap(54, 54, 54))
-                .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(label8, GroupLayout.PREFERRED_SIZE, 287, GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(spinner2, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 314, Short.MAX_VALUE)
-                    .addComponent(button3, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)
-                    .addGap(34, 34, 34))
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(158, 158, 158)
-                    .addComponent(label5, GroupLayout.PREFERRED_SIZE, 172, GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(555, Short.MAX_VALUE))
+                            .addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(158, 158, 158)
+                            .addComponent(label5, GroupLayout.PREFERRED_SIZE, 172, GroupLayout.PREFERRED_SIZE)))
+                    .addGap(184, 184, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup()
@@ -227,7 +242,7 @@ public class Form_Query extends JPanel {
                         .addGroup(layout.createSequentialGroup()
                             .addGap(34, 34, 34)
                             .addComponent(separator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup()
                                 .addComponent(radioButton1, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
@@ -243,23 +258,23 @@ public class Form_Query extends JPanel {
                             .addGroup(layout.createParallelGroup()
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                     .addComponent(label3, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(button2))
+                                    .addComponent(button2)
+                                    .addComponent(button1, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(button3, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE))
                                 .addComponent(radioButton3, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)))
                         .addComponent(label4, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
-                    .addGap(53, 53, 53)
+                    .addGap(49, 49, 49)
                     .addComponent(label5, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
                     .addGap(43, 43, 43)
                     .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(button1, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
                         .addComponent(label6, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
                         .addComponent(spinner1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addComponent(label7, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(button3, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
                         .addComponent(label8, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
                         .addComponent(spinner2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                    .addGap(46, 46, 46))
+                    .addGap(54, 54, 54))
         );
     }// </editor-fold>//GEN-END:initComponents
 

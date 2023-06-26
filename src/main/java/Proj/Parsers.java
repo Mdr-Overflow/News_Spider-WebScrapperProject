@@ -1,6 +1,7 @@
 package Proj;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -72,7 +73,7 @@ public class Parsers {
 	            	}}
 	            if (Params[i] == "All") {
 	              try {
-	               ArrayList<String> rez= new ArrayList<String>(AllParse_NoAsync(page,KeyWord,url));
+	               ArrayList<String> rez= new ArrayList<String>(Objects.requireNonNull(AllParse_NoAsync(page, KeyWord, url)));
 	               return rez;
 	              }
 	              catch (Exception e){

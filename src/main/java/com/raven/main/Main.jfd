@@ -13,10 +13,7 @@ new FormModel {
 			"visible": true
 			"iconImage": new com.jformdesigner.model.SwingIcon( 1, "C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\webDoodle-50x50.png" )
 			"title": "NewsSpider"
-			add( new FormContainer( "javax.swing.JLayeredPane", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {space :0:1366:x}"
-				"$verticalGroup": "par l {space :0:783:x}"
-			} ) {
+			add( new FormContainer( "javax.swing.JLayeredPane", new FormLayoutManager( class java.awt.FlowLayout ) ) {
 				name: "bg"
 				"background": new java.awt.Color( 245, 245, 245, 255 )
 				"opaque": true

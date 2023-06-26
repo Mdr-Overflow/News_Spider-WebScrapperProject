@@ -3,6 +3,14 @@ package com.raven.main;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
+
+import DB.Create_Tables;
+import DB.DB_UA;
+import GUI.DB_WINDOW;
+import GUI.Options;
+import GUI.Proper.OptionsProper;
+import GUI.Proper.URLProper;
+import Proj.Headers;
 import com.raven.component.Header;
 import com.raven.component.Menu;
 import com.raven.event.EventMenuSelected;
@@ -20,6 +28,10 @@ import java.awt.event.ComponentEvent;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Objects;
 
 import net.miginfocom.swing.MigLayout;
 import org.jdesktop.animation.timing.Animator;
@@ -29,6 +41,24 @@ import org.jdesktop.animation.timing.TimingTargetAdapter;
 import static GUI.Options.resizeWindowAndComponents;
 
 public class Main extends javax.swing.JFrame {
+
+    static int rate = -1;
+    static int threads = -1;
+    static String[] Real_URLS;
+    private final JPanel panel_OPTIONS = new JPanel();
+    private final JPanel panel_Urls = new JPanel();
+    public static JProgressBar bar = null;
+
+    private JLabel gifLabel;
+    static int progress = 0;
+
+    public static String[] options = {" ", " ", " ", " ", " ", " "};
+    public static ArrayList<HashMap<String, String>> Agents;
+
+
+    public String[] done = {"?"};
+
+    private static double SCALE_FACTOR = 1.5;
 
     private MigLayout layout;
     private Menu menu;
@@ -52,6 +82,52 @@ public class Main extends javax.swing.JFrame {
         header = new Header();
         main = new MainForm();
 
+
+
+
+        ///  ESTABLISH CONN TO THE DATABASE AND CREATE TABLES IN MEM IF THEY DON'T EXIST ALREADY
+        try {
+            Create_Tables ct = new Create_Tables();
+
+
+            // CREATE DEFAULTS FOR USERAGENTS AND HEADERS
+            DB_UA ua_db = new DB_UA();
+            DB.DB_HEADERS hd_db = new DB.DB_HEADERS();
+
+            ua_db.Populate_UA_DEFAULT();
+            hd_db.Populate_HEADERS_DEFAULT();
+
+
+            hd_db.Populate_HEADERS_DEFAULT();
+            // CREATE AGENTS DB
+
+            ua_db.END_CONNECTION();
+            hd_db.END_CONNECTION();
+
+            Headers h = new Headers();
+
+            DB.DB_AGENTS ag_db = new DB.DB_AGENTS();
+            ag_db.del_AGENTS();
+            ag_db.Create_AGENTS(10);
+            Agents = new ArrayList<HashMap<String, String>>(h.Generate_Agents(ag_db));
+
+
+        } catch (SQLException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+            JOptionPane.showMessageDialog(this,
+                    "COULD NOT ESTABLISH CONNECTION TO DATABASE OR NOT ENOUGH MEMORY FOR TABLES");
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e2) {
+                // TODO Auto-generated catch block
+                e2.printStackTrace();
+            }
+            System.exit(-1);
+        }
+
+
+
         this.addComponentListener(new ComponentAdapter() {
             public void componentResized(ComponentEvent e) {
 
@@ -72,7 +148,7 @@ public class Main extends javax.swing.JFrame {
                 System.out.println("Menu Index : " + menuIndex + " SubMenu Index " + subMenuIndex);
                 if (menuIndex == 0) {
                     if (subMenuIndex == 0) {
-                        main.showForm(new Form_Home());
+                        main.showForm(new Form_Home(Main.this));
                     } else if (subMenuIndex == 1) {
                         main.showForm(new Form1());
                     }
@@ -94,6 +170,55 @@ public class Main extends javax.swing.JFrame {
                         main.showForm(new Form_Proxies());
                     }
                 }
+
+                if (menuIndex == 4) {
+                    if (subMenuIndex == 0) {
+                        main.showForm(new Form_AI());
+                    }
+                }
+
+                if (menuIndex == 5) {
+                    if (subMenuIndex == 0) {
+                        main.setLayout(new BorderLayout());
+                        main.showForm(new URLProper(Main.this));
+                    }
+                }
+
+//                if (menuIndex == 6) {
+//                    if (subMenuIndex == 0) {
+//                        main.showForm(new OptionsProper(Main.this));
+//                    }
+//                } MENU
+
+                if (menuIndex == 7) {
+                    if (subMenuIndex == 0) {
+                        main.showForm(new OptionsProper(Main.this));
+                    }
+                }
+
+                if (menuIndex == 8) {
+
+                    System.out.println(done[0] + "<---------------------------------------------------------");
+                    if (Objects.equals(done[0], "?")) {
+
+                        DB_WINDOW dbw = new DB_WINDOW();
+                        done[0] = "??";
+                        DB_WINDOW.main(done);
+                    } else if (Objects.equals(done[0], "Yes")) {
+                        DB_WINDOW dbw = new DB_WINDOW();
+                        done[0] = "??";
+                        DB_WINDOW.main(done);
+
+                    } else {
+                        JOptionPane.showMessageDialog(Main.this,
+                                "Only one instance of dbmanager allowed");
+                    }
+
+                    if (subMenuIndex == 0) {
+                        System.out.println("a");
+                    }
+                }
+
 
             }
         });
@@ -151,7 +276,7 @@ public class Main extends javax.swing.JFrame {
         //  Init google icon font
         IconFontSwing.register(GoogleMaterialDesignIcons.getIconFont());
         //  Start with this form
-        main.showForm(new Form_Home());
+        main.showForm(new Form_Home(Main.this));
     }
 
     @SuppressWarnings("unchecked")
@@ -172,17 +297,7 @@ public class Main extends javax.swing.JFrame {
         {
             bg.setBackground(new Color(0xf5f5f5));
             bg.setOpaque(true);
-
-            GroupLayout bgLayout = new GroupLayout(bg);
-            bg.setLayout(bgLayout);
-            bgLayout.setHorizontalGroup(
-                bgLayout.createParallelGroup()
-                    .addGap(0, 1366, Short.MAX_VALUE)
-            );
-            bgLayout.setVerticalGroup(
-                bgLayout.createParallelGroup()
-                    .addGap(0, 783, Short.MAX_VALUE)
-            );
+            bg.setLayout(new FlowLayout());
         }
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);

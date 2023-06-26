@@ -11,7 +11,7 @@ new FormModel {
 			"background": new java.awt.Color( 255, 255, 255, 255 )
 			add( new FormComponent( "com.raven.swing.Button" ) {
 				name: "cmdMenu"
-				"icon": new com.jformdesigner.model.SwingIcon( 0, "/com/raven/icon/menu.png" )
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\GoogleOut.png" )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

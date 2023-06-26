@@ -344,7 +344,7 @@ public class Options extends JFrame {
 		// panels
 
 		JPanel OPTIONS_panel0 = new JPanel();
-		OPTIONS_panel0.setBackground(Color.ORANGE);
+		OPTIONS_panel0.setBackground(new Color(0x0448d2));
 		OPTIONS_panel0.setBorder(new EmptyBorder(5, 5, 5, 5));
 		OPTIONS_panel0.setLayout(
 				new MigLayout("hidemode 3",
@@ -357,7 +357,7 @@ public class Options extends JFrame {
 								"[fill]"));
 
 		JPanel OPTIONS_panel = new JPanel();
-		OPTIONS_panel.setBackground(Color.ORANGE);
+		OPTIONS_panel.setBackground(new Color(0x0448d2));
 		OPTIONS_panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		OPTIONS_panel.setLayout(
 				new MigLayout("hidemode 3",
@@ -370,7 +370,7 @@ public class Options extends JFrame {
 								"[fill]"));
 
 		JPanel OPTIONS_panel2 = new JPanel();
-		OPTIONS_panel2.setBackground(Color.ORANGE);
+		OPTIONS_panel2.setBackground(new Color(0x0448d2));
 		OPTIONS_panel2.setBorder(new EmptyBorder(5, 5, 5, 5));
 		OPTIONS_panel2.setMaximumSize(new Dimension(1000,1000));
 		OPTIONS_panel2.setLayout(
@@ -383,7 +383,7 @@ public class Options extends JFrame {
 								"[fill]" +
 								"[fill]"));
 		JPanel OPTIONS_panel3 = new JPanel();
-		OPTIONS_panel3.setBackground(Color.ORANGE);
+		OPTIONS_panel3.setBackground(new Color(0x0448d2));
 		OPTIONS_panel3.setBorder(new EmptyBorder(5, 5, 5, 5));
 		OPTIONS_panel3.setLayout(
 				new MigLayout("hidemode 3",
@@ -396,7 +396,7 @@ public class Options extends JFrame {
 								"[fill]"));
 
 		JPanel OPTIONS_panel23 = new JPanel();
-		OPTIONS_panel23.setBackground(Color.ORANGE);
+		OPTIONS_panel23.setBackground(new Color(0x0448d2));
 		OPTIONS_panel23.setBorder(new EmptyBorder(5, 5, 5, 5));
 		OPTIONS_panel23.setLayout(
 				new MigLayout("hidemode 3",
@@ -408,22 +408,22 @@ public class Options extends JFrame {
 								"[fill]" +
 								"[fill]"));
 		JPanel OPTIONS_panely1 = new JPanel();
-		OPTIONS_panely1.setBackground(Color.ORANGE);
+		OPTIONS_panely1.setBackground(new Color(0x0448d2));
 		OPTIONS_panely1.setBorder(new EmptyBorder(5, 5, 5, 5));
 		OPTIONS_panely1.setLayout(
 				new MigLayout("hidemode 3","[fill]" + "[fill]", "[fill]" + "[fill]" + "[fill]"));
 		JPanel OPTIONS_panely2 = new JPanel();
-		OPTIONS_panely2.setBackground(Color.ORANGE);
+		OPTIONS_panely2.setBackground(new Color(0x0448d2));
 		OPTIONS_panely2.setBorder(new EmptyBorder(5, 5, 5, 5));
 		OPTIONS_panely2.setLayout(
 				new MigLayout("hidemode 3","[fill]" + "[fill]", "[fill]" + "[fill]" + "[fill]"));
 		JPanel OPTIONS_panely3 = new JPanel();
-		OPTIONS_panely3.setBackground(Color.ORANGE);
+		OPTIONS_panely3.setBackground(new Color(0x0448d2));
 		OPTIONS_panely3.setBorder(new EmptyBorder(5, 5, 5, 5));
 		OPTIONS_panely3.setLayout(
 				new MigLayout("hidemode 3","[fill]" + "[fill]", "[fill]" + "[fill]" + "[fill]"));
 		JPanel OPTIONS_panely4 = new JPanel();
-		OPTIONS_panely4.setBackground(Color.ORANGE);
+		OPTIONS_panely4.setBackground(new Color(0x0448d2));
 		OPTIONS_panely4.setBorder(new EmptyBorder(5, 5, 5, 5));
 		OPTIONS_panely4.setLayout(
 				new MigLayout("hidemode 3","[fill]" + "[fill]", "[fill]" + "[fill]" + "[fill]"));
@@ -592,7 +592,7 @@ public class Options extends JFrame {
 		contentPane.add(btnNewButton, "cell 11 18, grow 1 1");
 
 		btnNewButton.setFont(new Font("Arial Black", Font.PLAIN, 12));
-		btnNewButton.setForeground(new Color(255, 153, 0));
+		btnNewButton.setForeground(new Color(0x0448d2));
 
 
 		// ********************** COLOR ON COMP FIX ( OPAQUE AND OTHER )
@@ -642,38 +642,38 @@ public class Options extends JFrame {
 			}}
 
 
-		lblNewLabel.setForeground(new Color(255, 153, 51));
+		lblNewLabel.setForeground(new Color(0x0448d2));
 		//lblNewLabel.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 
-		lblNewLabel_1.setForeground(new Color(255, 153, 51));
+		lblNewLabel_1.setForeground(new Color(0x0448d2));
 		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 
-		lblNewLabel_2.setForeground(new Color(255, 153, 51));
+		lblNewLabel_2.setForeground(new Color(0x0448d2));
 		lblNewLabel_2.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 
-		lblNewLabel_3.setForeground(new Color(255, 153, 51));
+		lblNewLabel_3.setForeground(new Color(0x0448d2));
 		lblNewLabel_3.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 
-		lblNewLabel_4.setForeground(new Color(255, 153, 51));
+		lblNewLabel_4.setForeground(new Color(0x0448d2));
 		lblNewLabel_4.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 
-		lblNewLabel_6.setForeground(new Color(255, 153, 51));
+		lblNewLabel_6.setForeground(new Color(0x0448d2));
 		lblNewLabel_6.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 
-		lblNewLabel_7.setForeground(new Color(255, 153, 51));
+		lblNewLabel_7.setForeground(new Color(0x0448d2));
 		lblNewLabel_7.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 
-		lblNewLabel_8.setForeground(new Color(255, 153, 51));
+		lblNewLabel_8.setForeground(new Color(0x0448d2));
 		lblNewLabel_8.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 
-		lblNewLabel_9.setForeground(new Color(255, 153, 51));
+		lblNewLabel_9.setForeground(new Color(0x0448d2));
 		lblNewLabel_9.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 
 		textField.setFont(new Font("Arial", Font.BOLD, 16));
-		textField.setForeground(new Color(204, 51, 0));
+		textField.setForeground(new Color(0x0448d2));
 
 		textField_1.setFont(new Font("Arial", Font.BOLD, 16));
-		textField_1.setForeground(new Color(204, 51, 0));
+		textField_1.setForeground(new Color(0x0448d2));
 
 
 		////////////////////////// GET OPTIONS
@@ -780,7 +780,7 @@ public class Options extends JFrame {
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				buttonColor = btnNewButton.getForeground();
-				btnNewButton.setForeground(Color.GREEN);
+				btnNewButton.setForeground(Color.RED);
 
 			}
 

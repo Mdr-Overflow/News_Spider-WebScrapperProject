@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {par l {seq l {space :p:153:p, par l {seq {comp radioButton3:::::x, space :p:28:p, comp label1:::p:142:p, space :p:20:p}, comp radioButton2:::p:214:p}}, seq {par l {seq {space :p:21:p, comp jLabel1:::p:191:p}, seq l {space :p:48:p, comp radioButton1:::p:214:p}}, space :p:57:p}}, comp textField1:::p:202:p, space ::38:x}}"
-			"$verticalGroup": "par l {seq {space :p:26:p, comp jLabel1:::p::p, space :p:43:p, comp radioButton1:::p::p, space s:::p, comp radioButton2:::p::p, space :p:30:p, par b {comp radioButton3::b:p::p, comp textField1::b:p::p, comp label1::b:p::p}, space ::210:x}}"
+			"$horizontalGroup": "par l {seq {par l {seq l {space :p:153:p, par l {seq {comp radioButton3:::::x, space :p:28:p, comp label1:::p:142:p, space :p:20:p}, comp radioButton2:::p:214:p}}, seq {par l {seq {space :p:21:p, comp jLabel1:::p:191:p}, seq l {space :p:48:p, comp radioButton1:::p:214:p}}, space :p:57:p}}, comp textField1:::p:202:p, space ::38:x}, seq t {space :0:499:x, comp button1:::p:123:p, space :p:78:p}}"
+			"$verticalGroup": "par l {seq {space :p:26:p, comp jLabel1:::p::p, space :p:43:p, comp radioButton1:::p::p, space s:::p, comp radioButton2:::p::p, space :p:30:p, par b {comp radioButton3::b:p::p, comp textField1::b:p::p, comp label1::b:p::p}, space :p:57:p, comp button1:::p:30:p, space ::123:x}}"
 		} ) {
 			name: "this"
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -42,6 +42,12 @@ new FormModel {
 				"icon": sfield com.jformdesigner.model.FormObject NULL_VALUE
 				"font": new java.awt.Font( "SansSerif", 1, 14 )
 				"foreground": new java.awt.Color( 4, 72, 210, 255 )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Save"
+				"foreground": new java.awt.Color( 4, 72, 210, 255 )
+				"font": new java.awt.Font( "SansSerif", 1, 16 )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

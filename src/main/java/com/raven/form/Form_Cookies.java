@@ -108,7 +108,7 @@ public class Form_Cookies extends JPanel {
                 button2.setEnabled(radioButton1.isSelected());
                 tree1.setEnabled(radioButton1.isSelected());
 
-             
+
                     loadTreeData();
 
             } catch (IOException e) {

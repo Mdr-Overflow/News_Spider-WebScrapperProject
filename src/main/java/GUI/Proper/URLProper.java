@@ -510,11 +510,11 @@ public class URLProper extends JPanel {
 
         selectPathButton.addActionListener(actionEvent -> {
 
-            try {
-                UIManager.setLookAndFeel( new FlatLightLaf() );
-            } catch (UnsupportedLookAndFeelException ex) {
-                throw new RuntimeException(ex);
-            }
+//            try {
+//                UIManager.setLookAndFeel( new FlatLightLaf() );
+//            } catch (UnsupportedLookAndFeelException ex) {
+//                throw new RuntimeException(ex);
+//            }
             // Create a new JFrame for the pop-up
             JFrame popupFrame = new JFrame("Account Settings");
             popupFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -675,11 +675,11 @@ public class URLProper extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                try {
-                    UIManager.setLookAndFeel( new FlatLightLaf() );
-                } catch (UnsupportedLookAndFeelException ex) {
-                    throw new RuntimeException(ex);
-                }
+//                try {
+//                    UIManager.setLookAndFeel( new FlatLightLaf() );
+//                } catch (UnsupportedLookAndFeelException ex) {
+//                    throw new RuntimeException(ex);
+//                }
                 // Create a new JFrame for the pop-up
                 JFrame popupFrame = new JFrame("Account Settings");
                 popupFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

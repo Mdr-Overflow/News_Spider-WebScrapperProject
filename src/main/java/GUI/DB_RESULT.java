@@ -18,6 +18,7 @@ import javax.swing.event.AncestorListener;
 
 import DB.DB_CONNECT;
 import com.formdev.flatlaf.FlatLightLaf;
+import com.raven.main.Main;
 import net.miginfocom.swing.MigLayout;
 import java.awt.Rectangle;
 
@@ -61,10 +62,17 @@ public class DB_RESULT extends JFrame {
 
 
 		try {
-			UIManager.setLookAndFeel( new FlatLightLaf() );
-		} catch (UnsupportedLookAndFeelException ex) {
-			throw new RuntimeException(ex);
+			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+				if ("Nimbus".equals(info.getName())) {
+					javax.swing.UIManager.setLookAndFeel(info.getClassName());
+					break;
+				}
+			}
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+				 UnsupportedLookAndFeelException ex) {
+			java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		}
+
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 926, 565);

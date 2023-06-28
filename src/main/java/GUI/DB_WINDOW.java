@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 
 import javax.swing.*;
 
+import com.raven.main.Main;
 import net.miginfocom.swing.MigLayout;
  
 public class DB_WINDOW implements ItemListener {
@@ -26,10 +27,22 @@ public class DB_WINDOW implements ItemListener {
         cb.setEditable(false);
         cb.addItemListener(this);
         comboBoxPane.add(cb);
-         
-        
-        
-        
+
+
+
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
+                 UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+
         DB_MENU ua_m = new DB_MENU();
         DB_HEADERS hd_m = new DB_HEADERS(); 
         DB_AGENTS ag_m = new DB_AGENTS(); 

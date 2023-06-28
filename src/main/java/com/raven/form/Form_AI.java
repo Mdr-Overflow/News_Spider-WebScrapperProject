@@ -55,7 +55,7 @@ public class Form_AI extends JPanel {
 
 
     private boolean showMessage(String message) {
-        Message obj = new Message(Main.getFrames()[0], true);
+        Message obj = new Message(Frame.getFrames()[0], true);
         obj.showMessage(message);
         return obj.isOk();
     }

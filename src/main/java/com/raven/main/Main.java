@@ -7,7 +7,6 @@ import javax.swing.GroupLayout;
 import DB.Create_Tables;
 import DB.DB_UA;
 import GUI.DB_WINDOW;
-import GUI.Options;
 import GUI.Proper.OptionsProper;
 import GUI.Proper.URLProper;
 import Proj.Headers;
@@ -25,9 +24,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -66,7 +62,13 @@ public class Main extends javax.swing.JFrame {
     private MainForm main;
     private Animator animator;
 
-    public Main() {
+    public boolean show = true;
+
+    private JFrame ParentFrame;
+
+    public Main(JFrame parentFrame) {
+
+        this.ParentFrame = parentFrame;
         initComponents();
         init();
 
@@ -74,6 +76,8 @@ public class Main extends javax.swing.JFrame {
 
 
     }
+
+
 
     private void init() {
         layout = new MigLayout("fill", "0[]0[100%, fill]0", "0[fill, top]0");
@@ -184,11 +188,12 @@ public class Main extends javax.swing.JFrame {
                     }
                 }
 
-//                if (menuIndex == 6) {
-//                    if (subMenuIndex == 0) {
-//                        main.showForm(new OptionsProper(Main.this));
-//                    }
-//                } MENU
+                if (menuIndex == 6) {
+                    if (subMenuIndex == 0) {
+                        Main.this.setVisible(false);
+                        Main.this.ParentFrame.setVisible(true);
+                    }
+                }  // MENU
 
                 if (menuIndex == 7) {
                     if (subMenuIndex == 0) {
@@ -342,17 +347,25 @@ public class Main extends javax.swing.JFrame {
 
 
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new Main().setVisible(true);
-
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            @Override
+//            public void run() {
+//                new Main().setVisible(true);
+//
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // Generated using JFormDesigner Educational license - Madaras Andrei
     private JLayeredPane bg;
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
     // End of variables declaration//GEN-END:variables
 }

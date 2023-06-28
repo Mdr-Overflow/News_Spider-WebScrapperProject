@@ -4,25 +4,22 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.Arc2D;
-import java.awt.geom.Path2D;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class WebVisualization extends JPanel {
+public class WebVisualization extends JFrame {
 
 
-    private static  int FRAME_WIDTH = 528;
-    private static  int FRAME_HEIGHT = 408;
+    private static final int FRAME_WIDTH = 1000;
+    private static final int FRAME_HEIGHT = 800;
     private static final int NODE_RADIUS = 20;
     private static final int NODE_GAP = 1;
     private double scaleFactor = 1.0;
 
     private int fontSize = 12; // Initial font size
 
-    private JFrame parentFrame;
-    private JPanel parentPanel;
 
     private  double maxScale = 2.0 ;
 
@@ -39,9 +36,9 @@ public class WebVisualization extends JPanel {
     private int oldHeight = FRAME_HEIGHT;
     private static final Color[] COLORS = {Color.RED, Color.GREEN, Color.BLUE, Color.ORANGE};
 
-    private Map<String, List<String>> domainURLs;
-    private List<String> domains;
-    private Map<String, List<Point>> domainPoints;
+    private Map<String, java.util.List<String>> domainURLs;
+    private java.util.List<String> domains;
+    private Map<String, java.util.List<Point>> domainPoints;
 
     private void addMouseEventsToLabels(JPanel panel) {
         for (Component component : panel.getComponents()) {
@@ -74,19 +71,13 @@ public class WebVisualization extends JPanel {
         }
     }
 
-    public WebVisualization(JFrame parentFrame, JPanel parentPanel) {
-
-        this.parentFrame = parentFrame;
-        this.parentPanel = parentPanel;
-        FRAME_HEIGHT = parentPanel.getHeight() ;
-        FRAME_WIDTH = parentPanel.getWidth() ;
-        System.out.println(parentPanel.getWidth());
-//        setTitle("Web Visualization");
-//        setSize(FRAME_WIDTH, FRAME_HEIGHT);
+    public WebVisualization() {
+        setTitle("Web Visualization");
+        setSize(FRAME_WIDTH, FRAME_HEIGHT);
 //        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
 
-        parentPanel.addKeyListener(new KeyAdapter() {
+        this.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
@@ -101,29 +92,28 @@ public class WebVisualization extends JPanel {
                 }
             }
         });
-        parentPanel.setFocusable(true);
+        this.setFocusable(true);
 
-        parentPanel.addComponentListener(new ComponentAdapter() {
+        this.getRootPane().addComponentListener(new ComponentAdapter() {
 
             @Override
             public void componentResized(ComponentEvent e) {
 
                 // Remove all JLabel components
-                Component[] components = parentPanel.getComponents();
+                Component[] components = getContentPane().getComponents();
                 for (Component component : components) {
                     if (component instanceof JLabel) {
-                        parentPanel.remove(component);
+                        getContentPane().remove(component);
                     }
                 }
 
 
                 centerCircles();
-                parentPanel.repaint();
                 repaint();
 
                 // Update old size
-                oldWidth = parentPanel.getWidth();
-                oldHeight = parentPanel.getHeight();
+                oldWidth = getWidth();
+                oldHeight = getHeight();
             }
         });
 
@@ -134,7 +124,7 @@ public class WebVisualization extends JPanel {
         JMenu domainMenu = new JMenu("Domains");
         menuBar.add(domainMenu);
 
-        parentPanel.add(menuBar,BorderLayout.NORTH);
+        setJMenuBar(menuBar);
 
         JMenuItem domainItem;
         for (String domain : domains) {
@@ -158,7 +148,7 @@ public class WebVisualization extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String searchText = searchBar.getText();
-                Component[] components = parentPanel.getComponents();
+                Component[] components = getContentPane().getComponents();
                 boolean found = false;
                 for (Component component : components) {
                     if (component instanceof JLabel) {
@@ -177,18 +167,18 @@ public class WebVisualization extends JPanel {
             }
         });
 
-        addMouseEventsToLabels((JPanel) parentPanel);
+        addMouseEventsToLabels((JPanel) this.getContentPane());
 
 
 
     }
 
     private void centerCircles() {
-        int centerX = parentPanel.getWidth() / 2;
-        int centerY = parentPanel.getHeight() / 2;
+        int centerX = getWidth() / 2;
+        int centerY = getHeight() / 2;
 
         for (String domain : domains) {
-            List<Point> points = domainPoints.get(domain);
+            java.util.List<Point> points = domainPoints.get(domain);
 
             for (Point point : points) {
                 point.x += centerX - oldWidth / 2;
@@ -197,11 +187,12 @@ public class WebVisualization extends JPanel {
         }
     }
     private void showDomainPanel(String domain) {
-        List<String> urls = domainURLs.get(domain);
-        List<Point> points = domainPoints.get(domain);
+        java.util.List<String> urls = domainURLs.get(domain);
+        java.util.List<Point> points = domainPoints.get(domain);
 
         // listen for mouse whell movement for resizing
-        parentPanel.addMouseWheelListener(new MouseAdapter() {
+
+        this.addMouseWheelListener(new MouseAdapter() {
             @Override
             public void mouseWheelMoved(MouseWheelEvent e) {
                 if (shiftPressed) {
@@ -225,16 +216,15 @@ public class WebVisualization extends JPanel {
 
 
                     // Remove all JLabel components
-                    Component[] components = parentPanel.getComponents();
+                    Component[] components = getContentPane().getComponents();
                     for (Component component : components) {
                         if (component instanceof JLabel) {
-                            parentPanel.remove(component);
+                            getContentPane().remove(component);
                         }
                     }
 
 
 
-                    parentPanel.repaint();
                     repaint();
                 }
             }
@@ -276,7 +266,7 @@ public class WebVisualization extends JPanel {
                 // Draw URL circles and create labels in multiple layers
 
 
-                System.out.println(parentPanel.getWidth());
+
 
                 int   startIndex = 0;
                 int numUrls = urls.size();
@@ -429,7 +419,7 @@ public class WebVisualization extends JPanel {
                         urlLabelComponent.setBounds(labelX, labelY, labelWidth, 20);
                         urlLabelComponent.setFont(new Font("Arial", Font.BOLD, fontSize)); // Use bold font
 
-                        parentPanel.add(urlLabelComponent);
+                        this.add(urlLabelComponent);
 
 
 
@@ -447,62 +437,49 @@ public class WebVisualization extends JPanel {
                 }
 
                 // Add domain label
-                parentPanel.add(domainLabelComponent);
-                addMouseEventsToLabels(parentPanel);
+                this.add(domainLabelComponent);
+                addMouseEventsToLabels(this);
 
             }
         };
 
         panel.setLayout(null); // Use absolute positioning for the labels
-        //setContentPane(panel);
-        parentPanel.add(panel);
+        setContentPane(panel);
 
-       parentPanel.revalidate();
-       revalidate();
-       parentPanel.repaint();
-       repaint();
+
+        revalidate();
+        repaint();
 
     }
 
 
-    public void setDomainURLs(Map<String, List<String>> domainURLs) {
+    public void setDomainURLs(Map<String, java.util.List<String>> domainURLs) {
         this.domainURLs = domainURLs;
         this.domains = new ArrayList<>(domainURLs.keySet());
 
-        JMenuBar menuBar = null;
-        Component[] components = parentPanel.getComponents();
+        JMenuBar menuBar = getJMenuBar();
+        JMenu domainMenu = menuBar.getMenu(0);
+        domainMenu.removeAll();
 
-        for (Component component : components) {
-            if (component instanceof JMenuBar) {
-                menuBar = (JMenuBar) component;
-                break;
-            }
-        }
-
-        if (menuBar != null) {
-            JMenu domainMenu = menuBar.getMenu(0);
-            domainMenu.removeAll();
-
-            JMenuItem domainItem;
-            for (String domain : domains) {
-                domainItem = new JMenuItem(domain);
-                domainMenu.add(domainItem);
-                domainItem.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        String selectedDomain = e.getActionCommand();
-                        showDomainPanel(selectedDomain);
-                    }
-                });
-            }
+        JMenuItem domainItem;
+        for (String domain : domains) {
+            domainItem = new JMenuItem(domain);
+            domainMenu.add(domainItem);
+            domainItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    String selectedDomain = e.getActionCommand();
+                    showDomainPanel(selectedDomain);
+                }
+            });
         }
     }
 
     public void createDomainPoints() {
         domainPoints = new HashMap<>();
 
-        int centerX = parentPanel.getWidth() / 2;
-        int centerY = parentPanel.getHeight() / 2;
+        int centerX = getWidth() / 2;
+        int centerY = getHeight() / 2;
 
         int numDomains = domains.size();
         int numURLsPerDomain = 0;
@@ -520,7 +497,7 @@ public class WebVisualization extends JPanel {
 
         for (int i = 0; i < numDomains; i++) {
             String domain = domains.get(i);
-            List<String> urls = domainURLs.get(domain);
+            java.util.List<String> urls = domainURLs.get(domain);
             int numURLs = urls.size();
 
             int domainCenterX = startX + (i * NODE_GAP);
@@ -556,33 +533,33 @@ public class WebVisualization extends JPanel {
 
 
     // ALSO CHECK FOR LOOPING , IF URL IS ALDREADY IN URL LIST DON'T ENTER IT IN THE NODE MAKER
-//    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(new Runnable() {
-//            public void run() {
-//                WebVisualization visualization = new WebVisualization();
-//                visualization.setVisible(true);
-//
-//                Map<String, List<String>> domainURLs = new HashMap<>();
-//                domainURLs.put("Domain 1", List.of("URL 1", "URL 2", "URL 3"));
-//                domainURLs.put("Domain 2", List.of( "URL 4", "URL 5", "URL 6", "URL 7",
-//                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
-//                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
-//                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
-//                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
-//                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
-//                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
-//                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7"));
-//                domainURLs.put("Domain 3", List.of("URL 8", "URL 9"));
-//                domainURLs.put("www.pcgarage.ro", List.of("/acer", "/mini-laptop","/retelistica" , "/info" , "/placi-video" , "/sisteme" , "/telefoane" , "/servicii","/componente-calculatoare",
-//                        "/din-garaj", "/auto-calatorii", "/electrocasnice-mari",
-//                        "/gaming" , "/periferice", "/printing-si-birotica","/casa-si-ingrijire-personala" , "/vouchere-reducere-in-cos-ai-doar-de-castigat" , "/cumpara-voucher" , "/vizualizare-wishlist"));
-//
-//                visualization.setDomainURLs(domainURLs);
-//                visualization.createDomainPoints();
-//
-//            }
-//        });
-//    }
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                WebVisualization visualization = new WebVisualization();
+                visualization.setVisible(true);
+
+                Map<String, java.util.List<String>> domainURLs = new HashMap<>();
+                domainURLs.put("Domain 1", java.util.List.of("URL 1", "URL 2", "URL 3"));
+                domainURLs.put("Domain 2", java.util.List.of( "URL 4", "URL 5", "URL 6", "URL 7",
+                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7"));
+                domainURLs.put("Domain 3", java.util.List.of("URL 8", "URL 9"));
+                domainURLs.put("www.pcgarage.ro", List.of("/acer", "/mini-laptop","/retelistica" , "/info" , "/placi-video" , "/sisteme" , "/telefoane" , "/servicii","/componente-calculatoare",
+                        "/din-garaj", "/auto-calatorii", "/electrocasnice-mari",
+                        "/gaming" , "/periferice", "/printing-si-birotica","/casa-si-ingrijire-personala" , "/vouchere-reducere-in-cos-ai-doar-de-castigat" , "/cumpara-voucher" , "/vizualizare-wishlist"));
+
+                visualization.setDomainURLs(domainURLs);
+                visualization.createDomainPoints();
+
+            }
+        });
+    }
 
 
 

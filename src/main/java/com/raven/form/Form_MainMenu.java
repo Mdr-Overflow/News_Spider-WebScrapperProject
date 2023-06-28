@@ -2,28 +2,109 @@ package com.raven.form;
 
 //import com.intellij.uiDesigner.core.*;
 
-import javax.swing.border.*;
-import javax.swing.table.*;
-
-import GUI.Options;
-import com.formdev.flatlaf.FlatLightLaf;
-import com.raven.component.*;
+import GUI.DB_WINDOW;
+import GUI.Proper.OptionsProper;
+import GUI.Proper.URLProper;
 import com.raven.dialog.Message;
+import com.raven.event.EventMenuSelected;
 import com.raven.main.Main;
-import com.raven.model.ModelStudent;
-import com.raven.swing.noticeboard.*;
-import com.raven.swing.table.*;
-import com.raven.swing.table.EventAction;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Objects;
 //import org.jdesktop.swingx.*;
+
+
+class Form_TutorialE extends Form_Tutorial{
+    private Form_MainMenu mainMenuInstance;
+
+    // Constructor
+    public Form_TutorialE(Form_MainMenu instance){
+        super(); // Call the constructor of parent class
+
+        this.mainMenuInstance = instance;
+
+        getButton5().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                mainMenuInstance.switchPanel("MainMenu");
+            }
+        });
+    }
+}
+
+//
+//class MainE extends Main{
+//
+//    private Form_MainMenu mainMenuInstance;
+//    // Constructor
+//    public MainE(Form_MainMenu instance){
+//        super(); // Call the constructor of parent class
+//
+//        this.mainMenuInstance = instance;
+//
+//        getMenu().addEvent(new EventMenuSelected() {
+//
+//
+//            @Override
+//            public void menuSelected(int menuIndex, int subMenuIndex)   {
+//            System.out.println("Menu Index 2 : " + menuIndex + " SubMenu Index 2" + subMenuIndex);
+//
+//                if (menuIndex == 6) {
+//                    if (subMenuIndex == 0) {
+//                        MainE.this.setVisible(true);
+//                        mainMenuInstance.setVisible(false);
+//                    }
+//                } // MENU
+//
+//
+//        }
+//    });
+//        }
+//}
+
+
 
 public class Form_MainMenu extends JFrame {
 
 
+    private JFrame frmNewsSpiderTest;
+    private JTextField textField;
+    private final JPanel PANELMANAGER = new JPanel();
+    private CardLayout cardl = new CardLayout(0, 0);
+    private final JPanel panel_3 = new JPanel();
+
+    private JPanel current_panel;
+
+    /**
+     * @wbp.nonvisual location=20,589
+     */
+    static int rate = -1;
+    static int threads = -1;
+    static String[] Real_URLS;
+    private final JPanel panel_OPTIONS = new JPanel();
+    private final JPanel panel_Urls = new JPanel();
+    public static JProgressBar bar = null;
+
+    private JLabel gifLabel;
+    static int progress = 0;
+
+    public static String[] options = {" ", " ", " ", " ", " ", " "};
+    public static ArrayList<HashMap<String, String>> Agents;
+
+
+    public String[] done = {"?"};
+
+    private static double SCALE_FACTOR = 1.5;
+
+
     public static void main(String[] args) {
+
+
 
         // ZOOM IN OPTION
         try {
@@ -57,44 +138,97 @@ public class Form_MainMenu extends JFrame {
 
 
 
-    public Form_MainMenu() {
-        initComponents();
 
-        //setOpaque(false);
+    private final JPanel panel_MainMenu = new JPanel(); // Main Menu Panel
+    private final JFrame panel_Dashboard = new Main(this);
+    private final JPanel panel_Instructions = new Form_TutorialE(this);
+    private final CardLayout cardLayout = new CardLayout();
+    private final JPanel mainPanel = new JPanel(cardLayout);
+
+    // Add your components here
+//    private JButton button2;
+//    private JButton button3;
+//    private JButton button4;
+//    private JButton button5;
+
+    public Form_MainMenu() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 1200, 800);
+
+        // Create and add components to panel_MainMenu
+        initComponents();
+//        panel_MainMenu.add(button2);
+//        panel_MainMenu.add(button3);
+//        panel_MainMenu.add(button4);
+//        panel_MainMenu.add(button5);
+
+        mainPanel.add(panel_MainMenu, "MainMenu");
+//        mainPanel.add(panel_Dashboard, "Dashboard");
+        mainPanel.add(panel_Instructions, "Instructions");
+
+        button2.addActionListener(e -> openDashboard());
+        button3.addActionListener(e -> switchPanel("Instructions"));
+        button4.addActionListener(e -> openDBManager());
+        button5.addActionListener(e -> System.exit(0));
+
+        setContentPane(mainPanel);
+        panel_Dashboard.setVisible(false);
+        switchPanel("MainMenu");
+
         initData();
+    }
+
+//    private void initComponents() {
+//        button2 = new JButton("Dashboard");
+//        button3 = new JButton("Instructions Page");
+//        button4 = new JButton("Database Manager");
+//        button5 = new JButton("Exit");
+//    }
+
+    // Method to switch panels
+    void switchPanel(String panelName) {
+        cardLayout.show(mainPanel, panelName);
+    }
+
+    private void openDBManager() {
+        System.out.println(done[0] + "<---------------------------------------------------------");
+        if (Objects.equals(done[0], "?")) {
+
+            DB_WINDOW dbw = new DB_WINDOW();
+            done[0] = "??";
+            DB_WINDOW.main(done);
+        } else if (Objects.equals(done[0], "Yes")) {
+            DB_WINDOW dbw = new DB_WINDOW();
+            done[0] = "??";
+            DB_WINDOW.main(done);
+
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Only one instance of dbmanager allowed");
+        }
+
+
     }
 
     private void initData() {
 
-        initTableData();
+//        initTableData();
     }
 
-    private void initTableData() {
-        EventAction eventAction = new EventAction() {
-            @Override
-            public void delete(ModelStudent student) {
-                if (showMessage("Delete Student : " + student.getName())) {
-                    System.out.println("User click OK");
-                } else {
-                    System.out.println("User click Cancel");
-                }
-            }
-
-            @Override
-            public void update(ModelStudent student) {
-                if (showMessage("Update Student : " + student.getName())) {
-                    System.out.println("User click OK");
-                } else {
-                    System.out.println("User click Cancel");
-                }
-            }
-        };
-
+    private void openDashboard() {
+        this.setVisible(false);
+        panel_Dashboard.setVisible(true);
     }
+
+//    public void closeDashboard(){
+//        this.setVisible(true);
+//        panel_Dashboard.setVisible(false);
+//
+//    }
 
 
     private boolean showMessage(String message) {
-        Message obj = new Message(Main.getFrames()[0], true);
+        Message obj = new Message(getFrames()[0], true);
         obj.showMessage(message);
         return obj.isOk();
     }
@@ -114,7 +248,7 @@ public class Form_MainMenu extends JFrame {
         button5 = new JButton();
 
         //======== this ========
-        setLayout(new MigLayout(
+        panel_MainMenu.setLayout(new MigLayout(
             "insets 0,hidemode 3",
             // columns
             "[52:63:250,grow 10,fill]" +
@@ -142,7 +276,7 @@ public class Form_MainMenu extends JFrame {
             label1.setPreferredSize(new Dimension(600, 250));
             panel1.add(label1, "cell 0 0,grow");
         }
-        add(panel1, "cell 1 1");
+        panel_MainMenu.add(panel1, "cell 1 1");
 
         //======== panel2 ========
         {
@@ -195,7 +329,7 @@ public class Form_MainMenu extends JFrame {
             button5.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 18));
             panel2.add(button5, "cell 0 5,growy");
         }
-        add(panel2, "cell 3 1");
+        panel_MainMenu.add(panel2, "cell 3 1");
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

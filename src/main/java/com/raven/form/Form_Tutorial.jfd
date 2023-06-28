@@ -1,0 +1,55 @@
+JFDML JFormDesigner: "8.0.3.0.246" Java: "17.0.6" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "insets 0,hidemode 3,gap 5 5"
+			"$columnConstraints": "[:173:500,grow,fill][grow,fill][:119:500,grow,fill]"
+			"$rowConstraints": "[10,grow][fill][grow,fill][129]"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel1"
+				"font": new java.awt.Font( "sansserif", 1, 20 )
+				"text": "Instructions Page"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\GoogleInstr.png" )
+				"foreground": new java.awt.Color( 4, 72, 210, 255 )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 1,align center center,grow 0 0"
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+				"$layoutConstraints": "insets 0,hidemode 3"
+				"$columnConstraints": "[0,grow,fill][636,grow 300,fill][grow,fill]"
+				"$rowConstraints": "[][440,grow 300,fill][]"
+			} ) {
+				name: "panel1"
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "scrollPane1"
+					add( new FormComponent( "javax.swing.JTextArea" ) {
+						name: "textArea1"
+						"editable": false
+						"text": "Welcome to News Spider\n\nHello and welcome!\n\nWe're excited to introduce you to the world of web scraping. This powerful tool allows you to extract data from websites quickly and efficiently. But like any powerful tool, it's essential to use it responsibly and securely. Before we get into the details of how to use your web scraper, let's talk about some important safety guidelines.\nSafe and Secure Web Scraping\n\nWhen choosing which websites to scrape, your safety and the website's integrity should be your top priorities. Here are some key points to remember:\n\n    Secure Pages: Always look for secure websites to scrape data from. Secure pages use the HTTPS protocol, which encrypts the data between your web scraper and the website's server, protecting it from being read by third parties. You can tell if a website uses HTTPS by looking at the URL in your browser. If it begins with \"https://\", it's secure.\n\n    Trusted Certificates: Along with looking for HTTPS pages, it's also vital to ensure that the website has a trusted SSL certificate. An SSL certificate is a type of digital certificate that provides authentication for a website and enables an encrypted connection. Websites with trusted SSL certificates have validated their identity with a trusted certificate authority.\n\n    Trustworthy Websites: Even if a page is secure and has a trusted certificate, it's still crucial to consider the reputation of the site. Be sure to only scrape data from websites that you trust, or that have a positive reputation. Remember, just because a site is secure, doesn't mean it's trustworthy. Research the site and make sure it's a legitimate, reputable source before you start scraping.\n\nHow to Use a Web Scraper\n\nNow that you know about the importance of security in web scraping, let's dive into how to use your web scraper.\n\n    Identify the Target: First, identify the data you want to scrape. It could be anything from product information, user reviews, article text, etc.\n\n    Inspect the Website: Using your web browser's tools, inspect the HTML of the webpage. Identify the HTML tags that hold the data you want.\n\n    Configure the Scraper: Set up your web scraper. This involves defining the URL to scrape, the data to collect, and the structure of the output.\n\n    Run the Scraper: Once you've configured the scraper, you can run it. It will visit the URL, extract the data you defined, and save it in the format you specified.\n\n    Review the Data: After the scraper has run, review the collected data. Ensure it collected everything correctly.\n\n    Respect the Rules: Always respect the website's rules and policies, including the terms of service and robots.txt file. Scraping can be legally and ethically complex, so it's vital to scrape responsibly"
+						"font": new java.awt.Font( "SansSerif", 1, 16 )
+						"lineWrap": true
+					} )
+				}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+					"value": "cell 1 1,grow"
+				} )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 1 2,growy"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button5"
+				"text": "Back"
+				"foreground": new java.awt.Color( 4, 72, 210, 255 )
+				"font": new java.awt.Font( "SansSerif", 1, 18 )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 3,aligny center,grow 100 0"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 30, 5 )
+			"size": new java.awt.Dimension( 1000, 710 )
+		} )
+	}
+}

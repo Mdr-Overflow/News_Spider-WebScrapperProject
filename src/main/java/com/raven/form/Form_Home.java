@@ -21,6 +21,8 @@ import com.raven.swing.noticeboard.ModelNoticeBoard;
 import com.raven.swing.table.*;
 import com.raven.swing.table.EventAction;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +34,9 @@ public class Form_Home extends javax.swing.JPanel {
 
     private JFrame parentFrame;
 
+
+
+
     public Form_Home(JFrame parentFrame) {
 
         this.parentFrame = parentFrame;
@@ -40,30 +45,30 @@ public class Form_Home extends javax.swing.JPanel {
         setOpaque(false);
         initData();
 
-        WebVisualization visualization = new WebVisualization( parentFrame , panel1);
-
-
-        visualization.setVisible(true);
-
-        Map<String, java.util.List<String>> domainURLs = new HashMap<>();
-        domainURLs.put("Domain 1", java.util.List.of("URL 1", "URL 2", "URL 3"));
-        domainURLs.put("Domain 2", java.util.List.of( "URL 4", "URL 5", "URL 6", "URL 7",
-                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
-                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
-                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
-                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
-                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
-                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
-                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7"));
-        domainURLs.put("Domain 3", java.util.List.of("URL 8", "URL 9"));
-        domainURLs.put("www.pcgarage.ro", List.of("/acer", "/mini-laptop","/retelistica" , "/info" , "/placi-video" , "/sisteme" , "/telefoane" , "/servicii","/componente-calculatoare",
-                "/din-garaj", "/auto-calatorii", "/electrocasnice-mari",
-                "/gaming" , "/periferice", "/printing-si-birotica","/casa-si-ingrijire-personala" , "/vouchere-reducere-in-cos-ai-doar-de-castigat" , "/cumpara-voucher" , "/vizualizare-wishlist"));
-
-        visualization.setDomainURLs(domainURLs);
-        visualization.createDomainPoints();
-
-        panel1.add(visualization);
+//        WebVisualization visualization = new WebVisualization( parentFrame , panel1);
+//
+//
+//        visualization.setVisible(true);
+//
+//        Map<String, java.util.List<String>> domainURLs = new HashMap<>();
+//        domainURLs.put("Domain 1", java.util.List.of("URL 1", "URL 2", "URL 3"));
+//        domainURLs.put("Domain 2", java.util.List.of( "URL 4", "URL 5", "URL 6", "URL 7",
+//                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+//                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+//                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+//                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+//                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+//                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+//                "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7"));
+//        domainURLs.put("Domain 3", java.util.List.of("URL 8", "URL 9"));
+//        domainURLs.put("www.pcgarage.ro", List.of("/acer", "/mini-laptop","/retelistica" , "/info" , "/placi-video" , "/sisteme" , "/telefoane" , "/servicii","/componente-calculatoare",
+//                "/din-garaj", "/auto-calatorii", "/electrocasnice-mari",
+//                "/gaming" , "/periferice", "/printing-si-birotica","/casa-si-ingrijire-personala" , "/vouchere-reducere-in-cos-ai-doar-de-castigat" , "/cumpara-voucher" , "/vizualizare-wishlist"));
+//
+//        visualization.setDomainURLs(domainURLs);
+//        visualization.createDomainPoints();
+//
+//        panel1.add(visualization);
 
 
     }
@@ -111,6 +116,39 @@ public class Form_Home extends javax.swing.JPanel {
         comboBox2 = new JComboBox<>();
         panel1 = new JPanel();
         button1 = new JButton();
+
+
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                WebVisualization visualization = new WebVisualization();
+
+                visualization.setVisible(true);
+
+                Map<String, java.util.List<String>> domainURLs = new HashMap<>();
+
+
+
+//                domainURLs.put("Domain 1", java.util.List.of("URL 1", "URL 2", "URL 3"));
+//                domainURLs.put("Domain 2", java.util.List.of( "URL 4", "URL 5", "URL 6", "URL 7",
+//                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+//                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+//                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+//                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+//                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+//                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7","URL 4", "URL 5", "URL 6", "URL 7",
+//                        "URL 7" , "URL 7", "URL 7","URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7" , "URL 7"));
+//                domainURLs.put("Domain 3", java.util.List.of("URL 8", "URL 9"));
+//                domainURLs.put("www.pcgarage.ro", List.of("/acer", "/mini-laptop","/retelistica" , "/info" , "/placi-video" , "/sisteme" , "/telefoane" , "/servicii","/componente-calculatoare",
+//                        "/din-garaj", "/auto-calatorii", "/electrocasnice-mari",
+//                        "/gaming" , "/periferice", "/printing-si-birotica","/casa-si-ingrijire-personala" , "/vouchere-reducere-in-cos-ai-doar-de-castigat" , "/cumpara-voucher" , "/vizualizare-wishlist"));
+
+                visualization.setDomainURLs(domainURLs);
+                visualization.createDomainPoints();
+            }
+        });
+
 
         //======== this ========
         setLayout(new MigLayout(

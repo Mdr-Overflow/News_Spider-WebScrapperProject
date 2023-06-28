@@ -5,6 +5,7 @@ import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
 import javax.swing.border.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.*;
 import com.raven.component.*;
 import com.raven.dialog.Message;
@@ -18,6 +19,14 @@ import com.raven.swing.noticeboard.ModelNoticeBoard;
 import com.raven.swing.table.*;
 import com.raven.swing.table.EventAction;
 import java.awt.Color;
+import java.awt.event.ItemEvent;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import net.miginfocom.swing.*;
@@ -61,10 +70,17 @@ public class Form_Query extends JPanel {
 
 
     private boolean showMessage(String message) {
-        Message obj = new Message(Main.getFrames()[0], true);
+        Message obj = new Message(Frame.getFrames()[0], true);
         obj.showMessage(message);
         return obj.isOk();
     }
+
+
+
+
+
+
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -90,6 +106,126 @@ public class Form_Query extends JPanel {
         button3 = new JButton();
         label8 = new JLabel();
         spinner2 = new JSpinner();
+
+
+
+
+
+        // create button group for radio buttons
+        ButtonGroup btnGroup = new ButtonGroup();
+        btnGroup.add(radioButton1);
+        btnGroup.add(radioButton2);
+        btnGroup.add(radioButton3);
+
+        // add item listeners for radio buttons to enable/disable components
+        radioButton1.addItemListener(e -> {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                comboBox1.setEnabled(false);
+                button2.setEnabled(false);
+                textField1.setEnabled(true);
+                radioButton2.setEnabled(true);
+                radioButton3.setEnabled(true);
+            } else {
+                comboBox1.setEnabled(true);
+                button2.setEnabled(true);
+            }
+        });
+
+        radioButton2.addItemListener(e -> {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                textField1.setEnabled(false);
+                button2.setEnabled(false);
+                comboBox1.setEnabled(true);
+                radioButton1.setEnabled(true);
+                radioButton3.setEnabled(true);
+            } else {
+                textField1.setEnabled(true);
+                button2.setEnabled(true);
+            }
+        });
+
+        radioButton3.addItemListener(e -> {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                textField1.setEnabled(false);
+                comboBox1.setEnabled(false);
+                button2.setEnabled(true);
+                radioButton1.setEnabled(true);
+                radioButton2.setEnabled(true);
+            } else {
+                textField1.setEnabled(true);
+                comboBox1.setEnabled(true);
+            }
+        });
+
+
+        button2.addActionListener(e -> {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            fileChooser.setFileFilter(new FileNameExtensionFilter("Text Files", "txt"));
+
+            int result = fileChooser.showOpenDialog(null);
+            if (result == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
+                String filename = selectedFile.getName();
+                if (filename.endsWith(".txt")) {
+                    StringBuilder sb = new StringBuilder();
+                    try (BufferedReader br = new BufferedReader(new FileReader(selectedFile))) {
+                        String line;
+                        while ((line = br.readLine()) != null) {
+                            Matcher m = Pattern.compile("[\\w']+").matcher(line);
+                            while (m.find()) {
+                                sb.append(m.group()).append(" ");
+                            }
+                        }
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                    String searchData = sb.toString().trim();
+                    // use searchData as necessary...
+                    System.out.println(searchData);
+
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Only TXT files allowed for this operation");
+                }
+            }
+        });
+
+        // initialize the HashMap
+        HashMap<String, String[]> topics = new HashMap<>();
+        topics.put("Financial Information", new String[]{"stock", "investment", "economy", "bond"});
+        topics.put("Entertainment", new String[]{"movie", "music", "theatre", "game"});
+        topics.put("News", new String[]{"politics", "weather", "sport", "international"});
+
+// load keys to comboBox1
+        for (String key : topics.keySet()) {
+            comboBox1.addItem(key);
+        }
+
+// create an empty searchData string
+        StringBuilder searchDataBuilder = new StringBuilder();
+
+// Add an action listener to comboBox1 to handle item selection
+        comboBox1.addActionListener(e -> {
+            // clear searchData
+            searchDataBuilder.setLength(0);
+
+            // get selected item
+            String selectedTopic = (String) comboBox1.getSelectedItem();
+            // retrieve the associated words
+            String[] words = topics.get(selectedTopic);
+
+            // append words to searchData
+            for (String word : words) {
+                searchDataBuilder.append(word).append(" ");
+                String searchData = searchDataBuilder.toString().trim();
+                System.out.println(searchData);
+            }
+        });
+
+// use searchData when needed
+
+
 
         //======== this ========
 
@@ -175,6 +311,12 @@ public class Form_Query extends JPanel {
         //---- spinner2 ----
         spinner2.setModel(new SpinnerNumberModel(2, 1, 2, 1));
         spinner2.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
+
+
+
+        ((JSpinner.DefaultEditor) spinner1.getEditor()).getTextField().setEditable(false);
+        ((JSpinner.DefaultEditor) spinner2.getEditor()).getTextField().setEditable(false);
+
 
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
@@ -277,6 +419,18 @@ public class Form_Query extends JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+
+
+
+
+
+
+
+
+
+
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // Generated using JFormDesigner Educational license - Madaras Andrei
     private JLabel jLabel1;
@@ -299,5 +453,16 @@ public class Form_Query extends JPanel {
     private JButton button3;
     private JLabel label8;
     private JSpinner spinner2;
+
+
+
+
+
+
+
+
+
+
+
     // End of variables declaration//GEN-END:variables
 }

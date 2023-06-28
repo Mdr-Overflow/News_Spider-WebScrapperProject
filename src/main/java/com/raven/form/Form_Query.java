@@ -7,6 +7,9 @@ import javax.swing.LayoutStyle;
 import javax.swing.border.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.*;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.raven.component.*;
 import com.raven.dialog.Message;
 import com.raven.main.Main;
@@ -25,6 +28,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.Icon;
@@ -33,11 +37,22 @@ import net.miginfocom.swing.*;
 
 public class Form_Query extends JPanel {
 
+    private String searchData;
+    private ObjectMapper objectMapper;
+    private File jsonFile;
+
     public Form_Query() {
         initComponents();
 
+        searchData = " ";
+
         setOpaque(false);
         initData();
+        objectMapper = new ObjectMapper();
+        jsonFile = new File("query.json");
+
+        loadQueryData();
+
     }
 
     private void initData() {
@@ -76,7 +91,41 @@ public class Form_Query extends JPanel {
     }
 
 
+    private void saveQueryData() {
+        try {
+            HashMap<String, Object> data = new HashMap<>();
 
+            if (radioButton1.isSelected()) {
+                searchData = textField1.getText();
+            }
+
+            data.put("keyword", textField1.getText());
+            data.put("topic", Objects.requireNonNull(comboBox1.getSelectedItem()).toString());
+            data.put("wait", spinner1.getValue());
+            data.put("itterations", spinner2.getValue());
+            data.put("search", searchData);
+
+            objectMapper.writeValue(jsonFile, data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadQueryData() {
+        if (jsonFile.exists()) {
+            try {
+                TypeReference<HashMap<String, Object>> typeRef = new TypeReference<>() {};
+                HashMap<String, Object> data = objectMapper.readValue(jsonFile, typeRef);
+
+                textField1.setText((String) data.get("keyword"));
+                comboBox1.setSelectedItem((String) data.get("topic"));
+                spinner1.setValue(data.get("wait"));
+                spinner2.setValue(data.get("itterations"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 
 
@@ -181,6 +230,7 @@ public class Form_Query extends JPanel {
                         ioException.printStackTrace();
                     }
                     String searchData = sb.toString().trim();
+                    this.searchData = searchData;
                     // use searchData as necessary...
                     System.out.println(searchData);
 
@@ -219,6 +269,7 @@ public class Form_Query extends JPanel {
             for (String word : words) {
                 searchDataBuilder.append(word).append(" ");
                 String searchData = searchDataBuilder.toString().trim();
+                this.searchData = searchData;
                 System.out.println(searchData);
             }
         });
@@ -316,7 +367,11 @@ public class Form_Query extends JPanel {
 
         ((JSpinner.DefaultEditor) spinner1.getEditor()).getTextField().setEditable(false);
         ((JSpinner.DefaultEditor) spinner2.getEditor()).getTextField().setEditable(false);
-
+        button1.addActionListener(e -> saveQueryData());
+        button3.addActionListener(e -> {
+            spinner1.setValue(100);
+            spinner2.setValue(2);
+        });
 
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);

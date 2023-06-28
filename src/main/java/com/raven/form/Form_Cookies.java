@@ -3,6 +3,9 @@ package com.raven.form;
 import javax.swing.border.*;
 import javax.swing.table.*;
 import javax.swing.tree.*;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.raven.component.*;
 import com.raven.dialog.Message;
 import com.raven.main.Main;
@@ -13,6 +16,14 @@ import com.raven.swing.table.EventAction;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.HashMap;
 
 public class Form_Cookies extends JPanel {
 
@@ -21,10 +32,13 @@ public class Form_Cookies extends JPanel {
 
         setOpaque(false);
         initData();
+
+
+
     }
 
     private void initData() {
-
+        loadRadioButtonState();
         initTableData();
     }
 
@@ -51,6 +65,58 @@ public class Form_Cookies extends JPanel {
 
     }
 
+    private void loadTreeData() {
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode("Cookies");
+
+        File folder = new File("Cookies");
+        File[] listOfFiles = folder.listFiles();
+
+        if (listOfFiles != null) {
+            for (File file : listOfFiles) {
+                if (file.isFile()) {
+                    root.add(new DefaultMutableTreeNode(file.getName()));
+                }
+            }
+        }
+
+        DefaultTreeModel model = new DefaultTreeModel(root);
+        tree1.setModel(model);
+    }
+
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    File jsonFile = new File("cookies.json");
+
+    private void saveRadioButtonState() {
+        HashMap<String, Object> data = new HashMap<>();
+        data.put("Enabled", radioButton1.isSelected());
+
+        try {
+            objectMapper.writeValue(jsonFile, data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadRadioButtonState() {
+        if (jsonFile.exists()) {
+            try {
+                HashMap<String, Boolean> data = objectMapper.readValue(jsonFile, new TypeReference<HashMap<String, Boolean>>(){});
+                Boolean enabled = data.get("Enabled");
+                radioButton1.setSelected(enabled != null ? enabled : false);
+                button1.setEnabled(radioButton1.isSelected());
+                button2.setEnabled(radioButton1.isSelected());
+                tree1.setEnabled(radioButton1.isSelected());
+
+             
+                    loadTreeData();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     private boolean showMessage(String message) {
         Message obj = new Message(Frame.getFrames()[0], true);
@@ -71,6 +137,74 @@ public class Form_Cookies extends JPanel {
         button1 = new JButton();
 
         //======== this ========
+
+
+        // Initialization part...
+            button1.setEnabled(false);
+            button2.setEnabled(false);
+            tree1.setEnabled(false);
+
+
+        radioButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                button1.setEnabled(radioButton1.isSelected());
+                button2.setEnabled(radioButton1.isSelected());
+                tree1.setEnabled(radioButton1.isSelected());
+
+                if(radioButton1.isSelected()){
+                    loadTreeData();
+                }
+                saveRadioButtonState();
+            }
+        });
+
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                int returnValue = fileChooser.showOpenDialog(null);
+
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    try {
+                        Files.copy(selectedFile.toPath(), Paths.get("Cookies", selectedFile.getName()), StandardCopyOption.REPLACE_EXISTING);
+                        loadTreeData();
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
+            }
+        });
+
+
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultMutableTreeNode node = (DefaultMutableTreeNode) tree1.getLastSelectedPathComponent();
+                if (node == null) {
+                    // Nothing is selected, return
+                    System.out.println("NONE");
+                    return;
+                }
+
+                String fileName = node.getUserObject().toString();
+                File fileToDelete = new File("Cookies", fileName);
+
+                if (fileToDelete.exists() && fileToDelete.isFile()) {
+                    if (fileToDelete.delete()) {
+                        System.out.println("File deleted successfully");
+                    } else {
+                        System.out.println("Failed to delete file");
+                    }
+                }
+
+                // refresh the JTree1
+                loadTreeData();
+            }
+        });
+
+
 
         //---- jLabel1 ----
         jLabel1.setFont(new Font("sansserif", Font.BOLD, 20));

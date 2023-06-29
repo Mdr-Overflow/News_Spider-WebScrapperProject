@@ -10,7 +10,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class AIModelSentiment {
-    private static final String API_KEY = "dce506b8-9b53-41fc-a97f-d77c9f17e1fd";
+    private static final String API_KEY = "";
     public static String sendRequest(String prompt) {
 
         HttpClient client = HttpClient.newHttpClient();

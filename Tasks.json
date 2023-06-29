@@ -1,1 +1,29 @@
-{"Tasks":[]}
+{"Tasks": [
+    {
+        "Number": "Multiple",
+        "Rating": "Safe",
+        "Page": "Dinamic",
+        "Domain": "Single Page",
+        "Urls": [
+            "https://www.theguardian.com/international",
+            "https://www.ebay.com/b/Electronics/bn_7000259124l",
+            "https://en.wikipedia.org/wiki/Names_of_large_numbers",
+            "https://www.espn.com/",
+            "https://weather.com/",
+            "https://www.wunderground.com",
+            "https://www.meteoblue.com/en/weather/week/timi%C8%99oara_romania_665087"
+        ],
+        "Name": "AB"
+    },
+    {
+        "Number": "Singular",
+        "Rating": "Safe",
+        "Page": "Static",
+        "Domain": "Multiple Pages",
+        "Urls": [
+            "https://mvnrepository.com/artifact/org.jsoup/jsoup/1.15.3",
+            "https://learn.microsoft.com/en-us/sql/t-sql/data-types/char-and-varchar-transact-sql?view=sql-server-ver16"
+        ],
+        "Name": "C"
+    }
+]}

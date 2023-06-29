@@ -35,7 +35,7 @@ public class Create_Tables {
             "(id INTEGER not NULL, " +
             " url VARCHAR(255), " + 
             " time DATETIME, " +
-            " result VARCHAR(500), " +
+            " result VARCHAR(1000), " +
             " useragent VARCHAR(255), " +
             " PRIMARY KEY ( id ))";
 	

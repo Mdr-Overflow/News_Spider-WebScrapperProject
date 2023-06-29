@@ -1,18 +1,11 @@
 package GUI;
 
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.ScrollPaneConstants;
+import javax.swing.*;
 import javax.swing.event.MouseInputListener;
 import javax.swing.table.DefaultTableModel;
 
@@ -163,24 +156,31 @@ public class TABLE_MAKER {
 		
 		
 	};
-	
-	
-	
-	
-	private static void jTable1MouseClicked(java.awt.event.MouseEvent evt) {                                     
-	     JTable source = (JTable)evt.getSource();
-	            int row = source.rowAtPoint( evt.getPoint() );
-	            int column = source.columnAtPoint( evt.getPoint() );
-	            String s=source.getModel().getValueAt(row, column)+"";
-
-	            JOptionPane.showMessageDialog(null, s);
 
 
-	} 
-	
-	
-	
-	
+
+
+	private static void jTable1MouseClicked(java.awt.event.MouseEvent evt) {
+		JTable source = (JTable)evt.getSource();
+		int row = source.rowAtPoint(evt.getPoint());
+		int column = source.columnAtPoint(evt.getPoint());
+		String s = source.getModel().getValueAt(row, column) + "";
+
+		// Create a JTextArea with the message and set its maximum size
+		JTextArea messageTextArea = new JTextArea(s);
+		messageTextArea.setMaximumSize(new Dimension(500, Integer.MAX_VALUE));
+		messageTextArea.setLineWrap(true);
+		messageTextArea.setWrapStyleWord(true);
+		messageTextArea.setEditable(false);
+
+		// Put the JTextArea in a JScrollPane
+		JScrollPane scrollPane = new JScrollPane(messageTextArea);
+		scrollPane.setPreferredSize(new Dimension(250, 250));
+
+		// Display the JOptionPane with the JScrollPane as the message component
+		// and provide a custom title
+		JOptionPane.showMessageDialog(null, scrollPane, "Data", JOptionPane.INFORMATION_MESSAGE);
+	}
 	
 	
 	

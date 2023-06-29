@@ -2,9 +2,12 @@ package com.raven.form;
 
 //import com.intellij.uiDesigner.core.*;
 
+import DB.Create_Tables;
+import DB.DB_UA;
 import GUI.DB_WINDOW;
 import GUI.Proper.OptionsProper;
 import GUI.Proper.URLProper;
+import Proj.Headers;
 import com.raven.dialog.Message;
 import com.raven.event.EventMenuSelected;
 import com.raven.main.Main;
@@ -14,6 +17,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
@@ -212,6 +216,47 @@ public class Form_MainMenu extends JFrame {
 
     private void initData() {
 
+        try {
+            Create_Tables ct = new Create_Tables();
+
+
+            // CREATE DEFAULTS FOR USERAGENTS AND HEADERS
+            DB_UA ua_db = new DB_UA();
+            DB.DB_HEADERS hd_db = new DB.DB_HEADERS();
+
+            ua_db.Populate_UA_DEFAULT();
+            hd_db.Populate_HEADERS_DEFAULT();
+
+
+            hd_db.Populate_HEADERS_DEFAULT();
+            // CREATE AGENTS DB
+
+            ua_db.END_CONNECTION();
+            hd_db.END_CONNECTION();
+
+            Headers h = new Headers();
+
+            DB.DB_AGENTS ag_db = new DB.DB_AGENTS();
+            ag_db.del_AGENTS();
+            ag_db.Create_AGENTS(10);
+            Agents = new ArrayList<HashMap<String, String>>(h.Generate_Agents(ag_db));
+
+
+        } catch (SQLException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+            JOptionPane.showMessageDialog(this,
+                    "COULD NOT ESTABLISH CONNECTION TO DATABASE OR NOT ENOGTH MEMORY FOR TABLES");
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e2) {
+                // TODO Auto-generated catch block
+                e2.printStackTrace();
+            }
+            System.exit(-1);
+        }
+
+
 //        initTableData();
     }
 
@@ -272,7 +317,7 @@ public class Form_MainMenu extends JFrame {
 
             //---- label1 ----
             label1.setHorizontalAlignment(SwingConstants.CENTER);
-            label1.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\nodes.gif"));
+            label1.setIcon(new ImageIcon("Resources\\nodes.gif"));
             label1.setPreferredSize(new Dimension(600, 250));
             panel1.add(label1, "cell 0 0,grow");
         }
@@ -295,7 +340,7 @@ public class Form_MainMenu extends JFrame {
             //---- jLabel1 ----
             jLabel1.setFont(new Font("sansserif", Font.BOLD, 20));
             jLabel1.setText("News Spider");
-            jLabel1.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\webDoodle-50x50.png"));
+            jLabel1.setIcon(new ImageIcon("Resources\\webDoodle-50x50.png"));
             panel2.add(jLabel1, "cell 0 0,align center center,grow 0 0");
 
             //---- jLabel2 ----

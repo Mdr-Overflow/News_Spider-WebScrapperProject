@@ -138,7 +138,7 @@ public class DB_RESULT extends DB_CONNECT{
 	 	
 	 		
 	 		try {
-         PreparedStatement stmtSEC = dbConn.prepareStatement("DELETE FROM RESULT WHERE id = ?");
+         PreparedStatement stmtSEC = dbConn.prepareStatement("DELETE FROM RESULTS WHERE id = ?");
          stmtSEC.setInt(1, id);
          stmtSEC.execute();
          stmtSEC.close();

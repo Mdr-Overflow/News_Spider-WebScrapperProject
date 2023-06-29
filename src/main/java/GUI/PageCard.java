@@ -25,7 +25,7 @@ public class PageCard extends JDialog {
 
         // Image Pane
         JPanel imagePanel = new JPanel();
-        ImageIcon icon = new ImageIcon("SpiderDoodle.jpeg"); // Replace with your image file path
+        ImageIcon icon = new ImageIcon("Resources\\GoogleIconPage.png"); // Replace with your image file path
         JLabel imageLabel = new JLabel(icon);
         imagePanel.add(imageLabel);
         add(imagePanel, "span 2, center, gapbottom 20");

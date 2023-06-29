@@ -62,7 +62,7 @@ public int run(int k, String[] Url_list , String Params , String KeyWord , Array
      	String screen = options[2];
      	
      	boolean headl = false;
-     	if(headless == "yes") headl = true; 
+     	if(headless == "YES") headl = true;
      	
     //#########################
      	String kstr = Integer.toString(k);
@@ -117,7 +117,7 @@ public int run(int k, String[] Url_list , String Params , String KeyWord , Array
       
      
         l.log(Logger.GeneratorStartedLOG + Url_list[k]);
-        if(safe == "yes" || Utils.isRobotsParsable(Url_list[k], user_agent)) {
+        if(safe == "YES" || Utils.isRobotsParsable(Url_list[k], user_agent)) {
             l.log(Url_list[k] + "Entered in can_fetch");
             //l.log(Url_list[k] + "Entered in can_fetch");
             tls.page = tls.browsercontext.newPage();
@@ -128,7 +128,7 @@ public int run(int k, String[] Url_list , String Params , String KeyWord , Array
             
             	
             	
-            	if(screen == "yes") {
+            	if(screen == "YES") {
                 	//System.out.println(Url_list[k].lastIndexOf("www."));
                 	if(Url_list[k].contains("www.")){
                 tls.page.screenshot(new Page.ScreenshotOptions()
@@ -149,6 +149,8 @@ public int run(int k, String[] Url_list , String Params , String KeyWord , Array
             	
             	
                 try {
+					//////// MORE TO WORK ON HERE , ON PARSERS
+
                     l.log(Logger.GeneratorEnterDiscLOG);
                     Object isDiscardedNULL = new Object();
                    try {

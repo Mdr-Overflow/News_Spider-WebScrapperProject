@@ -60,7 +60,7 @@ public class Form1 extends JPanel {
         //---- label1 ----
         label1.setText("Statistics");
         label1.setFont(new Font(Font.SANS_SERIF, label1.getFont().getStyle() | Font.BOLD, label1.getFont().getSize() + 8));
-        label1.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\GoogleStats.png"));
+        label1.setIcon(new ImageIcon("Resources\\GoogleStats.png"));
         add(label1, "cell 8 1,alignx center,growx 0");
 
         //---- label2 ----

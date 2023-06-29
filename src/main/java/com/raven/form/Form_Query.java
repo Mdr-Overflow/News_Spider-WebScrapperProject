@@ -284,7 +284,7 @@ public class Form_Query extends JPanel {
         jLabel1.setFont(new Font("sansserif", Font.BOLD, 20));
         jLabel1.setForeground(new Color(0x0448d2));
         jLabel1.setText("Query Page");
-        jLabel1.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\GoogleQuery.png"));
+        jLabel1.setIcon(new ImageIcon("Resources\\GoogleQuery.png"));
 
         //---- label1 ----
         label1.setText("Keyword");

@@ -117,38 +117,9 @@ public class Form_Tutorial extends JPanel {
 
     private void initData() {
 
-//        initTableData();
     }
 
-//    private void initTableData() {
-//        EventAction eventAction = new EventAction() {
-//            @Override
-//            public void delete(ModelStudent student) {
-//                if (showMessage("Delete Student : " + student.getName())) {
-//                    System.out.println("User click OK");
-//                } else {
-//                    System.out.println("User click Cancel");
-//                }
-//            }
-//
-//            @Override
-//            public void update(ModelStudent student) {
-//                if (showMessage("Update Student : " + student.getName())) {
-//                    System.out.println("User click OK");
-//                } else {
-//                    System.out.println("User click Cancel");
-//                }
-//            }
-//        };
-//
-//    }
 
-
-//    private boolean showMessage(String message) {
-//        Message obj = new Message(.getFrames()[0], true);
-//        obj.showMessage(message);
-//        return obj.isOk();
-//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -176,7 +147,7 @@ public class Form_Tutorial extends JPanel {
         //---- jLabel1 ----
         jLabel1.setFont(new Font("sansserif", Font.BOLD, 20));
         jLabel1.setText("Instructions Page");
-        jLabel1.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\GoogleInstr.png"));
+        jLabel1.setIcon(new ImageIcon("Resources\\GoogleInstr.png"));
         jLabel1.setForeground(new Color(0x0448d2));
         add(jLabel1, "cell 1 1,align center center,grow 0 0");
 

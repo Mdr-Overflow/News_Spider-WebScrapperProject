@@ -17,7 +17,7 @@ public class Logger {
 	public final static String AllParseFailedLOG = "Failed AllParse @@@@@@@@";
 	public final static String ParserStartedLOG = "--- Started Parser --- FOR ";
 	public final static String ParserNoAsyncLOG ="      <<<<<<<<<<<<<< ParserNoAsync LOGGS >>>>>>>>>>>>>>";
-	public final static String ThreadsDeadLOG ="NO THRED SHOULD BE ALIVE AFTER THIS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;";
+	public final static String ThreadsDeadLOG ="NO THREAD SHOULD BE ALIVE AFTER THIS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;";
 	public final static String ThreadsKilledLOG ="############Exited all threads##############";
 	public final static String GeneratorStartedLOG = "############# Started ";
 	public final static String GeneratorEnterDiscLOG = "entered isDiscarded";

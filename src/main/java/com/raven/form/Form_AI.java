@@ -162,7 +162,7 @@ public class Form_AI extends JPanel {
         jLabel1.setFont(new Font("sansserif", Font.BOLD, 20));
         jLabel1.setForeground(new Color(0x0448d2));
         jLabel1.setText("Filter Page");
-        jLabel1.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\GoogleFilter.png"));
+        jLabel1.setIcon(new ImageIcon("Resources\\GoogleFilter.png"));
         add(jLabel1, "cell 1 1 2 1");
 
         //---- label1 ----

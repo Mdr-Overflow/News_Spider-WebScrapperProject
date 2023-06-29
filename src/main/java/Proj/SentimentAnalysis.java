@@ -18,11 +18,11 @@ public class SentimentAnalysis {
 
 
 
-    public static void main(String args[]) throws IOException
+    public static void Apply(String path) throws IOException
     {
         try{
             int count=0;
-            String tweet;
+            String tline;
 
             ArrayList<String> stopwords= new ArrayList<String>();
             BufferedReader stop = new BufferedReader(new FileReader("Data\\stopwords.txt"));
@@ -47,12 +47,12 @@ public class SentimentAnalysis {
 
 
 
-            Scanner inputStream= new Scanner(new FileReader("C:\\Users\\ATripathi\\Desktop\\New folder\\Sentiment Analysis\\Data\\TestTweets.csv"));
+            Scanner inputStream= new Scanner(new FileReader(path));
             while(inputStream.hasNextLine())
             {
-                float tweetscore=0;
-                tweet= inputStream.nextLine();
-                String[] word=tweet.split(" ");
+                float score=0;
+                tline= inputStream.nextLine();
+                String[] word=tline.split(" ");
 
 
 
@@ -66,10 +66,10 @@ public class SentimentAnalysis {
                         if(map.get(word[i])!=null)
                         {
                             String wordscore= map.get(word[i].toLowerCase());
-                            tweetscore=(float) tweetscore + Integer.parseInt(wordscore);
+                            score=(float) score + Integer.parseInt(wordscore);
                         }}}
                 Map<String, Float> sentiment= new HashMap<String, Float>();
-                sentiment.put(tweet, tweetscore);
+                sentiment.put(tline, score);
                 System.out.println(sentiment.toString());
 
 

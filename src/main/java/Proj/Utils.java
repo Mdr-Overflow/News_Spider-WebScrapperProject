@@ -260,7 +260,32 @@ public static ArrayList<String> DumpToDB( Page page,String KeyWord) {
 
 	        pattern.matcher(content).replaceAll("");
 
-	        contents.add(content);
+
+			// @@@@@@@@@@@@@@@@@@@@@@ UPDATED RULESETS   @@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+
+
+			// pattern to match lines starting with more than 3 spaces
+					Pattern patternSpaces = Pattern.compile("^ {4,}.*$", Pattern.MULTILINE);
+					Matcher matcherSpaces = patternSpaces.matcher(content);
+					content = matcherSpaces.replaceAll(""); // replace matches with empty string
+
+		// pattern to match lines starting with more than 2 special characters
+					Pattern patternSpecialChars = Pattern.compile("^[\\W]{3,}.*$", Pattern.MULTILINE);
+					Matcher matcherSpecialChars = patternSpecialChars.matcher(content);
+					content = matcherSpecialChars.replaceAll(""); // replace matches with empty string
+
+
+
+
+
+			// @@@@@@@@@@@@@@@@@@@@@@ UPDATED RULESETS   @@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+			contents.add(content);
 
 	        l.log(content);
 	    }

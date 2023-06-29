@@ -13,13 +13,20 @@ public class Parsers {
 	
 	public static ArrayList<String> AllParse_NoAsync(Page page, String KeyWord, String url) {
 	    
-		// DOES NOT GET ELEMENTS LIKE THIS : </IMG ... SRC = ..KEYWORD.. > 
+		// DOES NOT GET ELEMENTS LIKE THIS : </IMG ... SRC = ..KEYWORD.. >
+
+
+
+
 		
 		Logger l = new Logger(true);
 		l.log(Logger.AllParse_NoAsyncLOG);
 		String text = page.textContent("*");
 	   // System.out.println(text);
 		//l.log(text);
+
+		// WE CAN USE REGEX OR
+
 	    String Regex = KeyWord;
 	    Pattern pattern = Pattern.compile(Regex, Pattern.CASE_INSENSITIVE);
 	    
@@ -27,8 +34,9 @@ public class Parsers {
 	    l.log(RegexResult.toString() + Logger.AllParseResultLOG + url);
 	    if (RegexResult.find()) {
 	     String  RegexResultString = RegexResult.group();
-	
-	    
+
+
+
 	    //l.log("@@@@@@" + RegexResultString);
 	    l.log(Logger.AllParseFounAllContextLOG);
 	    if (RegexResultString != null) {

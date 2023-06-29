@@ -189,7 +189,7 @@ public class Form_Proxies extends JPanel {
         jLabel1.setFont(new Font("sansserif", Font.BOLD, 20));
         jLabel1.setForeground(new Color(0x0448d2));
         jLabel1.setText("Proxies Page");
-        jLabel1.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\GoogleProxie.png"));
+        jLabel1.setIcon(new ImageIcon("Resources\\GoogleProxie.png"));
 
         //---- radioButton1 ----
         radioButton1.setText("Use Proxies ?");

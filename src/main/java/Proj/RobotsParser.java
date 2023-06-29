@@ -35,7 +35,13 @@ import static org.junit.jupiter.api.Assertions.*;
 		{
 		    String strHost = url.getHost();
 
+			System.out.println("@@@@@@@@ HOST IS  " + strHost + "           @@@@@@@@@@@@@@@@@@");
+			System.out.println("@@@@@@@@ HOST IS  " + strHost + "           @@@@@@@@@@@@@@@@@@");
+			System.out.println("@@@@@@@@ HOST IS  " + strHost + "           @@@@@@@@@@@@@@@@@@");
+
 		    String strRobot = "https://" + strHost + "/robots.txt";
+
+			System.out.println("@@@@@@@@ robots.txt is  " + strRobot+ "           @@@@@@@@@@@@@@@@@@");
 		    URL urlRobot;
 		    try { urlRobot = new URL(strRobot);
 		    } catch (MalformedURLException e) {
@@ -97,15 +103,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 		        for (RobotRule robotRule : robotRules)
 		        {
+
+//					System.out.println("@@@@@@@@@@ RULE " + robotRule + " @@@@@@@@@@@@@@@@@");
 		            String path = url.getPath();
 		            if (robotRule.rule.length() == 0) return 0; // allows everything if BLANK
-		            if (robotRule.rule == "/ ") return -2;       // allows nothing if /
+		            if (robotRule.rule.equals("/ ")) return -2;       // allows nothing if /
 
-		            if (robotRule.rule.length() <= path.length())
-		            { 
-		                String pathCompare = path.substring(0, robotRule.rule.length());
-		                if (pathCompare.equals(robotRule.rule)) return -2;
-		            }
+//		            if (robotRule.rule.length() <= path.length())
+//		            {
+//		                String pathCompare = path.substring(0, robotRule.rule.length());
+//		                if (pathCompare.equals(robotRule.rule)) return -2;
+//		            }
 		        // DO rule contains user-agent sent
 		          //  if (robotRule.rule)
 		        }

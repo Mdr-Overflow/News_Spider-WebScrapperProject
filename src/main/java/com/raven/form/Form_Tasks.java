@@ -807,7 +807,7 @@ public class Form_Tasks extends JPanel {
         jLabel3.setFont(new Font("sansserif", Font.BOLD, 24));
         jLabel3.setForeground(new Color(0x0448d2));
         jLabel3.setText("Tasks");
-        jLabel3.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\GoogleTask.png"));
+        jLabel3.setIcon(new ImageIcon("Resources\\GoogleTask.png"));
         add(jLabel3, "cell 2 0,align center center,grow 0 0");
 
         //======== panel45 ========

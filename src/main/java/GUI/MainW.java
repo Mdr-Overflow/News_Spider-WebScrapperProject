@@ -394,10 +394,10 @@ public class MainW implements ActionListener {
 			@SuppressWarnings("unchecked")
 			public void actionPerformed(ActionEvent e) {
 				//////// DEFAULTS 															@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-				String[] Url_list_Test = {"https://www.theverge.com", "https://www.libertatea.ro/", "https://www.pcgarage.ro/",
-						"https://www.theguardian.com/", "https://www.emag.ro/", "https://www.theguardian.com/",
+				String[] Url_list_Test = {"https://www.theverge.com",
+						"https://www.theguardian.com/",
 						"https://www.dailymail.co.uk/", "https://www.reuters.com/", "https://time.com/",
-						"https://www.bloomberg.com/europe", "https://www.digi24.ro/", "https://www.heraldscotland.com/", "https://example.com"};
+						"https://www.bloomberg.com/europe", "https://www.heraldscotland.com/", "https://example.com"};
 
 				button.setEnabled(false);
 				ArrayList<Future<Runnable>> futures = new ArrayList<Future<Runnable>>();

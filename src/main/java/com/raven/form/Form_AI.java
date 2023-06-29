@@ -1,8 +1,12 @@
 package com.raven.form;
 
 import javax.swing.border.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.*;
 //import com.intellij.uiDesigner.core.*;
+
+import Proj.AIModelSentiment;
+import Proj.AIModelSummary;
 import com.raven.component.*;
 import com.raven.dialog.Message;
 import com.raven.main.Main;
@@ -13,11 +17,18 @@ import com.raven.swing.table.EventAction;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Objects;
+
 import net.miginfocom.swing.*;
 //import org.jdesktop.swingx.*;
 
 public class Form_AI extends JPanel {
-
+    private String adaptedString;
     public Form_AI() {
         initComponents();
 
@@ -28,6 +39,56 @@ public class Form_AI extends JPanel {
     private void initData() {
 
         initTableData();
+        button4.addActionListener(this::onButton4Click);
+    }
+
+
+
+    private void onButton4Click(ActionEvent e) {
+        JFileChooser chooser = new JFileChooser();
+        chooser.setFileFilter(new FileNameExtensionFilter("JSON and TXT Files", "json", "txt"));
+        int returnValue = chooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = chooser.getSelectedFile();
+            try {
+                String fileContent = new String(Files.readAllBytes(Paths.get(selectedFile.getPath())));
+                adaptedString = adaptString(fileContent);
+                String comboBoxValue = (String) comboBox1.getSelectedItem();
+                if (comboBoxValue != null) {
+
+                    switch (comboBoxValue) {
+                        case "Summeriser":
+                            String summaryResponse = AIModelSummary.sendRequest(adaptedString);
+                            System.out.println("Response: " + summaryResponse);
+                            textPane1.setText(summaryResponse);
+                            break;
+                        case "Sentiment Analysis":
+                            String sentimentResponse = AIModelSentiment.sendRequest(adaptedString);
+                            System.out.println("Response: " + sentimentResponse);
+                            textPane1.setText(sentimentResponse);
+                            break;
+                        default:
+                            System.out.println("Invalid selection.");
+                            break;
+                    }
+                } else {
+                    System.out.println("No selection made.");
+                }
+
+
+
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        }
+    }
+
+    private String adaptString(String original) {
+        // Remove punctuation and brackets
+        String adapted = original.replaceAll("[\\p{Punct}\\p{IsPunctuation}]", "");
+        // Remove extra white spaces
+        adapted = adapted.trim().replaceAll(" +", " ");
+        return adapted;
     }
 
     private void initTableData() {
@@ -71,7 +132,6 @@ public class Form_AI extends JPanel {
         textPane1 = new JTextPane();
         panel2 = new JPanel();
         label2 = new JLabel();
-        button3 = new JButton();
         label3 = new JLabel();
         comboBox1 = new JComboBox<>();
         button4 = new JButton();
@@ -101,8 +161,8 @@ public class Form_AI extends JPanel {
         //---- jLabel1 ----
         jLabel1.setFont(new Font("sansserif", Font.BOLD, 20));
         jLabel1.setForeground(new Color(0x0448d2));
-        jLabel1.setText("AI Page");
-        jLabel1.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\GoogleBrain.png"));
+        jLabel1.setText("Filter Page");
+        jLabel1.setIcon(new ImageIcon("C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\GoogleFilter.png"));
         add(jLabel1, "cell 1 1 2 1");
 
         //---- label1 ----
@@ -137,13 +197,6 @@ public class Form_AI extends JPanel {
             label2.setHorizontalAlignment(SwingConstants.CENTER);
             panel2.add(label2);
             label2.setBounds(new Rectangle(new Point(30, 20), label2.getPreferredSize()));
-
-            //---- button3 ----
-            button3.setText("Apply Model");
-            button3.setForeground(new Color(0x0448d2));
-            button3.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
-            panel2.add(button3);
-            button3.setBounds(new Rectangle(new Point(125, 115), button3.getPreferredSize()));
 
             //---- label3 ----
             label3.setText("Data");
@@ -211,7 +264,6 @@ public class Form_AI extends JPanel {
     private JTextPane textPane1;
     private JPanel panel2;
     private JLabel label2;
-    private JButton button3;
     private JLabel label3;
     private JComboBox<String> comboBox1;
     private JButton button4;

@@ -13,8 +13,8 @@ new FormModel {
 				name: "jLabel1"
 				"font": new java.awt.Font( "sansserif", 1, 20 )
 				"foreground": new java.awt.Color( 4, 72, 210, 255 )
-				"text": "AI Page"
-				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\GoogleBrain.png" )
+				"text": "Filter Page"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "C:\\Users\\ADMIN\\Documents\\GitHub\\News_Spider-WebScrapperProject\\Resources\\GoogleFilter.png" )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 				"value": "cell 1 1 2 1"
 			} )
@@ -52,15 +52,6 @@ new FormModel {
 					"x": 30
 					"y": 20
 				} )
-				add( new FormComponent( "javax.swing.JButton" ) {
-					name: "button3"
-					"text": "Apply Model"
-					"foreground": &Color1 new java.awt.Color( 4, 72, 210, 255 )
-					"font": new java.awt.Font( "SansSerif", 1, 14 )
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-					"x": 125
-					"y": 115
-				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label3"
 					"text": "Data"
@@ -91,7 +82,7 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button4"
 					"text": "Set Data"
-					"foreground": #Color1
+					"foreground": &Color1 new java.awt.Color( 4, 72, 210, 255 )
 					"font": new java.awt.Font( "SansSerif", 1, 14 )
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 					"width": 115

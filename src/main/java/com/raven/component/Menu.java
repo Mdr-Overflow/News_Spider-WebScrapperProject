@@ -61,7 +61,7 @@ public class Menu extends javax.swing.JPanel {
         addMenu(new ModelMenu(new ImageIcon("Resources/GoogleQuery.png"), "Query Page", "Query Page"));
         addMenu(new ModelMenu(new ImageIcon("Resources/GoogleCookie.png"), "Cookies Page", "Cookies Page"));
         addMenu(new ModelMenu(new ImageIcon("Resources/GoogleProxie.png"), "Proxies", "Proxies"));
-        addMenu(new ModelMenu(new ImageIcon("Resources/GoogleBrain2.png"), "AI Model", "AI Model"));
+        addMenu(new ModelMenu(new ImageIcon("Resources/GoogleFilter.png"), "Filters", "Filters"));
         addMenu(new ModelMenu(new ImageIcon("Resources/GoogleTask.png"), "Pages", "Tasks"));
         addMenu(new ModelMenu(new ImageIcon("Resources/GoogleMenu.png"), "Main Menu", "Menu"));
         addMenu(new ModelMenu(new ImageIcon("Resources/GoogleSettings.png"), "Settings", "Options"));

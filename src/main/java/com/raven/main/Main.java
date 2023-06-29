@@ -85,7 +85,7 @@ public class Main extends javax.swing.JFrame {
         menu = new Menu();
         header = new Header();
         main = new MainForm();
-
+        setMinimumSize(new Dimension(1200,600));
 
 
 
@@ -184,7 +184,7 @@ public class Main extends javax.swing.JFrame {
                 if (menuIndex == 5) {
                     if (subMenuIndex == 0) {
                         main.setLayout(new BorderLayout());
-                        main.showForm(new URLProper(Main.this));
+                        main.showForm(new Form_Tasks());
                     }
                 }
 

@@ -28,12 +28,7 @@ public class Result {
 		KeyWordAndDate = keyWordAndDate2;
 	}
 
-	/*
-	@JsonAnyGetter
-	public Map<String, ArrayList<String>> getUrlResults() {
-		for (Map<String, ArrayList<String>> map : UrlResults )
-		return UrlResults;
-	}*/
+
 
 
 	public void setUrlResults(ArrayList<Map<String, ArrayList<String>>> urlResults) {

@@ -45,26 +45,7 @@ public class Cookies {
 	        return true;
 	            }
 	            
-	          /*  try {
-	            page.click("button:has-text(\"Accept\"), button:has-text(\"ACCEPT\"), button:has-text(\"accept\"), button:has-text(\"Yes\"), gdpr-button ");
-	            return true;
-	            }
-	            catch(Exception e)
-	            {
-	            	try {
-	            	frame.click("button:has-text(\"Accept\"), button:has-text(\"ACCEPT\"), button:has-text(\"accept\"), button:has-text(\"Yes\"), gdpr-button ");
-	            	return true;
-	            	}
-	            	
-	            	 catch(Exception e2)
-		            {
-	            		 return false;
-		            }
-	            }
-	          
-	        
-	        
-	        }*/
+
 	        
 	        }}
 	       catch (Exception e) {

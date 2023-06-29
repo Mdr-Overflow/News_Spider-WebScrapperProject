@@ -1,5 +1,7 @@
 package GUI.Proper;
 
+import GUI.PageCard;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -47,10 +49,19 @@ public class WebVisualization extends JFrame {
                 String labelText = labelFound.getText();
 
                 labelFound.addMouseListener(new MouseAdapter() {
+
                     @Override
                     public void mouseClicked(MouseEvent e) {
                         JPopupMenu popupMenu = new JPopupMenu();
                         JMenuItem menuItem = new JMenuItem("Vizualizeaza datele de pe " + labelText);
+                        menuItem.addActionListener(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent ae) {
+                                // Open PageCard on menu item click
+                                PageCard pageCard = new PageCard(WebVisualization.this,labelText);
+                                pageCard.setVisible(true);
+                            }
+                        });
                         popupMenu.add(menuItem);
                         popupMenu.show(e.getComponent(), e.getX(), e.getY());
                     }
@@ -72,9 +83,13 @@ public class WebVisualization extends JFrame {
     }
 
     public WebVisualization() {
+
+        ImageIcon img = new ImageIcon("Resources/webDoodle-50x50.png");
+        setIconImage(img.getImage());
+
         setTitle("Web Visualization");
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         setLocationRelativeTo(null);
 
         this.addKeyListener(new KeyAdapter() {
@@ -190,7 +205,7 @@ public class WebVisualization extends JFrame {
         java.util.List<String> urls = domainURLs.get(domain);
         java.util.List<Point> points = domainPoints.get(domain);
 
-        // listen for mouse whell movement for resizing
+
 
         this.addMouseWheelListener(new MouseAdapter() {
             @Override
@@ -277,9 +292,7 @@ public class WebVisualization extends JFrame {
                 int iters = 1 ;
 
                 radius = (int) (radius * scaleFactor);
-                //  int modifiedLineLength = (int) (lineLength * scaleFactor);
 
-                // Connect URLs to the domain circle with lines
 
 
 
@@ -407,7 +420,7 @@ public class WebVisualization extends JFrame {
 
 
                         String urlLabel =  urls.get(layerCount + j);
-                        String truncatedLabel = urlLabel.length() > 8 ? urlLabel.substring(0, 8) + "..." : urlLabel;
+                        String truncatedLabel = urlLabel;
                         JLabel urlLabelComponent = new JLabel(truncatedLabel);
 //                        JLabel urlLabelComponent = new JLabel(urlLabel);
                         urlLabelComponent.setFont(new Font("Arial", Font.PLAIN, fontSize));

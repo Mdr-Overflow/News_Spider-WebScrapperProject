@@ -1,6 +1,5 @@
 package GUI;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.EventQueue;
@@ -18,7 +17,7 @@ import javax.swing.event.AncestorListener;
 
 import DB.DB_CONNECT;
 import com.formdev.flatlaf.FlatLightLaf;
-import com.raven.main.Main;
+import com.GUI.main.Main;
 import net.miginfocom.swing.MigLayout;
 import java.awt.Rectangle;
 

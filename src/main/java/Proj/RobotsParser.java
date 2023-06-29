@@ -109,13 +109,7 @@ import static org.junit.jupiter.api.Assertions.*;
 		            if (robotRule.rule.length() == 0) return 0; // allows everything if BLANK
 		            if (robotRule.rule.equals("/ ")) return -2;       // allows nothing if /
 
-//		            if (robotRule.rule.length() <= path.length())
-//		            {
-//		                String pathCompare = path.substring(0, robotRule.rule.length());
-//		                if (pathCompare.equals(robotRule.rule)) return -2;
-//		            }
-		        // DO rule contains user-agent sent
-		          //  if (robotRule.rule)
+
 		        }
 		    }
 		    return 0;

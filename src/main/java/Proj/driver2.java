@@ -162,9 +162,7 @@ public class driver2 {
 		//return null;
 		return null;
 	    
-	    //print("took ~" + str(time() - start_time) + " s ")
 
-	   // return "Results.json";
 	}
 	
 	

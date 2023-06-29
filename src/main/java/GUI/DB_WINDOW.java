@@ -6,9 +6,8 @@ import java.nio.file.Paths;
 
 import javax.swing.*;
 
-import com.raven.main.Main;
-import net.miginfocom.swing.MigLayout;
- 
+import com.GUI.main.Main;
+
 public class DB_WINDOW implements ItemListener {
     JPanel cards; 
 	private static final String USERAGENTS = "UserAgents Table";
